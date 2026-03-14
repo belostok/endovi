@@ -1,0 +1,35 @@
+@use 'sass:math';
+
+@import 'media-queries';
+
+// Font families
+$font-family-primary: 'Exo 2', 'sans-serif';
+
+// Colors
+$clr-bg: #fff;
+$clr-base: #020033;
+$clr-primary: #6FAFCB;
+$clr-second: #A9A9A9;
+$clr-action: #FF9462;
+
+// Sizes
+$desktop-width: 1440px; // Which is in design
+$mobile-width: 390px; // Which is in design
+$calc-font-size: 16px;
+$base-font-size:  inVw($calc-font-size, $desktop-width);
+$base-font-size-lg: inVw($calc-font-size, $responsive-lg);
+
+// Paths
+$path-images: '../images'; // Path to src images from default entry points
+$path-images-inline: '../../images'; // Path to src images from inlined entry points
+$path-static-media: '../../static_media'; // Path to non-compiling images from default entry points
+$path-static-media-inline: '../../../static_media'; // Path to non-compiling images from inlined entry points
+// Example of use: background: url(#{$path-images}/image-name.jpg);
+
+$transition-default: .3s ease;
+
+$base-container-width: inEm(1380px);
+$max-container-width: 1440px;
+
+$base-outer-padding-desktop: inEm(30px);
+$base-outer-padding-mobile: inEm(15px);

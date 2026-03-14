@@ -1,0 +1,65 @@
+@import '../helpers';
+
+// Styling content elements from the editor only
+
+// Styles with a 'zero' specificity (inside the :where selector)
+:where(.entry-content) {
+	@import 'content';
+}
+
+// Styles with an additional specificity (inside the .class selector)
+.entry-content {
+	> *:first-child {
+		margin-top: 0;
+	}
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.wp-block-column {
+	> *:first-child {
+		margin-top: 0;
+	}
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.entry-content {
+
+	& > .wp-block-group {
+		position: relative;
+		width: 100%;
+		padding-inline: $base-outer-padding-desktop;
+
+		@include lg-down {
+			padding-inline: $base-outer-padding-mobile;
+		}
+
+		&:not(:first-child) {
+			margin-top: inRem(100px);
+
+			@include md-down {
+				margin-top: inRem(50px);
+			}
+		}
+
+		& > .wp-block-group__inner-container {
+			width: 100%;
+			max-width: $base-container-width;
+			margin-inline: auto;
+			@include content;
+
+			.wp-block-group {
+				padding-inline: 0 !important;
+
+				&__inner-container {
+					max-width: none;
+				}
+			}
+		}
+	}
+}

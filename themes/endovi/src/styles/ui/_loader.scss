@@ -1,0 +1,34 @@
+.loader {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	width: inEm(50px);
+	padding: inEm(8px);
+	aspect-ratio: 1;
+	border-radius: 50%;
+	background: $clr-base;
+	--_m: conic-gradient(#fff 10%, #fff),
+	linear-gradient(#fff 0 0) content-box;
+	-webkit-mask: var(--_m);
+	mask: var(--_m);
+	-webkit-mask-composite: source-out;
+	mask-composite: subtract;
+	animation: l3 1s infinite linear;
+	z-index: -1;
+	opacity: 0;
+	transition: opacity $transition-default;
+
+	&_active {
+		z-index: auto;
+		opacity: 1;
+	}
+
+	@keyframes l3 {
+		to {
+			transform: rotate(1turn)
+		}
+	}
+}

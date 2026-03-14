@@ -1,0 +1,55 @@
+@use 'sass:math';
+
+@import 'vars';
+
+// Round a number to a specific number of digits.
+//
+// @param {number} $value Number to round.
+// @param {number} $fraction-digits Number of digits to round to.
+@function round($value, $fraction-digits: 0) {
+	$power: math.pow(10, $fraction-digits);
+	@return math.div(math.round($power * $value), $power);
+}
+
+/// Convert px unit to vw.
+///
+/// @param {number} $size Number in pixels.
+/// @param {number} $viewport-width Number in pixels.
+@function inVw( $size, $viewport-width: $desktop-width ) {
+	@return round(math.div($size, math.div($viewport-width, 100)) * 1vw, 3);
+}
+
+/// Convert px unit to em.
+
+/// @param {number} $size Number in pixels.
+/// @param {number} $root-font-size Number in pixels.
+/// @param {number} $increase-percent Number.
+@function inEm($size, $root-font-size: $calc-font-size, $increase-percent: 0) {
+	$calc-num: $size + calc($size * $increase-percent / 100);
+	@return round(math.div($calc-num, $root-font-size) * 1em, 3);
+}
+
+/// Convert px unit to em for font-size.
+
+/// @param {number} $size Number in pixels.
+/// @param {number} $root-font-size Number in pixels.
+/// @param {number} $max Number in pixels.
+@function fsInEm($size, $root-font-size: $calc-font-size, $max: 72px) {
+	$calc: round(math.div($size, $root-font-size) * 1em, 3);
+	@return clamp(12px, $calc, $max);
+}
+
+/// Convert px unit to rem.
+
+/// @param {number} $size Number in pixels.
+/// @param {number} $font-size Number in pixels.
+@function inRem($size, $font-size: $calc-font-size) {
+	@return round(math.div($size, $font-size) * 1rem, 3);
+}
+
+/// Strips unit from number.
+
+/// @param {number} $value Number.
+@function stripUnit($value) {
+	@return math.div($value, ($value * 0 + 1));
+}

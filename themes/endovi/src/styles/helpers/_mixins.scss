@@ -1,0 +1,147 @@
+@import 'vars';
+@import 'media-queries';
+
+// Theme settings for editor and frontend
+@mixin website_style_guide {
+	// Colors
+	--color-bg: #{$clr-bg};
+	--color-text: #{$clr-base};
+	--color-primary: #{$clr-primary};
+	--color-second: #{$clr-second};
+	--color-action: #{$clr-action};
+
+	background: var(--color-bg);
+	color: var(--color-text);
+	font-family: $font-family-primary;
+	font-size: $base-font-size;
+	line-height: 1.25;
+
+	//@media (min-width: 2561px) {
+	//	font-size: $calc-font-size;
+	//}
+	//@include lg-up {
+	//	font-size: 13px;
+	//}
+	@media (min-width: $desktop-width) {
+		//font-size: inVw(16px, 1440px);
+		font-size: $calc-font-size;
+	}
+	@include lg-down {
+		font-size: $base-font-size-lg;
+	}
+	@include md-down {
+		font-size: $calc-font-size;
+	}
+}
+
+// Apply hover effects for supported devices only (prevent on touch screen)
+@mixin mouseover {
+	@media (hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+}
+
+// Add ellipsis to the end of the string
+@mixin ellipsis($width) {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	max-width: $width;
+}
+
+// Limit the number of text lines
+@mixin rows_limit($rows) {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: $rows;
+	line-clamp: $rows;
+	-webkit-box-orient: vertical;
+}
+
+@mixin content {
+	font-size: inEm(16px);
+	line-height: 1.2;
+	font-weight: 500;
+
+	& > * {
+
+		&:not(:last-child) {
+			margin-bottom: inRem(20px);
+		}
+	}
+
+	h1 {
+		font-size: inRem(50px);
+	}
+
+	h2 {
+		font-size: inRem(44px);
+	}
+
+	h3 {
+		font-size: inRem(38px);
+	}
+
+	h4 {
+		font-size: inRem(32px);
+	}
+
+	h5 {
+		font-size: inRem(26px);
+	}
+
+	h6 {
+		font-size: inRem(20px);
+	}
+
+	strong {
+		font-weight: 700;
+	}
+
+	ul {
+		margin-block: 0;
+
+		&:not(:last-child) {
+			margin-bottom: inRem(40px);
+		}
+
+		li {
+			position: relative;
+			padding-left: inRem(24px);
+
+			&::before {
+				content: '·';
+				position: absolute;
+				left: inRem(10px);
+			}
+
+			&:not(:last-child) {
+				margin-bottom: inRem(20px);
+			}
+		}
+	}
+
+	img {
+
+		&.alignleft {
+			float: left;
+			margin-right: 1rem;
+		}
+
+		&.alignright {
+			float: right;
+			margin-left: 1rem;
+		}
+	}
+
+	a {
+		transition: opacity $transition-default;
+
+		@include mouseover {
+			opacity: .7;
+		}
+	}
+}

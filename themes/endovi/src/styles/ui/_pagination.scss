@@ -1,0 +1,39 @@
+@import '../helpers';
+
+.endovi-pagination {
+	z-index: 1;
+	width: $base-container-width;
+	max-width: 100%;
+	left: 0;
+	right: 0;
+	bottom: inEm(80px);
+	margin-inline: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 7px;
+	cursor: pointer;
+
+	@include md-down {
+		bottom: 0;
+		width: max-content;
+	}
+
+	&.swiper-pagination-lock {
+		display: none;
+	}
+
+	.swiper-pagination-bullet {
+		width: 4px;
+		height: 4px;
+		border-radius: 50%;
+		background: $clr-base;
+		transition: $transition-default;
+
+		&-active {
+			width: 6px;
+			height: 6px;
+			background: $clr-primary;
+		}
+	}
+}

@@ -1,0 +1,10 @@
+@import '../helpers';
+
+a {
+	text-decoration: none;
+}
+
+// Fix anchors - prevent event capturing
+a[href^="#"] * {
+	pointer-events: none;
+}
