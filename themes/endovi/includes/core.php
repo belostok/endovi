@@ -35,7 +35,7 @@ function after_setup_theme() {
 
 	register_nav_menus(
 		[
-			'aside'  => esc_html__( 'Aside Menu', 'endovi' ),
+			'header' => esc_html__( 'Header Menu', 'endovi' ),
 			'footer' => esc_html__( 'Footer Menu', 'endovi' ),
 		]
 	);

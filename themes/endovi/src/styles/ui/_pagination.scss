@@ -1,22 +1,18 @@
 @import '../helpers';
 
 .endovi-pagination {
+	position: absolute;
 	z-index: 1;
-	width: $base-container-width;
-	max-width: 100%;
 	left: 0;
 	right: 0;
-	bottom: inEm(80px);
-	margin-inline: auto;
+	bottom: inEm(23px);
 	display: flex;
-	align-items: center;
 	justify-content: center;
-	gap: 7px;
+	gap: inEm(4px);
 	cursor: pointer;
 
 	@include md-down {
-		bottom: 0;
-		width: max-content;
+		bottom: inEm(15px);
 	}
 
 	&.swiper-pagination-lock {
@@ -24,16 +20,19 @@
 	}
 
 	.swiper-pagination-bullet {
-		width: 4px;
-		height: 4px;
+		width: inEm(8px);
+		height: inEm(8px);
 		border-radius: 50%;
-		background: $clr-base;
-		transition: $transition-default;
+		background: rgba($clr-bg, .23);
+		transition: background $transition-default, opacity $transition-default;
+
+		@include mouseover {
+			opacity: .1;
+		}
 
 		&-active {
-			width: 6px;
-			height: 6px;
-			background: $clr-primary;
+			pointer-events: none;
+			background: $clr-bg;
 		}
 	}
 }

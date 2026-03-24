@@ -1,0 +1,133 @@
+.endovi-single-card {
+	position: relative;
+	z-index: 1;
+	background: $clr-primary;
+	overflow: hidden;
+
+	&__wrapper {
+		position: relative;
+		padding-block: inEm(120px);
+
+		@include md-down {
+			padding-block: inEm(70px);
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: inEm(1633px);
+			height: inEm(1679px);
+			bottom: inEm(-240px);
+			left: inEm(-180px);
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-image: url($path-static-media + '/triangle-single-card.svg');
+
+			@include md-down {
+				width: inEm(1178px);
+				height: inEm(800px);
+				bottom: auto;
+				top: inEm(-100px);
+			}
+		}
+	}
+
+	&__item {
+		position: relative;
+		width: inEm(1030px);
+		max-width: 100%;
+		min-height: inEm(495px);
+		margin-inline: auto;
+		border-radius: inEm(20px);
+		background: $clr-bg;
+		padding: inEm(30px);
+		column-gap: inEm(75px);
+
+		@include md-down {
+			flex-direction: column;
+			padding: inEm(20px);
+			min-height: auto;
+			row-gap: inEm(30px);
+			width: inEm(360px);
+		}
+
+		@include md-up {
+
+			&::before {
+				content: '';
+				position: absolute;
+				width: inEm(14px);
+				height: inEm(14px);
+				top: inEm(30px);
+				right: inEm(30px);
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-image: url($path-static-media + '/corner-triangle.svg');
+			}
+		}
+	}
+
+	&__column {
+		position: relative;
+
+		@include md-up {
+			flex: 0 0 calc(33.3333% - #{inEm(50px)});
+			max-width: calc(33.3333% - #{inEm(50px)});
+		}
+
+		&_title {
+
+			@include md-down {
+				row-gap: inEm(20px);
+
+				&::before {
+					content: '';
+					position: absolute;
+					width: inEm(14px);
+					height: inEm(14px);
+					top: 0;
+					right: 0;
+					background-repeat: no-repeat;
+					background-size: contain;
+					background-image: url($path-static-media + '/corner-triangle.svg');
+				}
+			}
+		}
+
+		&_image {
+
+			@include md-down {
+				order: -1;
+			}
+		}
+	}
+
+	&__description {
+		color: $clr-second;
+	}
+
+	&__image-container {
+		border-radius: inEm(10px);
+		overflow: hidden;
+		width: 100%;
+	}
+
+	&__image {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	&__button {
+		min-width: inEm(210px);
+		min-height: inEm(51px);
+
+		&-container {
+			row-gap: inEm(11px);
+
+			@include md-down {
+				width: 100%;
+			}
+		}
+	}
+}

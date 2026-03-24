@@ -1,0 +1,105 @@
+.endovi-dealers {
+	position: relative;
+	padding-block: inEm(120px);
+
+	@include sm-down {
+		padding-block: inEm(70px);
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: inEm(1541px);
+		height: inEm(811px);
+		top: inEm(-140px);
+		inset-inline: -100%;
+		margin-inline: auto;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-image: url($path-static-media + '/map.svg');
+
+		@include sm-down {
+			width: inEm(953px);
+			height: inEm(501px);
+			top: inEm(-157px);
+		}
+	}
+
+	&__title {
+		text-align: center;
+	}
+
+	&__button-container {
+		margin-top: inEm(40px);
+
+		@include sm-down {
+			margin-top: inEm(30px);
+		}
+	}
+
+	&__slider-container {
+		margin-top: inEm(60px);
+		width: 100%;
+		height: auto;
+
+		@include sm-down {
+			margin-top: inEm(40px);
+			padding-inline: inEm(15px);
+		}
+	}
+
+	&__slider {
+		position: relative;
+		overflow: hidden;
+
+		@include sm-up {
+			width: max-content;
+			max-width: inEm(1675px);
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+
+	&__slider-wrapper {
+
+		@include sm-down {
+			transform: none;
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: inEm(10px);
+		}
+	}
+
+	&__slide {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: inEm(270px);
+		aspect-ratio: 270/160;
+		background: $clr-bg;
+		border: 0.7px solid $clr-medium-gray;
+		border-radius: inEm(7px);
+		margin-inline: inEm(5px);
+
+		@include sm-down {
+			width: auto;
+			aspect-ratio: 175/90;
+			margin: 0;
+			border-radius: inEm(4px);
+		}
+	}
+
+	&__image {
+		object-position: center;
+
+		&-container {
+			width: inEm(150px);
+			height: inEm(80px);
+
+			@include sm-down {
+				width: inEm(90px);
+				height: inEm(42px);
+			}
+		}
+	}
+}

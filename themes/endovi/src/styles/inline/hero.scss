@@ -1,0 +1,144 @@
+@import '../helpers';
+@import '../helpers/helpers-front-only';
+
+.endovi-hero {
+
+	&__upper {
+		background: $grd-main;
+
+		&-wrapper {
+			position: relative;
+			padding-top: inEm(109px);
+			padding-bottom: inEm(205px);
+			min-height: inEm(643px);
+
+			@include md-down {
+				padding-top: inEm(125px);
+				padding-bottom: inEm(151px);
+				min-height: inEm(450px);
+			}
+
+			&::before {
+				content: '';
+				position: absolute;
+				width: inEm(937px);
+				height: inEm(507px);
+				bottom: inEm(110px);
+				left: inEm(-67px);
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-image: url($path-static-media-inline + '/triangle-hero.svg');
+
+				@include md-down {
+					left: auto;
+					right: 0;
+				}
+			}
+		}
+	}
+
+	&__logo-container {
+
+		svg {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	&__title-wrapper {
+		margin-top: inEm(80px);
+		gap: inEm(40px);
+		color: $clr-bg;
+
+		@include md-down {
+			margin-top: 0;
+			gap: inEm(20px);
+		}
+	}
+
+	&__upper-button-container {
+		row-gap: inEm(48px);
+
+		@include md-down {
+			width: 100%;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
+
+	&__pagination-number {
+
+		@include md-down {
+			order: 1;
+		}
+	}
+
+	&__lower {
+
+		&-wrapper {
+			min-height: inEm(568px);
+			padding-top: inEm(304px);
+
+			@include md-down {
+				min-height: inEm(426px);
+				padding-top: inEm(235px);
+			}
+		}
+	}
+
+	&__background-text {
+		bottom: inRem(76px);
+		transform: translateX(-1.3%);
+
+		@include md-down {
+			transform: translateX(-2.2%);
+		}
+	}
+
+	&__slider-container {
+		width: 100%;
+		height: auto;
+		inset-inline: 0;
+		bottom: inEm(-126px);
+	}
+
+	&__slider {
+		position: relative;
+		overflow: hidden;
+
+		@include sm-up {
+			width: max-content;
+			max-width: $max-container-width;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		@include sm-down {
+			width: 100%;
+			padding-inline: inEm(15px);
+		}
+	}
+
+	&__slide {
+		width: inEm(360px);
+		aspect-ratio: 360 / 260;
+		border-radius: inEm(10px);
+		overflow: hidden;
+		margin-inline: inEm(10px);
+
+		@include sm-down {
+			aspect-ratio: 360 / 250;
+		}
+	}
+
+	&__nav {
+
+		&_prev {
+			inset-inline-start: inEm(30px);
+		}
+
+		&_next {
+			inset-inline-end: inEm(30px);
+		}
+	}
+}

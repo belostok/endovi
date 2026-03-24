@@ -1,0 +1,41 @@
+@import '../helpers';
+@import '../helpers/helpers-front-only';
+
+.endovi-news-card {
+	display: flex;
+	column-gap: inEm(20px);
+
+	@include md-down {
+		flex-direction: column;
+		row-gap: inEm(20px);
+	}
+
+	&__image-container {
+		border-radius: inEm(10px);
+		overflow: hidden;
+		flex-shrink: 0;
+		width: inEm(328px);
+		aspect-ratio: 328 / 300;
+
+		@include md-down {
+			width: 100%;
+			aspect-ratio: 360 / 300;
+		}
+	}
+
+	&__text-side {
+
+		@include md-down {
+			row-gap: inEm(30px);
+		}
+	}
+
+	&__text-upper {
+		row-gap: inEm(10px);
+	}
+
+	&__description,
+	&__date {
+		color: $clr-second;
+	}
+}

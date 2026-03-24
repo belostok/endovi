@@ -1,0 +1,63 @@
+.endovi-news {
+	position: relative;
+	margin-bottom: inEm(120px);
+
+	@include sm-down {
+		margin-bottom: inEm(70px);
+	}
+
+	&__upper {
+
+		@include sm-up {
+			padding-bottom: inEm(40px);
+			border-bottom: 1px solid $clr-medium-gray;
+		}
+	}
+
+	&__title-container {
+
+		@include sm-up {
+			max-width: inEm(436px);
+		}
+
+		@include sm-down {
+			text-align: center;
+			width: 100%;
+		}
+	}
+
+	&__items {
+		margin-top: inEm(40px);
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: inEm(20px);
+
+		@include sm-down {
+			margin-top: inEm(30px);
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__button-container {
+
+		&_mobile {
+
+			@include sm-up {
+				display: none;
+			}
+		}
+
+		&_desktop {
+
+			@include sm-down {
+				display: none;
+			}
+		}
+
+		@include sm-down {
+			display: flex;
+			justify-content: center;
+			margin-top: inEm(30px);
+		}
+	}
+}

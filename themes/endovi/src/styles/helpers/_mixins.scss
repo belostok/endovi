@@ -14,7 +14,8 @@
 	color: var(--color-text);
 	font-family: $font-family-primary;
 	font-size: $base-font-size;
-	line-height: 1.25;
+	line-height: 1;
+	font-weight: 400;
 
 	//@media (min-width: 2561px) {
 	//	font-size: $calc-font-size;
@@ -74,27 +75,29 @@
 	}
 
 	h1 {
-		font-size: inRem(50px);
+		font-size: inRem(60px);
+		font-weight: 700;
 	}
 
 	h2 {
-		font-size: inRem(44px);
+		font-size: inRem(40px);
+		font-weight: 500;
 	}
 
 	h3 {
-		font-size: inRem(38px);
+		font-size: inRem(30px);
 	}
 
 	h4 {
-		font-size: inRem(32px);
+		font-size: inRem(20px);
 	}
 
 	h5 {
-		font-size: inRem(26px);
+		font-size: inRem(16px);
 	}
 
 	h6 {
-		font-size: inRem(20px);
+		font-size: inRem(16px);
 	}
 
 	strong {
@@ -144,4 +147,13 @@
 			opacity: .7;
 		}
 	}
+}
+
+@mixin corner_triangle {
+	position: absolute;
+	width: inEm(14px);
+	height: inEm(14px);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-image: url($path-static-media + '/corner-triangle.svg');
 }

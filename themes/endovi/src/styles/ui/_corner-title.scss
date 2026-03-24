@@ -1,0 +1,24 @@
+@import '../helpers';
+@import '../helpers/helpers-front-only';
+
+.endovi-corner-title {
+	position: relative;
+	padding-left: inRem(11px);
+	color: $clr-bg;
+
+	@include md-down {
+		font-size: inRem(16px);
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: inRem(6px);
+		height: inRem(6px);
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-image: url($path-static-media-inline + '/corner-title.svg');
+	}
+}

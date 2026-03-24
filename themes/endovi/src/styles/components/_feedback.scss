@@ -1,0 +1,120 @@
+.endovi-feedback {
+	position: relative;
+	background: $grd-main;
+	margin-top: inEm(204px);
+
+	@include md-down {
+		margin-top: inEm(88px);
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		height: inEm(253px);
+		top: 10%;
+		bottom: 0;
+		margin-block: auto;
+		inset-inline-start: -35%;
+		inset-inline-end: 0;
+		background: url( $path-static-media + '/feedback-text.svg') repeat-x;
+		background-size: auto 100%;
+
+		@include md-down {
+			height: inEm(200px);
+			top: inEm(200px);
+			bottom: auto;
+			margin-block: auto;
+		}
+	}
+
+	&__wrapper {
+		padding-block: inEm(120px) inEm(108px);
+
+		@include md-down {
+			padding-block: inEm(70px);
+		}
+	}
+
+	&__title {
+		color: $clr-bg;
+		text-align: center;
+	}
+
+	&__slider-container {
+		position: relative;
+		margin-top: inEm(40px);
+		width: inEm(519px);
+		max-width: 100%;
+		margin-inline: auto;
+
+		@include md-down {
+			margin-top: inEm(30px);
+		}
+	}
+
+	&__slider {
+		overflow: hidden;
+	}
+
+	&__slide {
+		height: auto;
+
+		&-inner {
+			min-height: inEm(355px);
+			background: $clr-bg;
+			border-radius: inEm(20px);
+			padding: inEm(40px);
+			row-gap: inEm(40px);
+
+			@include md-down {
+				padding: inEm(20px);
+				min-height: auto;
+			}
+		}
+
+		&-position {
+			color: $clr-second;
+		}
+	}
+
+	&__pagination {
+
+		@include md-up {
+			bottom: inEm(-18px);
+		}
+
+		@include md-down {
+			position: relative;
+			margin-top: inEm(10px);
+			bottom: auto;
+		}
+	}
+
+	&__nav-container {
+
+		@include md-down {
+			display: flex;
+			justify-content: space-between;
+			margin: inEm(20px) auto 0;
+			width: inEm(86px);
+		}
+	}
+
+	&__nav {
+
+		@include md-up {
+
+			&_prev {
+				inset-inline-start: inEm(-48px);
+			}
+
+			&_next {
+				inset-inline-end: inEm(-48px);
+			}
+		}
+
+		@include md-down {
+			position: relative;
+		}
+	}
+}

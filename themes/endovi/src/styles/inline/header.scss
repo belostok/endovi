@@ -2,5 +2,96 @@
 @import '../helpers/helpers-front-only';
 
 .endovi-header {
+	$root: &;
 
+	position: absolute;
+	z-index: 10;
+	top: 0;
+	inset-inline: 0;
+	padding-top: inEm(20px);
+
+	@include md-down {
+		padding-top: inEm(15px);
+	}
+
+	&__wrapper {
+		min-height: inEm(56px);
+		background: $clr-bg;
+		border: 1px solid $clr-border-light;
+		border-radius: inEm(6px);
+		padding: inEm(20px);
+
+		@include md-down {
+			min-height: inEm(50px);
+		}
+	}
+
+	&__menu-button,
+	&__close-menu-button {
+
+		& > * {
+			pointer-events: none;
+		}
+	}
+
+	&__menu-container {
+
+		@include md-down {
+			position: fixed;
+			inset: 0;
+			background: transparent;
+			display: none;
+			transition: background $transition-default;
+
+			&_prepare {
+				display: block;
+			}
+
+			&_active {
+				background: rgba($clr-black, .5);
+
+				#{$root} {
+
+					&__menu-wrapper {
+						right: 0;
+					}
+				}
+			}
+		}
+	}
+
+	&__menu-wrapper {
+
+		@include md-down {
+			position: absolute;
+			inset-block: 0;
+			right: inEm(-270px);
+			width: inEm(270px);
+			background: $clr-bg;
+			padding: inEm(20px);
+			transition: right $transition-default;
+		}
+	}
+
+	&__menu {
+		gap: inEm(20px);
+
+		@include md-down {
+			flex-direction: column;
+			margin-top: inEm(40px);
+		}
+
+		a {
+			transition: opacity $transition-default;
+
+			@include mouseover {
+				opacity: .7;
+			}
+		}
+
+		&-button {
+			width: inEm(20px);
+			height: inEm(20px);
+		}
+	}
 }

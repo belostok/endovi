@@ -1,0 +1,82 @@
+@import '../helpers';
+@import '../helpers/helpers-front-only';
+
+.endovi-form {
+	position: relative;
+
+	.wpcf7-not-valid-tip,
+	.wpcf7-response-output {
+		display: none !important;
+	}
+
+	.wpcf7-form-control-wrap {
+		display: block;
+		margin-bottom: inEm(10px);
+	}
+
+	.wpcf7-spinner {
+		position: absolute;
+		margin: 0;
+		bottom: inRem(9px);
+		left: inRem(120px);
+	}
+
+	input {
+
+		&[type="text"],
+		&[type="tel"] {
+			width: 100%;
+			height: inRem(51px);
+			padding: 0 inRem(16px);
+			font-size: max(16px, #{inRem(16px)});
+			color: $clr-base;
+			background: $clr-light-gray;
+			border-radius: inRem(10px);
+			border: 1px solid $clr-light-gray;
+			outline: none;
+
+			&::placeholder {
+				color: $clr-second;
+			}
+		}
+
+		&[type="checkbox"] {
+			width: inRem(18px);
+			height: inRem(18px);
+			margin: 0;
+			background: $clr-light-gray;
+			border-radius: inRem(4px);
+			border: 1px solid $clr-light-gray;
+			cursor: pointer;
+
+			&:checked {
+				background-image: url($path-static-media-inline + '/check.svg');
+				background-size: 80%;
+				background-position: center;
+			}
+		}
+
+		&.wpcf7-not-valid {
+			border-color: $clr-alert;
+		}
+	}
+
+	[type="submit"] {
+		margin-top: inRem(20px);
+	}
+
+	.wpcf7-list-item {
+		margin: 0;
+
+		label {
+			display: flex;
+			align-items: center;
+			column-gap: inRem(10px);
+		}
+	}
+
+	.wpcf7-list-item-label {
+		font-size: max(12px, #{inRem(12px)});
+		color: $clr-second;
+	}
+}

@@ -6,8 +6,6 @@ html {
 	-webkit-text-size-adjust: none;
 	-ms-text-size-adjust: none;
 	scroll-behavior: smooth;
-
-	font-weight: 500;
 }
 
 body {
@@ -30,6 +28,16 @@ body {
 		.loader {
 			z-index: 99;
 			opacity: 1;
+		}
+	}
+
+	@include md-up {
+
+		&.home {
+
+			.endovi-main {
+				padding-bottom: inEm(15px);
+			}
 		}
 	}
 }

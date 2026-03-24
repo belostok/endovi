@@ -3,6 +3,7 @@
  */
 export let loading = [];
 export const isMobileMatches = () => window.matchMedia('(max-width: 991px)').matches;
+export const isMobileMatchesSm = () => window.matchMedia('(max-width: 767px)').matches;
 
 /**
  * Fade In animation.

@@ -1,0 +1,41 @@
+@import '../helpers';
+@import '../helpers/helpers-front-only';
+
+#endovi-breadcrumbs {
+	font-size: inRem(12px);
+
+	a {
+		transition: opacity $transition-default;
+
+		@include mouseover {
+			opacity: .7;
+		}
+	}
+
+	& > span {
+		display: inline-flex;
+		align-items: center;
+
+		& > span {
+			display: inline-flex;
+			align-items: center;
+
+			&:not(:last-child) {
+
+				&:after {
+					content: '';
+					width: inEm(6px);
+					height: inEm(6px);
+					margin: 0 inRem(10px);
+					background-repeat: no-repeat;
+					background-size: contain;
+					background-image: url($path-static-media-inline + '/breadcrumb.svg');
+				}
+			}
+		}
+	}
+
+	.breadcrumb_last {
+		opacity: .5;
+	}
+}

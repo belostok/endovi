@@ -4,4 +4,110 @@ button {
 	background: transparent;
 	border: none;
 	padding: 0;
+	font-family: $font-family-primary;
+	font-size: inEm(16px);
+	line-height: 1;
+}
+
+.endovi-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	column-gap: inEm(10px);
+	min-height: inEm(48px);
+	padding: inEm(16px) inEm(20px);
+	background: $clr-bg;
+	border-radius: inEm(10px);
+	border: 1px solid $clr-light-gray;
+	color: $clr-base;
+	transition: $transition-default;
+
+	& > * {
+		pointer-events: none;
+	}
+
+	@include mouseover {
+		opacity: .7;
+	}
+
+	svg {
+		width: inEm(10px);
+		height: inEm(8px);
+
+		path {
+			transition: fill $transition-default;
+		}
+	}
+
+	&_orange {
+		background: $clr-action;
+		color: $clr-bg;
+		border-color: $clr-action;
+
+		@include mouseover {
+			background: $clr-bg;
+			color: $clr-base;
+			border-color: $clr-light-gray;
+
+			svg {
+				path {
+					fill: $clr-base;
+				}
+			}
+		}
+	}
+}
+
+.endovi-nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	z-index: 1;
+	inset-block: 0;
+	margin-block: auto;
+	width: inEm(38px);
+	height: inEm(38px);
+	border-radius: 50px;
+	border: 1px solid $clr-bg;
+	transition: opacity $transition-default, background $transition-default, border-color $transition-default;
+
+	@include mouseover {
+		opacity: .34;
+	}
+
+	&_fill {
+		background: $clr-bg;
+		border-color: $clr-bg;
+
+		@include mouseover {
+			opacity: 1;
+			background: transparent;
+			border-color: rgba($clr-base, .34);
+
+			svg {
+
+				path {
+					fill: $clr-bg;
+				}
+			}
+		}
+
+		svg {
+
+			path {
+				fill: $clr-base;
+			}
+		}
+	}
+
+	svg {
+		pointer-events: none;
+		width: inEm(10px);
+		height: inEm(8px);
+
+		path {
+			transition: fill $transition-default;
+		}
+	}
 }

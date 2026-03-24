@@ -1,0 +1,60 @@
+.endovi-simple {
+	background: $clr-primary;
+	color: $clr-bg;
+	overflow: hidden;
+
+	&__wrapper {
+		position: relative;
+		column-gap: inEm(275px);
+		min-height: inEm(580px);
+		padding-block: inEm(30px);
+
+		@include md-down {
+			column-gap: inEm(100px);
+		}
+
+		@include sm-down {
+			flex-direction: column;
+			padding-block: inEm(70px);
+			min-height: auto;
+			row-gap: inEm(30px);
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: inEm(1633px);
+			height: inEm(1679px);
+			bottom: inEm(-255px);
+			left: inEm(492px);
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-image: url($path-static-media + '/triangle-single-card.svg');
+
+			@include sm-down {
+				left: inEm(-85px);
+				bottom: inEm(-175px);
+			}
+		}
+	}
+
+	&__title {
+
+		@include sm-down {
+			font-size: inEm(30px);
+			font-weight: 400;
+			text-transform: none;
+		}
+	}
+
+	&__image-container {
+		width: inEm(250px);
+		aspect-ratio: 1/1;
+		border-radius: inEm(20px);
+		overflow: hidden;
+
+		@include sm-down {
+			width: 100%;
+		}
+	}
+}

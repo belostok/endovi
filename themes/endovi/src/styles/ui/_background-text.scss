@@ -1,0 +1,23 @@
+@import '../helpers';
+@import '../helpers/helpers-front-only';
+
+.endovi-background-text {
+	position: absolute;
+	width: max-content;
+	left: -100vw;
+	right: -100vw;
+	margin-inline: auto;
+	font-size: inEm(350px);
+	letter-spacing: -5%;
+	text-transform: uppercase;
+	font-weight: 600;
+	color: $clr-bg;
+	text-shadow: -1px -1px 0 $clr-primary,
+	1px -1px 0 $clr-primary,
+	-1px 1px 0 $clr-primary,
+	1px 1px 0 $clr-primary;
+
+	@include md-down {
+		font-size: inEm(200px);
+	}
+}

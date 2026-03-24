@@ -12,6 +12,15 @@ $clr-primary: #6FAFCB;
 $clr-second: #A9A9A9;
 $clr-action: #FF9462;
 
+$clr-black: #000;
+$clr-border-light: #F1F1F1;
+$clr-light-gray: #F3F5F4;
+$clr-medium-gray: #DBDBDB;
+$clr-alert: #F13C30;
+
+$grd-main: linear-gradient(222.48deg, #FF9462 34.48%, #7BABC3 90.71%);
+
+
 // Sizes
 $desktop-width: 1440px; // Which is in design
 $mobile-width: 390px; // Which is in design
@@ -29,7 +38,7 @@ $path-static-media-inline: '../../../static_media'; // Path to non-compiling ima
 $transition-default: .3s ease;
 
 $base-container-width: inEm(1380px);
-$max-container-width: 1440px;
+$max-container-width: 1920px;
 
 $base-outer-padding-desktop: inEm(30px);
 $base-outer-padding-mobile: inEm(15px);
