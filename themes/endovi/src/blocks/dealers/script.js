@@ -1,9 +1,9 @@
 import Swiper from 'swiper';
 import { Autoplay } from 'swiper/modules';
-import { isMobileMatchesSm } from '../helpers';
+import { isMobileMatchesSm } from '../../scripts/helpers';
 
-export default () => {
-	const sliderContainers = document.querySelectorAll( '.js-dealers-slider' );
+document.addEventListener( 'DOMContentLoaded', () => {
+const sliderContainers = document.querySelectorAll( '.js-dealers-slider' );
 	const minLength        = 4;
 	const sliders          = [];
 
@@ -49,4 +49,4 @@ export default () => {
 	checkSliders();
 
 	window.addEventListener( 'resize', checkSliders );
-};
+} );

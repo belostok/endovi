@@ -1,13 +1,13 @@
 {
 	"$schema": "https://json.schemastore.org/block.json",
 	"apiVersion": 2,
-	"name": "endovi/hero",
-	"title": "Главный заголовок",
-	"description": "Блок Главный заголовок",
+	"name": "endovi/feedback",
+	"title": "Отзывы",
+	"description": "Блок Отзывы",
 	"category": "endovi-blocks",
 	"icon": "block-default",
 	"keywords": [
-		"hero",
+		"feedback",
 		"custom",
 		"acf",
 		"block"
@@ -21,7 +21,7 @@
 			"full"
 		],
 		"anchor": true,
-		"multiple": false
+		"multiple": true
 	},
 	"editorScript": "file:index.js",
 	"editorStyle": "file:index.css",

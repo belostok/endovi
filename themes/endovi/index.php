@@ -4,15 +4,7 @@
  */
 
 get_header();
-?>
 
-	<section class="page-content">
-		<div class="wrapper">
-			<div class="entry-content">
-				<?php the_content(); ?>
-			</div>
-		</div>
-	</section>
+the_content();
 
-<?php
 get_footer();

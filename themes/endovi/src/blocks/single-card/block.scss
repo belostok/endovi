@@ -1,3 +1,11 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
 .endovi-single-card {
 	position: relative;
 	z-index: 1;
@@ -21,7 +29,7 @@
 			left: inEm(-180px);
 			background-repeat: no-repeat;
 			background-size: contain;
-			background-image: url($path-static-media + '/triangle-single-card.svg');
+			background-image: url($path-static-media-inline + '/triangle-single-card.svg');
 
 			@include md-down {
 				width: inEm(1178px);
@@ -62,7 +70,7 @@
 				right: inEm(30px);
 				background-repeat: no-repeat;
 				background-size: contain;
-				background-image: url($path-static-media + '/corner-triangle.svg');
+				background-image: url($path-static-media-inline + '/corner-triangle.svg');
 			}
 		}
 	}
@@ -89,7 +97,7 @@
 					right: 0;
 					background-repeat: no-repeat;
 					background-size: contain;
-					background-image: url($path-static-media + '/corner-triangle.svg');
+					background-image: url($path-static-media-inline + '/corner-triangle.svg');
 				}
 			}
 		}

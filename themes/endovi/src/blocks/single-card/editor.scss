@@ -12,14 +12,10 @@
 html .wp-block-post-content {
 	@import './block';
 
-	.wp-block-endovi-hero {
+	.wp-block-endovi-single-card {
 
-		.endovi-hero {
+		.endovi-single-card {
 
-			.swiper-wrapper {
-				display: flex;
-				width: max-content;
-			}
 		}
 	}
 }

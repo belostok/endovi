@@ -1,3 +1,11 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
 .endovi-feedback {
 	position: relative;
 	background: $grd-main;
@@ -16,7 +24,7 @@
 		margin-block: auto;
 		inset-inline-start: -35%;
 		inset-inline-end: 0;
-		background: url( $path-static-media + '/feedback-text.svg') repeat-x;
+		background: url( $path-static-media-inline + '/feedback-text.svg') repeat-x;
 		background-size: auto 100%;
 
 		@include md-down {

@@ -12,13 +12,16 @@
 html .wp-block-post-content {
 	@import './block';
 
-	.wp-block-endovi-hero {
+	.wp-block-endovi-feedback {
 
-		.endovi-hero {
+		.endovi-feedback {
+			overflow: hidden;
 
-			.swiper-wrapper {
-				display: flex;
-				width: max-content;
+			.swiper-slide {
+
+				&:not(:first-child) {
+					display: none;
+				}
 			}
 		}
 	}

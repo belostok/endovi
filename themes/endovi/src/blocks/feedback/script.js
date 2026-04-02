@@ -1,10 +1,9 @@
 import Swiper from 'swiper';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-import { debounce } from '../helpers';
 
-export default () => {
-	const sliderContainers = document.querySelectorAll( '.js-hero-slider' );
-	const minLength        = 3;
+document.addEventListener( 'DOMContentLoaded', () => {
+	const sliderContainers = document.querySelectorAll( '.js-feedback-slider' );
+	const minLength        = 1;
 	let sliders            = [];
 
 	sliderContainers.forEach( ( el, index ) => {
@@ -13,31 +12,22 @@ export default () => {
 
 	sliderContainers.forEach( ( sliderContainer, index ) => {
 		if ( sliders[ index ] === null ) {
-			const parent = sliderContainer.closest( '.js-hero' );
+			const parent = sliderContainer.parentNode;
 			if ( parent ) {
 				const slides        = sliderContainer.querySelectorAll( '.swiper-slide' );
-				const numPagination = parent.querySelector( '.js-pagination-number' );
 				const isAutoplay    = sliderContainer.dataset.autoplay;
 				const delay         = sliderContainer.dataset.delay;
 				const totalSlides   = slides.length;
 
-				const padNum = ( num ) => String( num ).padStart( 2, '0' );
-
-				const updateNumPagination = ( swiper ) => {
-					if ( ! numPagination ) {
-						return null;
-					}
-					numPagination.textContent = `${ padNum( swiper.realIndex + 1 ) }/${ padNum( totalSlides ) }`;
-				};
-
 				const autoplay   = {
-					delay: delay || 5000,
+					delay: delay || 8000,
 					disableOnInteraction: true
 				};
 				sliders[ index ] = new Swiper( ( sliderContainer ), {
 					modules: [ Autoplay, Navigation, Pagination ],
-					slidesPerView: 'auto',
-					centeredSlides: true,
+					slidesPerView: 1,
+					spaceBetween: 20,
+					autoHeight: true,
 					loop: totalSlides > minLength,
 					autoplay: isAutoplay && totalSlides > minLength ? autoplay : false,
 					navigation: {
@@ -48,28 +38,9 @@ export default () => {
 						el: parent.querySelector( '.js-pagination' ),
 						type: 'bullets',
 						clickable: true
-					},
-					on: {
-						init: updateNumPagination,
-						slideChange: updateNumPagination,
-					},
-					breakpoints: {
-						768: {
-							allowTouchMove: false,
-						}
 					}
 				} );
 			}
 		}
 	} );
-
-	const updateSliders = debounce( () => {
-		sliders.forEach( ( swiper ) => {
-			if ( swiper ) {
-				swiper.update();
-			}
-		} );
-	}, 200 );
-
-	window.addEventListener( 'resize', updateSliders );
-}
+} );

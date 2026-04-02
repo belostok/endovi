@@ -19,7 +19,7 @@ function start() {
 	add_action( 'wp_head', __NAMESPACE__ . '\\preload_font', 2 );
 
 	// Load our frontend css and js
-	add_action( 'wp_enqueue_scripts', $callback( 'enqueue_scripts' ) );
+	add_action( 'wp_enqueue_scripts', $callback( 'enqueue_scripts' ), 1 );
 
 	// Load our admin css and js
 	add_action( 'admin_enqueue_scripts', $callback( 'admin_enqueue_scripts' ) );

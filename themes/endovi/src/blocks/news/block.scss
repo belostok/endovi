@@ -1,3 +1,11 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
 .endovi-news {
 	position: relative;
 	margin-bottom: inEm(120px);

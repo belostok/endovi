@@ -46,6 +46,12 @@ html :where(.wp-block) {
 	background: $clr-bg;
 	border: 1px solid $clr-base;
 	min-height: 20px;
+
+	a {
+		text-decoration: none;
+	}
+
+	@include headings;
 }
 
 .wp-block-group {

@@ -11,7 +11,7 @@ function start() {
 	add_action( 'init', $callback( 'register_theme_blocks' ), 9 );
 
 	// Load block assets only when they are rendered
-	add_filter( 'should_load_separate_core_block_assets', '__return_true' );
+	add_filter( 'should_load_separate_core_block_assets', '__return_false' );
 	add_filter( 'allowed_block_types_all', $callback( 'allowed_block_types' ), 10, 2 );
 }
 
@@ -23,6 +23,11 @@ function start() {
  */
 function register_theme_blocks() {
 	$blocks = array(
+		'hero',
+		'single-card',
+		'dealers',
+		'news',
+		'feedback',
 	);
 
 	foreach ( $blocks as $block ) {
