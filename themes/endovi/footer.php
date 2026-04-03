@@ -2,6 +2,14 @@
 /**
  * The template for displaying the footer.
  */
+
+use function endoviTheme\Helpers\trim_string;
+
+$form_title = trim_string( get_field( 'footer_form_title', 'options' ) );
+$form       = (int) ( get_field( 'footer_form', 'options' ) );
+$copyright  = trim_string( get_field( 'footer_copyright', 'options' ) );
+$copyright  = $copyright ? do_shortcode( $copyright ) : '';
+$policy     = trim_string( get_field( 'footer_policy', 'options' ) );
 ?>
 
 </main><!-- /.main -->
@@ -20,30 +28,40 @@
 				);
 				?>
 			</nav>
-			<div class="endovi-footer__form-container flex fdc">
-				<div class="endovi-footer__form-title-container">
-					<h3 class="endovi-footer__form-title h3">
-						Свяжитесь с нами, чтобы обсудить сотрудничество
-					</h3>
+			<?php if ( $form ) : ?>
+				<div class="endovi-footer__form-container flex fdc">
+					<?php if ( $form_title ) : ?>
+						<div class="endovi-footer__form-title-container">
+							<h3 class="endovi-footer__form-title h3">
+								<?php echo esc_html( $form_title ); ?>
+							</h3>
+						</div>
+					<?php endif; ?>
+					<div class="endovi-footer__form endovi-form">
+						<?php echo do_shortcode( '[contact-form-7 id="' . $form . '"]' ); ?>
+					</div>
 				</div>
-				<div class="endovi-footer__form endovi-form">
-					<?php echo do_shortcode( '[contact-form-7 id="40d1939"]' ); ?>
-				</div>
-			</div>
+			<?php endif; ?>
 		</div>
 		<div class="endovi-footer__lower flex fdc relative">
-			<div class="endovi-footer__lower-upper flex fwrap jcspb">
-				<div class="endovi-footer__copyright-container">
-					<span class="endovi-footer__copyright text-normal">
-						© 2026  Все права защищены
-					</span>
+			<?php if ( $copyright || $policy ) : ?>
+				<div class="endovi-footer__lower-upper flex fwrap jcspb">
+					<?php if ( $copyright ) : ?>
+						<div class="endovi-footer__copyright-container">
+							<span class="endovi-footer__copyright text-normal">
+								<?php echo esc_html( $copyright ); ?>
+							</span>
+						</div>
+					<?php endif; ?>
+					<?php if ( $policy ) : ?>
+						<div class="endovi-footer__policy-container">
+							<a href="<?php echo esc_url( $policy ); ?>" class="endovi-footer__policy text-normal default-hover">
+								<?php echo esc_html__( 'Политика конфиденциальности', 'endovi' ); ?>
+							</a>
+						</div>
+					<?php endif; ?>
 				</div>
-				<div class="endovi-footer__policy-container">
-					<a href="#" class="endovi-footer__policy text-normal default-hover">
-						Политика конфиденциальности
-					</a>
-				</div>
-			</div>
+			<?php endif; ?>
 			<div class="endovi-footer__logo-container img-contain">
 				<svg width="1380" height="129" viewBox="0 0 1380 129" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M1247.75 29.6587L1238.41 39.0744H1200.14L1209.46 29.6587H1247.75Z" fill="#6FAFCB"/>

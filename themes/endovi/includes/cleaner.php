@@ -3,6 +3,10 @@
 namespace endoviTheme\Cleaner;
 
 function start() {
+	$callback = function ( $function ) {
+		return __NAMESPACE__ . "\\$function";
+	};
+
 	remove_action( 'wp_head', 'rsd_link' );
 	remove_action( 'wp_head', 'wlwmanifest_link' );
 	remove_action( 'wp_head', 'wp_shortlink_wp_head' );
@@ -14,4 +18,15 @@ function start() {
 	remove_action( 'wp_print_styles', 'print_emoji_styles' );
 	remove_action( 'wp_head', 'wp_generator' );
 	remove_action( 'wp_head', 'wp_resource_hints', 2 );
+
+	add_action( 'admin_menu', $callback( 'remove_comments' ) );
+}
+
+/**
+ * Removes the Comments menu page from the WordPress admin dashboard.
+ *
+ * @return void
+ */
+function remove_comments() {
+	remove_menu_page( 'edit-comments.php' );
 }

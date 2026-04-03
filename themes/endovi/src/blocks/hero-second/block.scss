@@ -1,0 +1,79 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-hero-second {
+	padding-top: inEm(146px);
+
+	@include md-down {
+		padding-top: inEm(125px);
+	}
+
+	&__upper {
+		padding-bottom: inEm(23px);
+
+		@include md-down {
+			padding-bottom: inEm(70px);
+		}
+	}
+
+	&__breadcrumbs-container {
+		flex-shrink: 0;
+		width: inEm(487px);
+		max-width: 100%;
+
+		@include md-down {
+			width: auto;
+			margin-bottom: inEm(30px);
+		}
+	}
+
+	&__title-container {
+		max-width: inEm(792px);
+
+		@include md-down {
+			max-width: none;
+		}
+	}
+
+	&__title {
+
+		strong,
+		span {
+			color: $clr-action;
+		}
+
+		&-side {
+			gap: inEm(40px);
+		}
+	}
+
+	&__logo-container {
+		margin-top: inEm(76px);
+
+		@include md-down {
+			margin-top: inEm(30px);
+		}
+	}
+
+	&__image-container {
+		width: $desktop-width;
+		max-width: 100%;
+		margin-inline: auto;
+
+		@include md-down {
+			aspect-ratio: 390/350;
+		}
+	}
+
+	&__image {
+
+		@include md-down {
+			object-fit: cover !important;
+		}
+	}
+}

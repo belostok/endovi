@@ -2,11 +2,5 @@
 @import '../../node_modules/swiper/modules/navigation';
 @import '../../node_modules/swiper/modules/autoplay';
 @import 'helpers/helpers-front-only';
+@import 'helpers/mixins';
 //@import 'base/animations'; // Uncomment if needed
-
-@import 'components/simple';
-@import 'components/two-cards';
-@import 'components/image-three-cards';
-@import 'components/center-card';
-@import 'components/mission';
-@import 'components/values';

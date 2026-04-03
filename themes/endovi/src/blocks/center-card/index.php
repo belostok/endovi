@@ -1,6 +1,6 @@
 <?php
 
-namespace endoviTheme\Blocks\Dealers;
+namespace endoviTheme\Blocks\CenterCard;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -26,13 +26,13 @@ function register_fields() {
 
 	acf_add_local_field_group(
 		array(
-			'key'                   => 'group_69ce33b90bafc',
-			'title'                 => esc_attr__( 'Dealers block', 'endovi' ),
+			'key'                   => 'group_69cfc4d998681',
+			'title'                 => esc_attr__( 'Center Card block', 'endovi' ),
 			'fields'                => array(
 				array(
-					'key'               => 'field_69ce33b9a60cc',
+					'key'               => 'field_69cfc4dad8efe',
 					'label'             => esc_attr__( 'Скрыть', 'endovi' ),
-					'name'              => 'dealers_hide',
+					'name'              => 'center_card_hide',
 					'aria-label'        => '',
 					'type'              => 'true_false',
 					'instructions'      => '',
@@ -51,11 +51,32 @@ function register_fields() {
 					'ui'                => 1,
 				),
 				array(
-					'key'               => 'field_69ce33f2a60cd',
-					'label'             => esc_attr__( 'Заголовок', 'endovi' ),
-					'name'              => 'dealers_title',
+					'key'               => 'field_69cfc513d8eff',
+					'label'             => esc_attr__( 'Текст фона', 'endovi' ),
+					'name'              => 'center_card_bg_text',
 					'aria-label'        => '',
 					'type'              => 'text',
+					'instructions'      => '',
+					'required'          => 0,
+					'conditional_logic' => 0,
+					'wrapper'           => array(
+						'width' => '',
+						'class' => '',
+						'id'    => '',
+					),
+					'default_value'     => esc_attr__( 'Информационное сообщество', 'endovi' ),
+					'maxlength'         => '',
+					'allow_in_bindings' => 0,
+					'placeholder'       => '',
+					'prepend'           => '',
+					'append'            => '',
+				),
+				array(
+					'key'               => 'field_69cfc553d8f00',
+					'label'             => esc_attr__( 'Описание', 'endovi' ),
+					'name'              => 'center_card_description',
+					'aria-label'        => '',
+					'type'              => 'textarea',
 					'instructions'      => '',
 					'required'          => 0,
 					'conditional_logic' => 0,
@@ -67,14 +88,14 @@ function register_fields() {
 					'default_value'     => '',
 					'maxlength'         => '',
 					'allow_in_bindings' => 0,
+					'rows'              => '',
 					'placeholder'       => '',
-					'prepend'           => '',
-					'append'            => '',
+					'new_lines'         => 'br',
 				),
 				array(
-					'key'               => 'field_69ce3454849a5',
+					'key'               => 'field_69cfc59425330',
 					'label'             => esc_attr__( 'Текст кнопки', 'endovi' ),
-					'name'              => 'dealers_cta_text',
+					'name'              => 'center_card_cta_text',
 					'aria-label'        => '',
 					'type'              => 'text',
 					'instructions'      => '',
@@ -93,9 +114,9 @@ function register_fields() {
 					'append'            => '',
 				),
 				array(
-					'key'               => 'field_69ce347e849a6',
+					'key'               => 'field_69cfc5c6552bf',
 					'label'             => esc_attr__( 'Ссылка кнопки', 'endovi' ),
-					'name'              => 'dealers_cta_link',
+					'name'              => 'center_card_cta_link',
 					'aria-label'        => '',
 					'type'              => 'text',
 					'instructions'      => '',
@@ -113,64 +134,13 @@ function register_fields() {
 					'prepend'           => '',
 					'append'            => '',
 				),
-				array(
-					'key'               => 'field_69ce34a1051d5',
-					'label'             => esc_attr__( 'Логотипы', 'endovi' ),
-					'name'              => 'dealers_items',
-					'aria-label'        => '',
-					'type'              => 'repeater',
-					'instructions'      => '',
-					'required'          => 0,
-					'conditional_logic' => 0,
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'layout'            => 'table',
-					'pagination'        => 0,
-					'min'               => 8,
-					'max'               => 0,
-					'collapsed'         => '',
-					'button_label'      => esc_attr__( 'Добавить логотип', 'endovi' ),
-					'rows_per_page'     => 20,
-					'sub_fields'        => array(
-						array(
-							'key'               => 'field_69ce34e5051d6',
-							'label'             => esc_attr__( 'Логотип', 'endovi' ),
-							'name'              => 'image',
-							'aria-label'        => '',
-							'type'              => 'image',
-							'instructions'      => '',
-							'required'          => 0,
-							'conditional_logic' => 0,
-							'wrapper'           => array(
-								'width' => '',
-								'class' => '',
-								'id'    => '',
-							),
-							'return_format'     => 'id',
-							'library'           => 'all',
-							'min_width'         => '',
-							'min_height'        => '',
-							'min_size'          => '',
-							'max_width'         => '',
-							'max_height'        => '',
-							'max_size'          => '',
-							'mime_types'        => '',
-							'allow_in_bindings' => 0,
-							'preview_size'      => 'medium',
-							'parent_repeater'   => 'field_69ce34a1051d5',
-						),
-					),
-				),
 			),
 			'location'              => array(
 				array(
 					array(
 						'param'    => 'block',
 						'operator' => '==',
-						'value'    => 'endovi/dealers',
+						'value'    => 'endovi/center-card',
 					),
 				),
 			),

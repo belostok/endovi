@@ -15,7 +15,10 @@ function start() {
 	// https://www.advancedcustomfields.com/resources/register-fields-via-php/
 	add_action( 'init', $callback( 'register_fields' ) );
 	// Show custom fields in admin area
-	// add_filter( 'acf/settings/show_admin', '__return_false' );
+	add_filter( 'acf/settings/show_admin', '__return_false' );
+
+	// Register custom WYSIWYG toolbars (Mini, List, Heading)
+	add_filter( 'acf/fields/wysiwyg/toolbars', $callback( 'wysiwyg_custom_toolbars' ), 10, 1 );
 }
 
 /**
@@ -30,8 +33,8 @@ function register_options_page() {
 
 	acf_add_options_page(
 		[
-			'page_title' => esc_attr__( 'Options', 'endovi' ),
-			'menu_title' => esc_attr__( 'Options', 'endovi' ),
+			'page_title' => esc_attr__( 'Настройки сайта', 'endovi' ),
+			'menu_title' => esc_attr__( 'Настройки сайта', 'endovi' ),
 			'menu_slug'  => 'endovi-options',
 			'capability' => 'edit_posts',
 			'redirect'   => false,
@@ -55,4 +58,45 @@ function register_fields() {
 	foreach ( $items as $item ) {
 		include_once sprintf( '%s/acf-fields/%s.php', __DIR__, $item );
 	}
+}
+
+
+
+/**
+ * @param $toolbars
+ *
+ * @return mixed
+ */
+function wysiwyg_custom_toolbars( $toolbars ) {
+
+	$toolbars['Mini'] = [
+		'1' => [
+			'bold',
+			'link',
+			'wp_adv',
+		],
+		'2' => [
+			'forecolor',
+		],
+	];
+
+	$toolbars['List'] = [
+		'1' => [
+			'bold',
+			'bullist',
+			'link',
+			'wp_adv',
+		],
+		'2' => [
+			'forecolor',
+		],
+	];
+
+	$toolbars['Heading'] = [
+		'1' => [
+			'formatselect',
+		],
+	];
+
+	return $toolbars;
 }

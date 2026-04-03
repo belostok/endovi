@@ -1,0 +1,31 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "endovi/simple",
+	"title": "Простая карточка",
+	"description": "Блок Простая карточка",
+	"category": "endovi-blocks",
+	"icon": "block-default",
+	"keywords": [
+		"simple",
+		"custom",
+		"acf",
+		"block"
+	],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "markup.php"
+	},
+	"supports": {
+		"align": [
+			"full"
+		],
+		"anchor": true,
+		"multiple": true
+	},
+	"editorScript": "file:index.js",
+	"editorStyle": "file:index.css",
+	"script": "file:script.js",
+	"style": "file:style-index.css",
+	"viewScript": "file:front.js"
+}

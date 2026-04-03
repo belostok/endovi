@@ -1,0 +1,171 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-values {
+	background: $clr-base;
+	overflow: hidden;
+
+	&__wrapper {
+		position: relative;
+		padding-block: inEm(153px);
+
+		@include md-down {
+			padding-block: inEm(70px);
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: inEm(2468px);
+			height: inEm(2165px);
+			bottom: inEm(-350px);
+			left: inEm(-690px);
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-image: url($path-static-media-inline + '/tabs-triangle.svg');
+
+			@include md-down {
+				bottom: auto;
+				top: inEm(-640px);
+				left: inEm(-1460px);
+				transform: rotate(20deg);
+			}
+		}
+	}
+
+	&__corner-title {
+		position: absolute;
+		top: inRem(30px);
+		left: 0;
+	}
+
+	&__widget {
+		position: relative;
+
+		@include md-up {
+			max-width: 100%;
+			min-height: inEm(495px);
+			margin-inline: auto;
+			background: $clr-bg;
+			border-radius: inEm(20px);
+			padding: inEm(40px);
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			column-gap: inEm(20px);
+		}
+	}
+
+	&__list {
+		$list: &;
+
+		&-item {
+			border-bottom: 1px solid $clr-medium-gray;
+
+			&:first-child {
+				border-top: 1px solid $clr-medium-gray;
+			}
+		}
+
+		&-button {
+			position: relative;
+			width: 100%;
+			padding: inRem(20px);
+			transition: opacity $transition-default;
+
+			@include mouseover {
+				opacity: .7;
+			}
+
+			& > * {
+				pointer-events: none;
+			}
+
+			&_active {
+				pointer-events: none;
+
+				#{$list} {
+
+					&-title {
+						color: $clr-action;
+					}
+				}
+			}
+		}
+
+		&-count {
+			position: absolute;
+			top: inRem(20px);
+			left: 0;
+			color: $clr-second;
+		}
+	}
+
+	&__content {
+
+		@include md-down {
+			display: flex;
+			flex-direction: column;
+			row-gap: inEm(20px);
+		}
+
+		&-item {
+			display: flex;
+			background: $clr-light-gray;
+			padding: inRem(20px);
+			border-radius: inRem(20px);
+			row-gap: inRem(49px);
+
+			@include md-up {
+				display: none;
+
+				&_active {
+					display: flex;
+				}
+			}
+
+			@include md-down {
+				background: $clr-bg;
+				row-gap: 0;
+			}
+		}
+
+		&-image-container {
+			width: inEm(40px);
+			aspect-ratio: 1/1;
+			border-radius: 50%;
+			background: $clr-bg;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			@include md-down {
+				background: $clr-light-gray;
+				margin-bottom: inEm(40px);
+			}
+
+			svg, img {
+				width: inEm(20px);
+				height: inEm(20px);
+			}
+		}
+
+		&-description {
+			color: $clr-second;
+			display: flex;
+			flex-direction: column;
+			row-gap: inRem(20px);
+
+			&-container {
+
+				@include md-down {
+					margin-top: inEm(20px);
+				}
+			}
+		}
+	}
+}

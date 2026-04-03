@@ -24,10 +24,17 @@ function start() {
 function register_theme_blocks() {
 	$blocks = array(
 		'hero',
+		'hero-second',
 		'single-card',
+		'two-cards',
 		'dealers',
 		'news',
 		'feedback',
+		'simple',
+		'image-three-cards',
+		'center-card',
+		'mission',
+		'values',
 	);
 
 	foreach ( $blocks as $block ) {

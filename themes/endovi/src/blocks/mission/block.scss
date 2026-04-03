@@ -1,0 +1,102 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-mission {
+	position: relative;
+	height: 100vh;
+	overflow: hidden;
+	background: $grd-main;
+	color: $clr-bg;
+
+	@include md-down {
+		height: auto;
+		padding-block: inEm(70px);
+	}
+
+	&__wrapper {
+		column-gap: inEm(141px);
+
+		@include md-down {
+			flex-direction: column;
+			row-gap: inEm(40px);
+		}
+	}
+
+	&__text-side {
+
+		@include md-up {
+			padding-top: inEm(30px);
+		}
+	}
+
+	&__title-container {
+		margin-top: inEm(20px);
+	}
+
+	&__title {
+
+		@include md-down {
+			text-transform: none;
+			font-size: inEm(24px);
+			font-weight: 400;
+		}
+	}
+
+	&__items {
+		flex-shrink: 0;
+		width: inEm(330px);
+		height: 100%;
+		overflow: hidden;
+
+		@include md-down {
+			width: 100%;
+		}
+
+		&-wrapper {
+			height: max-content;
+			row-gap: inEm(38px);
+			padding-block: inEm(30px);
+
+			@include md-down {
+				height: auto;
+				row-gap: inEm(40px);
+				padding-block: 0;
+			}
+		}
+	}
+
+	&__item {
+		row-gap: inEm(20px);
+
+		@include md-down {
+			width: inEm(360px);
+			max-width: 100%;
+			margin-inline: auto;
+		}
+
+		&-image-container {
+			width: 100%;
+			border-radius: inEm(20px);
+			overflow: hidden;
+			aspect-ratio: 330/408;
+
+			@include md-down {
+				aspect-ratio: 360/300;
+			}
+		}
+
+		&-text {
+			row-gap: inEm(10px);
+		}
+
+		&-count {
+			display: block;
+			opacity: .34;
+		}
+	}
+}
