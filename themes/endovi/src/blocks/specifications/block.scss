@@ -1,0 +1,44 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-specifications {
+	overflow: hidden;
+	background: $clr-background-gray;
+
+	&__description-container {
+		max-width: inEm(505px);
+		align-self: flex-end;
+	}
+
+	&__image-container {
+		inset: 0;
+		width: $desktop-width;
+		max-width: 100%;
+		margin-inline: auto;
+	}
+
+	&__wrapper {
+		min-height: inEm(800px);
+		padding-block: inEm(40px) inEm(30px);
+	}
+
+	&__image-center-container {
+		width: inEm(350px);
+		aspect-ratio: 1/1;
+		border-radius: inEm(20px);
+		overflow: hidden;
+		margin: inEm(10px) auto 0;
+	}
+
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(inEm(250px), 1fr));
+		gap: inEm(10px);
+		margin-top: inEm(40px);
+	}
+}

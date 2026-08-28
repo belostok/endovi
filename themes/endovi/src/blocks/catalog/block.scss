@@ -1,0 +1,246 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-catalog {
+	$root: &;
+
+	margin-block: inEm(146px) inEm(120px);
+
+	&_h2 {
+		margin-top: inEm(120px);
+	}
+
+	&_h2 & {
+
+		&__title-container {
+			margin-bottom: inEm(40px);
+			max-width: inEm(658px);
+		}
+
+		&__title {
+			font-size: inEm(40px) !important;
+		}
+	}
+
+	&__breadcrumbs-container {
+		margin-bottom: inEm(50px);
+	}
+
+	&__title-container {
+		margin-bottom: inEm(60px);
+	}
+
+	&__tabs-container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		border-radius: inEm(10px);
+		border: 1px solid $clr-medium-gray;
+		overflow: hidden;
+	}
+
+	&__tab-button {
+		padding: inRem(16px);
+		transition: background $transition-default, color $transition-default;
+
+		&_active {
+			background: $clr-action;
+			color: $clr-bg;
+			pointer-events: none;
+		}
+	}
+
+	&__tab-button-title {
+		pointer-events: none;
+	}
+
+	&__categories {
+		margin-top: inEm(40px);
+
+		&:not(&_active) {
+			display: none !important;
+		}
+
+		&_series {
+			display: flex;
+			flex-direction: column;
+			row-gap: inEm(40px);
+
+			#{$root} {
+
+				&__category {
+					min-height: inEm(660px);
+					border-radius: inEm(30px);
+
+					&-title-container {
+						position: relative;
+						padding-right: inEm(40px);
+						margin-bottom: inEm(40px);
+
+						&::before {
+							content: '';
+							@include corner_triangle;
+							top: 0;
+							right: 0;
+						}
+					}
+
+					&-title {
+						font-size: inRem(40px);
+						line-height: 1;
+						font-weight: 700;
+						text-transform: uppercase;
+					}
+				}
+
+				&__item {
+
+					&:first-child {
+
+						#{$root}__item-link {
+							border-top: 1px solid $clr-medium-gray;
+						}
+					}
+
+					&:last-child {
+
+						#{$root}__item-link {
+							border-bottom: none;
+						}
+					}
+
+					&-link {
+						column-gap: inRem(10px);
+						font-size: inRem(20px);
+						line-height: 1;
+						padding-block: inRem(20px);
+						border-bottom: 1px solid $clr-medium-gray;
+						color: rgba($clr-gray, .2);
+						transition: color $transition-default;
+
+						&[href] {
+							justify-content: space-between;
+							color: $clr-base;
+
+							@include mouseover {
+								color: $clr-action;
+
+								svg path {
+									fill: $clr-action;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&_types {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: inEm(20px);
+
+			#{$root} {
+
+				&__category {
+					display: flex;
+					flex-direction: column;
+					row-gap: inEm(20px);
+					height: inEm(350px);
+					border-radius: inEm(20px);
+
+					&-title-container {
+						position: relative;
+						flex-shrink: 0;
+						max-width: inEm(273px);
+					}
+				}
+
+				&__items {
+					position: relative;
+					display: grid;
+					grid-auto-flow: column;
+					grid-auto-columns: max-content;
+					grid-template-rows: repeat(auto-fit, minmax(inEm(54px), max-content));
+					gap: inEm(10px);
+					align-content: end;
+					justify-items: stretch;
+					flex: 1 1 0;
+					min-height: 0;
+					margin-top: auto;
+					width: max-content;
+					max-width: 100%;
+				}
+
+				&__item {
+
+					&-link {
+						display: flex;
+						width: 100%;
+						border-radius: inEm(10px);
+						background: $clr-bg;
+						padding: inEm(16px) inEm(20px);
+						column-gap: inEm(10px);
+						border: 1px solid $clr-medium-gray;
+						transition: background $transition-default, color $transition-default;
+
+						&[href] {
+
+							@include mouseover {
+								background: $clr-base;
+								color: $clr-bg;
+
+								svg path {
+									fill: $clr-bg;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&__category {
+		background: $clr-background-gray;
+		padding: inEm(30px);
+
+		&_gradient {
+			background: $grd-main;
+		}
+
+		&-image-container {
+			inset: 0;
+		}
+
+		&-image {
+			object-position: bottom right !important;
+		}
+	}
+
+	&__items-container {
+		width: inEm(512px);
+		max-width: 100%;
+		background: $clr-bg;
+		border-radius: inEm(20px);
+		padding: inEm(30px) inEm(30px) inEm(10px);
+	}
+
+	&__item {
+
+		&-link {
+
+			svg {
+				flex-shrink: 0;
+
+				path {
+					transition: fill $transition-default;
+				}
+			}
+		}
+	}
+}

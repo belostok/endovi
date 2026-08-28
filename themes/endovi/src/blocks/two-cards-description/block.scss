@@ -1,0 +1,65 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-two-cards-description {
+	padding-block: inEm(120px);
+	text-align: center;
+	overflow: hidden;
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: inEm(1361px);
+		height: inEm(1953px);
+		top: inEm(40px);
+		left: 50%;
+		transform: translateX(-50%);
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-image: url($path-static-media-inline + '/triangle-down-blue.svg');
+	}
+
+	&__wrapper {
+
+		& > * {
+			margin-inline: auto;
+		}
+	}
+
+	&__title-container,
+	&__sub-title-container {
+		width: inEm(981px);
+		max-width: 100%;
+	}
+
+	&__sub-title-container {
+		margin-top: inEm(20px);
+	}
+
+	&__description-container {
+		width: inEm(551px);
+		max-width: 100%;
+		margin-top: inEm(20px);
+	}
+
+	&__items {
+		margin: inEm(30px) inEm(-10px) inEm(-10px);
+	}
+
+	&__item-outer {
+		flex: 0 0 inEm(370px);
+		max-width: inEm(370px);
+		padding: inEm(10px);
+	}
+
+	&__footer-description-container {
+		margin-top: inEm(40px);
+		width: inEm(453px);
+		max-width: 100%;
+	}
+}

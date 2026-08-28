@@ -1,0 +1,50 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-models {
+	margin-block: inEm(120px);
+
+	&__wrapper {
+		min-height: inEm(764px);
+		padding: inEm(30px);
+		border-radius: inEm(30px);
+		background: $clr-bg-gray;
+	}
+
+	&__image-container {
+		inset: 0;
+	}
+
+	&__items-container {
+		width: inEm(512px);
+		border-radius: inEm(20px);
+		padding: inEm(30px);
+		background: $clr-bg;
+
+		&::before {
+			content: '';
+			@include corner_triangle;
+			top: inEm(30px);
+			right: inEm(30px);
+		}
+	}
+
+	&__title-container {
+		margin-bottom: inEm(76px);
+	}
+
+	&__items {
+		row-gap: inEm(20px);
+	}
+
+	&__item {
+		border-top: 1px solid $clr-medium-gray;
+		padding-top: inEm(20px);
+		row-gap: inEm(20px);
+	}
+}

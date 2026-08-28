@@ -1,0 +1,52 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-dealers-description {
+	margin-bottom: inEm(120px);
+	background: $clr-primary;
+	overflow: hidden;
+
+	&__wrapper {
+		min-height: inEm(649px);
+		padding: inEm(30px) inEm(85px) inEm(30px) 0;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: inEm(-15px);
+			width: inEm(1895px);
+			height: inEm(997px);
+			left: -100%;
+			right: -100%;
+			margin-inline: auto;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-image: url($path-static-media-inline + '/bg-map.svg');
+		}
+	}
+
+	&__title-container {
+		max-width: inEm(863px);
+	}
+
+	&__footer {
+		column-gap: inEm(276px);
+	}
+
+	&__image-container {
+		flex-shrink: 0;
+		width: inEm(210px);
+		height: inEm(210px);
+		border-radius: inEm(20px);
+		overflow: hidden;
+	}
+
+	&__descriptions {
+		column-gap: inEm(26px);
+	}
+}

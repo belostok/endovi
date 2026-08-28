@@ -85,46 +85,6 @@ if ( ! empty( $block['align'] ) ) {
 						</div>
 					</div>
 				<?php endforeach; ?>
-<!--				<div class="endovi-dealers__slide swiper-slide">-->
-<!--					<div class="endovi-dealers__image-container img-contain">-->
-<!--						<img src="--><?php //echo esc_attr( ENDOVI_TEMPLATE_URL ) . 'src/images/temp/Logo0001.png'; ?><!--" alt="" class="endovi-dealers__image">-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="endovi-dealers__slide swiper-slide">-->
-<!--					<div class="endovi-dealers__image-container img-contain">-->
-<!--						<img src="--><?php //echo esc_attr( ENDOVI_TEMPLATE_URL ) . 'src/images/temp/amd-logo-4001.png'; ?><!--" alt="" class="endovi-dealers__image">-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="endovi-dealers__slide swiper-slide">-->
-<!--					<div class="endovi-dealers__image-container img-contain">-->
-<!--						<img src="--><?php //echo esc_attr( ENDOVI_TEMPLATE_URL ) . 'src/images/temp/logo1.png'; ?><!--" alt="" class="endovi-dealers__image">-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="endovi-dealers__slide swiper-slide">-->
-<!--					<div class="endovi-dealers__image-container img-contain">-->
-<!--						<img src="--><?php //echo esc_attr( ENDOVI_TEMPLATE_URL ) . 'src/images/temp/logo2.png'; ?><!--" alt="" class="endovi-dealers__image">-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="endovi-dealers__slide swiper-slide">-->
-<!--					<div class="endovi-dealers__image-container img-contain">-->
-<!--						<img src="--><?php //echo esc_attr( ENDOVI_TEMPLATE_URL ) . 'src/images/temp/amd-logo-4001.png'; ?><!--" alt="" class="endovi-dealers__image">-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="endovi-dealers__slide swiper-slide">-->
-<!--					<div class="endovi-dealers__image-container img-contain">-->
-<!--						<img src="--><?php //echo esc_attr( ENDOVI_TEMPLATE_URL ) . 'src/images/temp/logo1.png'; ?><!--" alt="" class="endovi-dealers__image">-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="endovi-dealers__slide swiper-slide">-->
-<!--					<div class="endovi-dealers__image-container img-contain">-->
-<!--						<img src="--><?php //echo esc_attr( ENDOVI_TEMPLATE_URL ) . 'src/images/temp/logo2.png'; ?><!--" alt="" class="endovi-dealers__image">-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="endovi-dealers__slide swiper-slide">-->
-<!--					<div class="endovi-dealers__image-container img-contain">-->
-<!--						<img src="--><?php //echo esc_attr( ENDOVI_TEMPLATE_URL ) . 'src/images/temp/logo1.png'; ?><!--" alt="" class="endovi-dealers__image">-->
-<!--					</div>-->
-<!--				</div>-->
 			</div>
 		</div>
 	</div>

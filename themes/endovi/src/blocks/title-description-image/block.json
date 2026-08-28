@@ -1,0 +1,33 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "endovi/title-description-image",
+	"title": "Заголовок описание изображение",
+	"description": "Блок Заголовок описание изображение",
+	"category": "endovi-blocks",
+	"icon": "block-default",
+	"keywords": [
+		"title",
+		"description",
+		"image",
+		"custom",
+		"acf",
+		"block"
+	],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "markup.php"
+	},
+	"supports": {
+		"align": [
+			"full"
+		],
+		"anchor": true,
+		"multiple": true
+	},
+	"editorScript": "file:index.js",
+	"editorStyle": "file:index.css",
+	"script": "file:script.js",
+	"style": "file:style-index.css",
+	"viewScript": "file:front.js"
+}

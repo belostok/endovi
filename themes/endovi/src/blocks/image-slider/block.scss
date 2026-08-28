@@ -1,0 +1,115 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-image-slider {
+	overflow: hidden;
+	margin-block: inEm(120px);
+	background: $clr-light-gray;
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: url($path-static-media-inline + '/triangle-image-slider.svg') no-repeat center;
+		background-size: auto 100%;
+	}
+
+	&__wrapper {
+		padding-block: inEm(120px) inEm(148px);
+		width: inEm(1030px);
+		max-width: 100%;
+		margin-inline: auto;
+	}
+
+	&__slider {
+		overflow: hidden;
+	}
+
+	&__slide-inner {
+		min-height: inEm(495px);
+		border-radius: inEm(20px);
+		padding: inEm(10px);
+		overflow: hidden;
+	}
+
+	&__image-container {
+		inset: 0;
+	}
+
+	&__play-button {
+		inset: 0;
+		margin: auto;
+		width: inRem(80px);
+		aspect-ratio: 1/1;
+		border-radius: 50%;
+		background: $clr-bg;
+
+		&_hidden {
+			display: none;
+		}
+
+		svg {
+			width: inRem(25px);
+			height: inRem(28px);
+			pointer-events: none;
+			transform: translateX(inRem(3px));
+		}
+	}
+
+	&__card {
+		border-radius: inEm(10px);
+		background: $clr-bg;
+		width: inEm(300px);
+		max-width: 100%;
+		min-height: inEm(137px);
+		padding: inEm(20px);
+		row-gap: inEm(20px);
+	}
+
+	&__counter-current {
+		color: $clr-action;
+	}
+
+	&__nav {
+		background: $clr-bg;
+
+		@include mouseover {
+			opacity: 1;
+			background: $clr-base;
+
+			svg {
+
+				path {
+					fill: $clr-bg;
+				}
+			}
+		}
+
+		&_prev {
+			right: calc(100% + #{inEm(10px)});
+		}
+
+		&_next {
+			left: calc(100% + #{inEm(10px)});
+		}
+	}
+
+	&__pagination {
+		bottom: auto;
+		top: calc(100% + #{inEm(20px)});
+
+		.swiper-pagination-bullet {
+			opacity: 1;
+			background: $clr-bg;
+		}
+
+		.swiper-pagination-bullet-active {
+			background: $clr-action;
+		}
+	}
+}

@@ -1,0 +1,18 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-three-cards-description {
+	margin-block: inEm(120px);
+
+	&__items {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: inEm(-10px);
+	}
+}

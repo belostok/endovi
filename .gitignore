@@ -22,3 +22,5 @@ upgrade/
 uploads/
 
 debug.log
+/languages
+/ai1wm-backups

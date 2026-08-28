@@ -1,0 +1,72 @@
+@import '../helpers';
+@import '../helpers/helpers-front-only';
+
+body.js-popup-open {
+	overflow: hidden;
+}
+
+.endovi-popup {
+	position: fixed;
+	inset: 0;
+	z-index: 12;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: inRem(20px);
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transition: opacity $transition-default, visibility $transition-default;
+
+	&.js-popup-active {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+	}
+}
+
+.endovi-popup-form {
+	width: 100%;
+	max-width: inRem(432px);
+	max-height: calc(100vh - #{inRem(40px)});
+	overflow: auto;
+
+	&__inner {
+		width: 100%;
+	}
+
+	&__container {
+		padding: inRem(30px);
+		background: $clr-bg;
+		border: 1px solid $clr-medium-gray;
+		border-radius: inRem(20px);
+	}
+
+	&__close {
+		top: inRem(10px);
+		right: inRem(10px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: inRem(24px);
+		height: inRem(24px);
+		padding: 0;
+		border: 0;
+		background: transparent;
+		cursor: pointer;
+
+		& > * {
+			pointer-events: none;
+		}
+	}
+
+	&__title-container {
+		margin-bottom: inRem(40px);
+		padding-right: inRem(32px);
+	}
+
+	&__title {
+		font-size: inRem(30px);
+		font-weight: 400;
+	}
+}

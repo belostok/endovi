@@ -1,0 +1,68 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-distributors {
+	margin-block: inEm(120px);
+
+	&__wrapper {
+		background: $clr-background-gray;
+		padding: inEm(40px);
+		border-radius: inEm(30px);
+	}
+
+	&__title-container {
+		margin-bottom: inEm(40px);
+	}
+
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: inEm(10px);
+	}
+
+	&__item {
+		border-radius: inEm(20px);
+		padding: inEm(20px);
+		background: $clr-bg;
+		min-height: inEm(487px);
+		row-gap: inEm(10px);
+
+		&::before {
+			content: '';
+			@include corner_triangle;
+			top: inEm(20px);
+			right: inEm(20px);
+		}
+
+		a {
+			text-decoration: underline;
+		}
+
+		&-logo-container {
+			height: inEm(37px);
+			margin-bottom: inEm(40px);
+		}
+
+		&-logo {
+			max-height: 100%;
+		}
+
+		&-name-container {
+			min-height: inEm(60px);
+		}
+	}
+
+	&__item-contact {
+		padding-block: inEm(20px);
+		row-gap: inEm(14px);
+
+		&:not(:last-child) {
+			border-bottom: 1px solid $clr-medium-gray;
+		}
+	}
+}

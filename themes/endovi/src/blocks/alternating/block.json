@@ -1,0 +1,31 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "endovi/alternating",
+	"title": "Чередование карточек",
+	"description": "Блок Чередование карточек",
+	"category": "endovi-blocks",
+	"icon": "block-default",
+	"keywords": [
+		"alternating",
+		"custom",
+		"acf",
+		"block"
+	],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "markup.php"
+	},
+	"supports": {
+		"align": [
+			"full"
+		],
+		"anchor": true,
+		"multiple": true
+	},
+	"editorScript": "file:index.js",
+	"editorStyle": "file:index.css",
+	"script": "file:script.js",
+	"style": "file:style-index.css",
+	"viewScript": "file:front.js"
+}

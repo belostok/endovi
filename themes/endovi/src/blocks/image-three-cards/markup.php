@@ -82,13 +82,15 @@ if ( ! empty( $block['align'] ) ) {
 						continue;
 					}
 					?>
-					<div class="endovi-image-three-cards__item">
-						<div class="endovi-image-three-cards__item-title-container">
-							<h4 class="endovi-image-three-cards__item-title h4">
-								<?php echo wp_kses_post( $item_title ); ?>
-							</h4>
-						</div>
-					</div>
+					<?php
+					get_template_part(
+						'partials/card',
+						null,
+						array(
+							'title' => $item_title,
+						)
+					);
+					?>
 				<?php endforeach; ?>
 			</div>
 		</div>

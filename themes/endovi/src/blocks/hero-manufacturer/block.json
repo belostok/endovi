@@ -1,0 +1,32 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "endovi/hero-manufacturer",
+	"title": "Заголовок производитель",
+	"description": "Блок Заголовок производитель",
+	"category": "endovi-blocks",
+	"icon": "block-default",
+	"keywords": [
+		"hero",
+		"manufacturer",
+		"custom",
+		"acf",
+		"block"
+	],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "markup.php"
+	},
+	"supports": {
+		"align": [
+			"full"
+		],
+		"anchor": true,
+		"multiple": false
+	},
+	"editorScript": "file:index.js",
+	"editorStyle": "file:index.css",
+	"script": "file:script.js",
+	"style": "file:style-index.css",
+	"viewScript": "file:front.js"
+}

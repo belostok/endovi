@@ -1,0 +1,125 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+@mixin equipment-row-leader {
+	position: relative;
+	// Reserve space so wrapped title does not sit under the value.
+	padding-right: inEm(48px);
+
+	&::before {
+		content: '';
+		position: absolute;
+		right: 0;
+		bottom: 1px;
+		left: 0;
+		z-index: 0;
+		border-bottom: 1px dotted $clr-medium-gray;
+	}
+
+	.endovi-equipment__list-item-title {
+		display: inline;
+		position: relative;
+		z-index: 1;
+		margin: 0;
+		padding-right: inEm(4px);
+		background-color: $clr-bg;
+		box-decoration-break: clone;
+		-webkit-box-decoration-break: clone;
+	}
+
+	.endovi-equipment__list-item-value-container {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+		padding-left: inEm(4px);
+		background-color: $clr-bg;
+		column-gap: inEm(3px);
+	}
+}
+
+.endovi-equipment {
+	margin-block: inEm(120px);
+
+	&__title-container {
+		margin-bottom: inEm(40px);
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		border-top: 1px solid $clr-medium-gray;
+		border-bottom: 1px solid $clr-medium-gray;
+		padding-block: inEm(30px);
+	}
+
+	&__side {
+
+		&_list {
+			padding-left: inEm(30px);
+			border-left: 1px solid $clr-medium-gray;
+			row-gap: inEm(40px);
+		}
+	}
+
+	&__image-container {
+		width: inEm(460px);
+		max-width: 100%;
+		aspect-ratio: 1/1;
+	}
+
+	&__list {
+
+		& > *:first-child {
+			margin-top: 0;
+		}
+	}
+
+	&__sub-list {
+		margin-top: inEm(20px);
+	}
+
+	&__list-item {
+
+		&_has-sub {
+			margin-block: inEm(40px);
+		}
+
+		&_no-pos {
+
+			.endovi-equipment__sub-list {
+				margin-top: 0;
+
+				.endovi-equipment__sub-list-item:first-child {
+					margin-top: 0;
+				}
+			}
+		}
+
+		&:not(&_has-sub):has(.endovi-equipment__list-item-value-container) {
+			@include equipment-row-leader;
+			margin-block: inEm(10px);
+		}
+	}
+
+	&__sub-list-item {
+
+		&:has(.endovi-equipment__list-item-value-container) {
+			@include equipment-row-leader;
+			margin-block: inEm(10px);
+		}
+	}
+
+	&__list-item-value-container {
+		column-gap: inEm(3px);
+	}
+
+	&__note {
+		text-align: right;
+	}
+}

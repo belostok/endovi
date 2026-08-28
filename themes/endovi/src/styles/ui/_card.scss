@@ -1,0 +1,17 @@
+@import '../helpers';
+@import '../helpers/helpers-front-only';
+
+.endovi-card {
+	position: relative;
+	min-height: inEm(134px);
+	background: $clr-bg;
+	border-radius: inEm(10px);
+	padding: inEm(64px) inEm(30px) inEm(30px);
+
+	&::before {
+		content: '';
+		@include corner_triangle;
+		top: inEm(30px);
+		left: inEm(30px);
+	}
+}

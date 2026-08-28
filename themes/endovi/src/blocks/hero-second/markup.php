@@ -36,7 +36,15 @@ if ( ! empty( $block['align'] ) ) {
 	<div class="endovi-hero-second__upper endovi-container">
 		<div class="endovi-hero-second__upper-wrapper endovi-wrapper">
 			<div class="endovi-hero-second__title-side flex fwrap">
-				<?php get_template_part( 'partials/breadcrumbs' ); ?>
+				<?php
+				get_template_part(
+					'partials/breadcrumbs',
+					null,
+					array(
+						'classes' => 'endovi-hero-second__breadcrumbs-container',
+					)
+				);
+				?>
 				<?php if ( $_title ) : ?>
 					<div class="endovi-hero-second__title-container fg1">
 						<h1 class="endovi-hero-second__title h2">

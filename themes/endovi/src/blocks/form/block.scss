@@ -1,0 +1,49 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-form-block {
+	position: relative;
+	margin-bottom: inEm(120px);
+
+	&__wrapper {
+		position: relative;
+		border-radius: inEm(30px);
+		overflow: hidden;
+		background: $grd-main;
+
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background-repeat: no-repeat;
+			background-position-x: 100%;
+			background-size: cover;
+			background-image: url($path-static-media-inline + '/triangle-form.svg');
+		}
+	}
+
+	&__grid {
+		position: relative;
+		padding: inEm(60px);
+		display: flex;
+		justify-content: space-between;
+		column-gap: inEm(40px);
+	}
+
+	&__title-container {
+		width: inEm(566px);
+		max-width: 100%;
+		flex-grow: 1;
+	}
+
+	&__form {
+		border-radius: inEm(20px);
+		padding: inEm(30px);
+		background: $clr-bg;
+	}
+}

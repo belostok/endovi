@@ -1,0 +1,29 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-warning {
+	margin-top: inEm(120px);
+	background: $grd-main;
+
+	&__wrapper {
+		padding-block: inEm(100px);
+	}
+
+	&__title-container {
+		text-align: center;
+		margin-bottom: inEm(40px);
+	}
+
+	&__description-container {
+		background: $clr-bg;
+		padding: inEm(20px);
+		border-radius: inEm(10px);
+		max-width: inEm(719px);
+		margin-inline: auto;
+	}
+}

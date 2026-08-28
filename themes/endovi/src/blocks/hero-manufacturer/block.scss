@@ -1,0 +1,39 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-hero-manufacturer {
+
+	&__wrapper {
+		padding-block: inEm(146px) inEm(20px);
+		border-bottom: 1px solid $clr-medium-gray;
+	}
+
+	&__header {
+		padding-right: inEm(122px);
+	}
+
+	&__breadcrumbs-container {
+		flex-shrink: 0;
+	}
+
+	&__title-container {
+		max-width: inEm(733px);
+
+		h1 {
+			font-size: inEm(40px);
+		}
+	}
+
+	&__image-container {
+		margin-top: inEm(40px);
+	}
+
+	&__image {
+		width: 100%;
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "endovi/two-cards-description",
+	"title": "Две карточки с описанием",
+	"description": "Блок Две карточки с описанием",
+	"category": "endovi-blocks",
+	"icon": "block-default",
+	"keywords": [
+		"two",
+		"cards",
+		"description",
+		"custom",
+		"acf",
+		"block"
+	],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "markup.php"
+	},
+	"supports": {
+		"align": [
+			"full"
+		],
+		"anchor": true,
+		"multiple": true
+	},
+	"editorScript": "file:index.js",
+	"editorStyle": "file:index.css",
+	"script": "file:script.js",
+	"style": "file:style-index.css",
+	"viewScript": "file:front.js"
+}

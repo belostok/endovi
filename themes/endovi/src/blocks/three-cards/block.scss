@@ -1,0 +1,51 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-three-cards {
+	background: $grd-main;
+
+	&__wrapper {
+		padding-block: inEm(120px);
+	}
+
+	&__title-container {
+		text-align: center;
+		margin-bottom: inEm(40px);
+	}
+
+	&__items {
+		margin: inEm(-5px);
+	}
+
+	&__item-outer {
+		flex: 1 1 20%;
+		min-width: 20%;
+		padding: inEm(5px);
+	}
+
+	&__item {
+		height: 100%;
+
+		&_image {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding: inEm(20px);
+			min-height: inEm(152px);
+
+			&::before {
+				content: none;
+			}
+		}
+
+		&-image-container {
+			width: inEm(32px);
+			aspect-ratio: 1/1;
+		}
+	}
+}

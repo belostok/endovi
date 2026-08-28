@@ -1,0 +1,29 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-email {
+	margin-top: inEm(40px);
+	color: $clr-bg;
+	background: $grd-main;
+	text-align: center;
+
+	&__wrapper {
+		max-width: inEm(800px);
+		min-height: inEm(478px);
+		padding-block: inEm(40px);
+		margin-inline: auto;
+	}
+
+	&__description-container {
+		margin-top: inEm(20px);
+	}
+
+	&__email-container {
+		margin-top: inEm(40px);
+	}
+}

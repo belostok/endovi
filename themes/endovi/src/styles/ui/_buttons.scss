@@ -101,6 +101,21 @@ button {
 		}
 	}
 
+	&_grouped {
+		position: relative;
+
+		@include mouseover {
+			opacity: 1;
+			background: $clr-base;
+
+			svg {
+				path {
+					fill: $clr-bg;
+				}
+			}
+		}
+	}
+
 	svg {
 		pointer-events: none;
 		width: inEm(10px);

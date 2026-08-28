@@ -3,11 +3,12 @@
 use function endoviTheme\Helpers\trim_string;
 
 $text       = trim_string( $args['text'] ?? '' );
-$link       = trim_string( $args['link'] ?? '' );
+$_link      = trim_string( $args['link'] ?? '' );
 $icon_color = trim_string( $args['icon_color'] ?? '#020033' );
+$is_value   = (bool) ( $args['is_value'] ?? false );
 $classes    = trim_string( $args['classes'] ?? '' );
 
-if ( ! $text || ! $link ) {
+if ( ! $text || ! $_link ) {
 	return null;
 }
 
@@ -15,7 +16,7 @@ if ( str_contains( $classes, 'endovi-button_orange' ) ) {
 	$icon_color = '#FFF';
 }
 ?>
-<a href="<?php echo esc_url( $link ); ?>" class="endovi-button <?php echo esc_attr( $classes ); ?>">
+<a href="<?php echo $is_value ? esc_attr( $_link ) : esc_url( $_link ); ?>" class="endovi-button <?php echo esc_attr( $classes ); ?>">
 	<span><?php echo esc_html( $text ); ?></span>
 	<?php if ( $icon_color ) : ?>
 		<svg width="10" height="8" viewBox="0 0 10 8" fill="none"

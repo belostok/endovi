@@ -1,0 +1,12 @@
+@import '../helpers';
+@import '../helpers/helpers-front-only';
+
+.endovi-map {
+	width: 100%;
+	height: inEm(700px);
+
+	iframe {
+		width: 100%;
+		height: 100%;
+	}
+}

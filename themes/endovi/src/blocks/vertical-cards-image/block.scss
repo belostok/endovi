@@ -1,0 +1,75 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-vertical-cards-image {
+
+	&_scroll {
+		margin-bottom: inEm(120px);
+
+		.endovi-card-icon {
+			width: inEm(477px);
+
+			&__inner {
+				row-gap: inEm(44px);
+			}
+		}
+	}
+
+	&_scroll & {
+
+		&__wrapper {
+			height: auto;
+			min-height: inEm(702px);
+			max-height: none;
+			background: $clr-bg-gray;
+		}
+
+		&__items {
+			margin: inEm(52px) 0 0;
+		}
+
+		&__title {
+			color: $clr-base !important;
+		}
+	}
+
+	&__wrapper {
+		height: inEm(800px);
+		max-height: inEm(1000px);
+		padding: inEm(30px);
+		border-radius: inEm(30px);
+		overflow: hidden;
+	}
+
+	&__image-container {
+		inset: 0;
+	}
+
+	&__title-container {
+
+		@include md-up {
+			max-width: 50%;
+		}
+	}
+
+	&__title {
+		color: $clr-bg;
+	}
+
+	&__items {
+		margin: inEm(95px) inEm(-5px) inEm(-5px);
+		height: 100%;
+		align-content: flex-start;
+	}
+
+	&__scroll-image-container {
+		bottom: inEm(12px);
+		right: inEm(22px);
+		left: calc(#{inEm(30px) + inEm(477px) + inEm(40px)});
+	}
+}

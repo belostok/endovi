@@ -1,0 +1,26 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-additions {
+	margin-block: inEm(120px);
+
+	&__header {
+		margin-bottom: inEm(40px);
+	}
+
+	&__item {
+		row-gap: inEm(30px);
+	}
+
+	&__image-container {
+		border-radius: inEm(20px);
+		overflow: hidden;
+		width: 100%;
+		aspect-ratio: 1/1;
+	}
+}

@@ -1,0 +1,53 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-center-text-icons {
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: inEm(100px);
+		inset-inline: 0;
+		transform: translateX(inEm(10px));
+		margin-inline: auto;
+		width: inEm(885px);
+		height: inEm(1270px);
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-image: url($path-static-media-inline + '/triangle-center-text-icons.svg');
+	}
+
+	&__wrapper {
+		position: relative;
+		padding-block: inEm(120px) inEm(155px);
+		min-height: inEm(600px);
+		text-align: center;
+	}
+
+	&__title-container {
+		width: inEm(731px);
+		max-width: 100%;
+	}
+
+	&__description-container {
+		margin-top: inEm(20px);
+		max-width: inEm(663px);
+	}
+
+	&__icons {
+		margin-top: inEm(40px);
+		gap: inEm(10px);
+	}
+
+	&__icon-container {
+		width: inEm(60px);
+		aspect-ratio: 1/1;
+	}
+}

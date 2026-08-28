@@ -9,10 +9,23 @@
 .endovi-two-cards {
 	$root: &;
 
-	margin-top: inEm(120px);
+	margin-block: inEm(120px);
 
 	@include sm-down {
 		margin-top: inEm(70px);
+	}
+
+	&__header {
+		column-gap: inEm(60px);
+	}
+
+	&__description-container {
+		width: 50%;
+		flex-shrink: 0;
+	}
+
+	&__description {
+		max-width: inRem(585px);
 	}
 
 	&__items {
@@ -28,7 +41,7 @@
 	&__item {
 
 		@include sm-up {
-			min-height: inEm(538px);
+			min-height: inEm(500px);
 
 			&:first-child {
 				border-right: 1px solid $clr-medium-gray;
@@ -36,6 +49,16 @@
 
 			&:last-child {
 				padding-left: inEm(30px);
+			}
+
+			&:nth-child(odd) {
+
+				#{$root} {
+
+					&__item-description-container {
+						padding-right: inEm(30px);
+					}
+				}
 			}
 		}
 
@@ -81,7 +104,7 @@
 		&-upper {
 
 			@include sm-up {
-				padding-bottom: inEm(40px);
+				padding-bottom: inEm(80px);
 			}
 		}
 
@@ -89,7 +112,9 @@
 			width: inEm(330px);
 			aspect-ratio: 330 / 250;
 			border-radius: inEm(20px);
+			margin-top: inEm(80px);
 			overflow: hidden;
+			align-self: center;
 
 			@include sm-down {
 				width: 100%;
@@ -98,14 +123,11 @@
 		}
 
 		&-description-container {
-
-			@include sm-up {
-				min-height: inEm(140px);
-			}
+			max-width: inEm(610px);
 		}
 
 		&-description {
-			color: $clr-second;
+			color: $clr-gray;
 		}
 	}
 }

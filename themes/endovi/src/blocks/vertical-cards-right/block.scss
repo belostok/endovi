@@ -1,0 +1,31 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-vertical-cards-right {
+	background: $clr-background-gray;
+
+	&__wrapper {
+		min-height: inEm(934px);
+		padding-block: inEm(30px) inEm(50px);
+	}
+
+	&__image-container {
+		inset: 0;
+		max-width: $max-container-width;
+	}
+
+	&__image {
+		object-position: bottom left !important;
+	}
+
+	&__items {
+		row-gap: inEm(10px);
+		width: inEm(505px);
+		max-width: 100%;
+	}
+}

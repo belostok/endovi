@@ -1,0 +1,61 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-hero-inner {
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: inEm(1427px);
+		height: inEm(1171px);
+		top: 0;
+		inset-inline: 0;
+		margin-inline: auto;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-image: url($path-static-media-inline + '/triangle-hero-inner.svg');
+	}
+
+	&_no-image & {
+
+		&__title-container {
+
+			@include md-up {
+				max-width: inEm(1135px);
+			}
+		}
+	}
+
+	&__wrapper {
+		position: relative;
+		padding-block: inEm(146px) inEm(39px);
+	}
+
+	&__image-container {
+		width: 350px;
+		aspect-ratio: 1/1;
+		border-radius: inEm(20px);
+		overflow: hidden;
+		background: $clr-bg-gray;
+		margin: inEm(75px) auto inEm(58px);
+	}
+
+	&__title-container {
+		margin-top: inEm(50px);
+
+		@include md-up {
+			max-width: inEm(861px);
+		}
+	}
+
+	&__description-container {
+		margin-top: inEm(20px);
+	}
+}

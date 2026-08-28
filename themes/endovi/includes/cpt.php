@@ -43,12 +43,46 @@ function modify_post_type_args( $args, $post_type ): array {
  */
 function register_post_types() {
 	register_post_type(
+		Constants::PT_SLUG_CATALOG,
+		[
+			'label'                 => esc_attr__( 'Каталог', 'endovi' ),
+			'labels'                => [
+				'name'          => esc_attr__( 'Каталог', 'endovi' ),
+				'singular_name' => esc_attr__( 'Каталог', 'endovi' ),
+			],
+			'description'           => '',
+			'public'                => true,
+			'publicly_queryable'    => true,
+			'show_ui'               => true,
+			'show_in_rest'          => true,
+			'rest_base'             => 'catalog',
+			'rest_controller_class' => 'WP_REST_Posts_Controller',
+			'has_archive'           => false,
+			'show_in_menu'          => true,
+			'show_in_nav_menus'     => true,
+			'delete_with_user'      => false,
+			'exclude_from_search'   => false,
+			'capability_type'       => 'post',
+			'map_meta_cap'          => true,
+			'hierarchical'          => true,
+			'query_var'             => true,
+			'supports'              => [
+				'title',
+				'editor',
+				'excerpt',
+				'thumbnail',
+			],
+			'menu_icon'             => 'dashicons-star-filled',
+		]
+	);
+
+	register_post_type(
 		Constants::PT_SLUG_NEWS,
 		[
-			'label'                 => esc_attr__( 'Новости', 'xorit' ),
+			'label'                 => esc_attr__( 'Медиацентр', 'xorit' ),
 			'labels'                => [
-				'name'          => esc_attr__( 'Новости', 'xorit' ),
-				'singular_name' => esc_attr__( 'Новость', 'xorit' ),
+				'name'          => esc_attr__( 'Медиацентр', 'xorit' ),
+				'singular_name' => esc_attr__( 'Медиацентр', 'xorit' ),
 			],
 			'description'           => '',
 			'public'                => true,
@@ -73,7 +107,7 @@ function register_post_types() {
 				'thumbnail',
 				'page-attributes',
 			],
-			'menu_icon'             => 'dashicons-star-filled',
+			'menu_icon'             => 'dashicons-star-empty',
 		]
 	);
 }

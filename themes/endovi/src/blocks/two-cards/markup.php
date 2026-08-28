@@ -14,12 +14,14 @@ if ( empty( $block['id'] ) || $hide ) {
 	return null;
 }
 
-$_title = trim_string( get_field( 'two_cards_title' ) );
-$items  = get_array( get_field( 'two_cards_items' ) );
+$items = get_array( get_field( 'two_cards_items' ) );
 
 if ( empty( $items ) ) {
 	return null;
 }
+
+$_title      = trim_string( get_field( 'two_cards_title' ) );
+$description = trim_string( get_field( 'two_cards_description' ) );
 
 $anchor = '';
 if ( ! empty( $block['anchor'] ) ) {
@@ -41,32 +43,49 @@ if ( ! empty( $block['align'] ) ) {
 	<?php echo $anchor; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 >
 	<div class="endovi-two-cards__wrapper endovi-wrapper">
-		<?php if ( $_title ) : ?>
-			<div class="endovi-two-cards__title-container">
-				<h2 class="endovi-two-cards__title h2">
-					<?php echo wp_kses_post( $_title ); ?>
-				</h2>
-			</div>
-		<?php endif; ?>
+		<div class="endovi-two-cards__header flex jcspb">
+			<?php if ( $_title ) : ?>
+				<div class="endovi-two-cards__title-container">
+					<h2 class="endovi-two-cards__title h2">
+						<?php echo wp_kses_post( $_title ); ?>
+					</h2>
+				</div>
+			<?php endif; ?>
+			<?php if ( $description ) : ?>
+				<div class="endovi-two-cards__description-container">
+					<p class="endovi-two-cards__description text-normal text-gray">
+						<?php echo wp_kses_post( $description ); ?>
+					</p>
+				</div>
+			<?php endif; ?>
+		</div>
 		<div class="endovi-two-cards__items">
 			<?php
 			$i = 0;
 			foreach ( $items as $item ) :
 				$item_image       = (int) ( $item['image'] ?? 0 );
+				$item_title       = trim_string( $item['title'] ?? '' );
 				$item_description = trim_string( $item['description'] ?? '' );
 				?>
 				<?php if ( $i % 2 === 0 ) : ?>
 					<div class="endovi-two-cards__item-row">
 				<?php endif; ?>
 				<div class="endovi-two-cards__item flex fdc">
-					<div class="endovi-two-cards__item-upper fg1 flex jcc aife">
+					<div class="endovi-two-cards__item-upper flex fdc">
+						<?php if ( $item_title ) : ?>
+							<div class="endovi-two-cards__item-title-container">
+								<h3 class="endovi-two-cards__item-title h3">
+									<?php echo esc_html( $item_title ); ?>
+								</h3>
+							</div>
+						<?php endif; ?>
 						<?php if ( $item_image ) : ?>
 							<div class="endovi-two-cards__item-image-container img-cover">
 								<?php endovi_the_image( $item_image, 'endovi-two-cards__image' ); ?>
 							</div>
 						<?php endif; ?>
 					</div>
-					<div class="endovi-two-cards__item-description-container flex aife">
+					<div class="endovi-two-cards__item-description-container">
 						<?php if ( $item_description ) : ?>
 							<p class="endovi-two-cards__item-description text-normal">
 								<?php echo wp_kses_post( $item_description ); ?>

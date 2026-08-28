@@ -40,6 +40,10 @@
 		}
 	}
 
+	&__title {
+		width: max-content;
+	}
+
 	&__item {
 		position: relative;
 		width: inEm(1030px);
@@ -49,7 +53,7 @@
 		border-radius: inEm(20px);
 		background: $clr-bg;
 		padding: inEm(30px);
-		column-gap: inEm(75px);
+		column-gap: inEm(30px);
 
 		@include md-down {
 			flex-direction: column;

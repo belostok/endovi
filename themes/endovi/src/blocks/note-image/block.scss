@@ -1,0 +1,36 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-note-image {
+	margin-bottom: inEm(120px);
+
+	&__image-container {
+		inset: 0;
+	}
+
+	&__wrapper {
+		min-height: inEm(744px);
+		padding-block: inEm(30px);
+	}
+
+	&__card {
+		position: relative;
+		width: inEm(695px);
+		max-width: 100%;
+		background: $clr-bg;
+		padding: inEm(64px) inEm(30px) inEm(30px);
+		border-radius: inEm(10px);
+
+		&::before {
+			content: '';
+			@include corner_triangle;
+			top: inEm(30px);
+			left: inEm(30px);
+		}
+	}
+}

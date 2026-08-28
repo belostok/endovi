@@ -1,0 +1,58 @@
+@import '../helpers';
+@import '../helpers/helpers-front-only';
+
+.endovi-card-description {
+	max-width: 33.3333%;
+	flex: 0 0 33.3333%;
+	padding: inEm(10px);
+
+	&__inner {
+		row-gap: inEm(30px);
+	}
+
+	&__image-wrapper {
+		width: 100%;
+		aspect-ratio: 1/1;
+		border-radius: inEm(30px);
+		overflow: hidden;
+		background: $clr-light-gray;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__image-container {
+		width: inEm(250px);
+		max-width: 80%;
+		aspect-ratio: 1/1;
+		border-radius: inEm(20px);
+		overflow: hidden;
+	}
+
+	&__content {
+		row-gap: inEm(20px);
+
+		ul {
+
+			li {
+				position: relative;
+				padding-left: inRem(24px);
+
+				&::before {
+					content: '';
+					width: 3px;
+					height: 3px;
+					border-radius: 50%;
+					background: $clr-gray;
+					position: absolute;
+					top: inRem(10px);
+					left: inRem(10px);
+				}
+
+				&:not(:last-child) {
+					margin-bottom: inRem(5px);
+				}
+			}
+		}
+	}
+}

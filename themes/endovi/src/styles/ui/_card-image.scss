@@ -1,0 +1,26 @@
+@import '../helpers';
+@import '../helpers/helpers-front-only';
+
+.endovi-card-image {
+	background: $clr-bg;
+	border-radius: inEm(10px);
+	padding: inEm(10px) inEm(30px) inEm(30px);
+	text-align: left;
+	height: 100%;
+
+	&__image-outer {
+		height: inEm(260px);
+	}
+
+	&__image-container {
+		width: inEm(180px);
+		aspect-ratio: 1/1;
+		border-radius: inEm(20px);
+		overflow: hidden;
+	}
+
+	&__title-container {
+		padding-top: inEm(20px);
+		border-top: 1px solid $clr-medium-gray;
+	}
+}

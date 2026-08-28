@@ -83,6 +83,22 @@
 				}
 			}
 		}
+
+		li.menu-item-soon {
+
+			a {
+				display: inline-flex;
+				flex-wrap: wrap;
+				gap: inRem(5px);
+				color: rgba($clr-gray, .2);
+				pointer-events: none;
+
+				svg {
+					width: inRem(31px);
+					height: inRem(16px);
+				}
+			}
+		}
 	}
 
 	&__form-container {

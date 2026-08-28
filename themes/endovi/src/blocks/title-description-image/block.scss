@@ -1,0 +1,57 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-title-description-image {
+	position: relative;
+	background: $clr-background-gray;
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-image: url($path-static-media-inline + '/triangle-title-description-image.svg');
+	}
+
+	&__wrapper {
+		padding-block: inEm(30px);
+		min-height: inEm(700px);
+		row-gap: inEm(40px);
+	}
+
+	&__title-container {
+		max-width: inEm(970px);
+	}
+
+	&__footer {
+		column-gap: inEm(40px);
+	}
+
+	&__description-container {
+		width: inEm(636px);
+		max-width: 100%;
+		border-radius: inEm(10px);
+		background: $clr-bg;
+		padding: inEm(54px) inEm(20px) inEm(20px);
+
+		&::before {
+			content: '';
+			@include corner_triangle;
+			top: inEm(20px);
+			left: inEm(20px);
+		}
+	}
+
+	&__image-container {
+		width: inEm(274px);
+		aspect-ratio: 1/1;
+		border-radius: inEm(20px);
+		overflow: hidden;
+	}
+}

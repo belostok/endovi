@@ -1,0 +1,42 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-feedback-cards {
+	margin-bottom: inEm(120px);
+
+	&__wrapper {
+		padding-top: inEm(30px);
+		border-top: 1px solid $clr-medium-gray;
+	}
+
+	&__items {
+		column-count: 2;
+		column-gap: inEm(20px);
+
+		@include md-down {
+			column-count: 1;
+		}
+	}
+
+	&__item {
+		break-inside: avoid;
+		width: 100%;
+		margin-bottom: inEm(20px);
+		padding: inEm(40px);
+		border-radius: inEm(20px);
+		border: 1px solid $clr-medium-gray;
+
+		&-feedback-container {
+			margin-bottom: inEm(60px);
+		}
+
+		&-position-container {
+			margin-top: inEm(20px);
+		}
+	}
+}

@@ -110,8 +110,8 @@ function enqueue_scripts() {
 		'endovi-front-scripts',
 		'endovi_ajax',
 		[
-			'url'                         => admin_url( 'admin-ajax.php' ),
-			'nonce'                       => wp_create_nonce( 'endovi-nonce' ),
+			'url'   => admin_url( 'admin-ajax.php' ),
+			'nonce' => wp_create_nonce( 'endovi-nonce' ),
 		]
 	);
 }

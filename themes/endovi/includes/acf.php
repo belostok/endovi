@@ -54,12 +54,12 @@ function register_fields() {
 
 	$items = array(
 		'options',
+		'footer-menu',
 	);
 	foreach ( $items as $item ) {
 		include_once sprintf( '%s/acf-fields/%s.php', __DIR__, $item );
 	}
 }
-
 
 
 /**
@@ -95,6 +95,29 @@ function wysiwyg_custom_toolbars( $toolbars ) {
 	$toolbars['Heading'] = [
 		'1' => [
 			'formatselect',
+		],
+	];
+
+	$toolbars['Heading_List'] = [
+		'1' => [
+			'formatselect',
+			'bullist',
+		],
+	];
+
+	$toolbars['Heading_Color'] = [
+		'1' => [
+			'formatselect',
+		],
+		'2' => [
+			'forecolor',
+		],
+	];
+
+	$toolbars['Heading_Link'] = [
+		'1' => [
+			'formatselect',
+			'link',
 		],
 	];
 

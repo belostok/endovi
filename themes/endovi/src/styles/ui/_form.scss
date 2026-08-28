@@ -24,7 +24,8 @@
 	input {
 
 		&[type="text"],
-		&[type="tel"] {
+		&[type="tel"],
+		&[type="email"] {
 			width: 100%;
 			height: inRem(51px);
 			padding: 0 inRem(16px);

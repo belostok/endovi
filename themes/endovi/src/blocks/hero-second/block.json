@@ -2,8 +2,8 @@
 	"$schema": "https://json.schemastore.org/block.json",
 	"apiVersion": 2,
 	"name": "endovi/hero-second",
-	"title": "Внутренний заголовок",
-	"description": "Блок Внутренний заголовок",
+	"title": "Заголовок о нас",
+	"description": "Блок Заголовок о нас",
 	"category": "endovi-blocks",
 	"icon": "block-default",
 	"keywords": [

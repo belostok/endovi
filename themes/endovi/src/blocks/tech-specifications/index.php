@@ -1,0 +1,308 @@
+<?php
+
+namespace endoviTheme\Blocks\TechSpecifications;
+
+defined( 'ABSPATH' ) || exit;
+
+add_action( 'init', __NAMESPACE__ . '\\register_block' );
+add_action( 'init', __NAMESPACE__ . '\\register_fields' );
+
+/**
+ * Registers all block assets so that they can be enqueued through Gutenberg
+ * in the corresponding context.
+ */
+function register_block() {
+	register_block_type( __DIR__ );
+}
+
+/**
+ * Register block fields
+ * @return void
+ */
+function register_fields() {
+	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+		return;
+	}
+
+	acf_add_local_field_group(
+		array(
+			'key'                   => 'group_6a6f6af16891f',
+			'title'                 => esc_attr__( 'Блок Технические характеристики', 'endovi' ),
+			'fields'                => array(
+				array(
+					'key'               => 'field_6a6f6af2a22d7',
+					'label'             => esc_attr__( 'Скрыть', 'endovi' ),
+					'name'              => 'tech_specifications_hide',
+					'aria-label'        => '',
+					'type'              => 'true_false',
+					'instructions'      => '',
+					'required'          => 0,
+					'conditional_logic' => 0,
+					'wrapper'           => array(
+						'width' => '',
+						'class' => '',
+						'id'    => '',
+					),
+					'message'           => '',
+					'default_value'     => 0,
+					'allow_in_bindings' => 0,
+					'ui_on_text'        => '',
+					'ui_off_text'       => '',
+					'ui'                => 1,
+				),
+				array(
+					'key'               => 'field_6a6f6b7556ff2',
+					'label'             => esc_attr__( 'Заголовок', 'endovi' ),
+					'name'              => 'tech_specifications_title',
+					'aria-label'        => '',
+					'type'              => 'textarea',
+					'instructions'      => '',
+					'required'          => 0,
+					'conditional_logic' => 0,
+					'wrapper'           => array(
+						'width' => '',
+						'class' => '',
+						'id'    => '',
+					),
+					'default_value'     => '',
+					'maxlength'         => '',
+					'allow_in_bindings' => 0,
+					'rows'              => 2,
+					'placeholder'       => '',
+					'new_lines'         => 'br',
+				),
+				array(
+					'key'               => 'field_6a6f6b9756ff3',
+					'label'             => esc_attr__( 'Изображение', 'endovi' ),
+					'name'              => 'tech_specifications_image',
+					'aria-label'        => '',
+					'type'              => 'image',
+					'instructions'      => esc_attr__( 'Десктоп', 'endovi' ),
+					'required'          => 0,
+					'conditional_logic' => 0,
+					'wrapper'           => array(
+						'width' => '50',
+						'class' => '',
+						'id'    => '',
+					),
+					'return_format'     => 'id',
+					'library'           => 'all',
+					'min_width'         => '',
+					'min_height'        => '',
+					'min_size'          => '',
+					'max_width'         => '',
+					'max_height'        => '',
+					'max_size'          => '',
+					'mime_types'        => '',
+					'allow_in_bindings' => 0,
+					'preview_size'      => 'medium',
+				),
+				array(
+					'key'               => 'field_6a6f6bbd56ff4',
+					'label'             => esc_attr__( 'Изображение', 'endovi' ),
+					'name'              => 'tech_specifications_image_mobile',
+					'aria-label'        => '',
+					'type'              => 'image',
+					'instructions'      => esc_attr__( 'Мобайл', 'endovi' ),
+					'required'          => 0,
+					'conditional_logic' => 0,
+					'wrapper'           => array(
+						'width' => '50',
+						'class' => '',
+						'id'    => '',
+					),
+					'return_format'     => 'id',
+					'library'           => 'all',
+					'min_width'         => '',
+					'min_height'        => '',
+					'min_size'          => '',
+					'max_width'         => '',
+					'max_height'        => '',
+					'max_size'          => '',
+					'mime_types'        => '',
+					'allow_in_bindings' => 0,
+					'preview_size'      => 'medium',
+				),
+				array(
+					'key'               => 'field_6a70c1010001',
+					'label'             => esc_attr__( 'Заголовок первой колонки', 'endovi' ),
+					'name'              => 'tech_specifications_label_header',
+					'aria-label'        => '',
+					'type'              => 'text',
+					'instructions'      => '',
+					'required'          => 0,
+					'conditional_logic' => 0,
+					'wrapper'           => array(
+						'width' => '30',
+						'class' => '',
+						'id'    => '',
+					),
+					'default_value'     => esc_attr__( 'Модель', 'endovi' ),
+					'maxlength'         => '',
+					'allow_in_bindings' => 0,
+					'placeholder'       => '',
+					'prepend'           => '',
+					'append'            => '',
+				),
+				array(
+					'key'               => 'field_6a70c1010002',
+					'label'             => esc_attr__( 'Модели', 'endovi' ),
+					'name'              => 'tech_specifications_models',
+					'aria-label'        => '',
+					'type'              => 'repeater',
+					'instructions'      => esc_attr__( 'Колонки таблицы (например VG-H1000).', 'endovi' ),
+					'required'          => 0,
+					'conditional_logic' => 0,
+					'wrapper'           => array(
+						'width' => '',
+						'class' => '',
+						'id'    => '',
+					),
+					'layout'            => 'table',
+					'pagination'        => 0,
+					'min'               => 0,
+					'max'               => 0,
+					'collapsed'         => '',
+					'button_label'      => esc_attr__( 'Добавить модель', 'endovi' ),
+					'rows_per_page'     => 20,
+					'sub_fields'        => array(
+						array(
+							'key'               => 'field_6a70c1010003',
+							'label'             => esc_attr__( 'Название', 'endovi' ),
+							'name'              => 'title',
+							'aria-label'        => '',
+							'type'              => 'textarea',
+							'instructions'      => '',
+							'required'          => 0,
+							'conditional_logic' => 0,
+							'wrapper'           => array(
+								'width' => '',
+								'class' => '',
+								'id'    => '',
+							),
+							'default_value'     => '',
+							'maxlength'         => '',
+							'allow_in_bindings' => 0,
+							'rows'              => 2,
+							'placeholder'       => '',
+							'new_lines'         => 'br',
+							'parent_repeater'   => 'field_6a70c1010002',
+						),
+					),
+				),
+				array(
+					'key'               => 'field_6a70c1010004',
+					'label'             => esc_attr__( 'Строки', 'endovi' ),
+					'name'              => 'tech_specifications_rows',
+					'aria-label'        => '',
+					'type'              => 'repeater',
+					'instructions'      => esc_attr__( 'Значения — в том же порядке, что и модели.', 'endovi' ),
+					'required'          => 0,
+					'conditional_logic' => 0,
+					'wrapper'           => array(
+						'width' => '',
+						'class' => '',
+						'id'    => '',
+					),
+					'layout'            => 'block',
+					'pagination'        => 0,
+					'min'               => 0,
+					'max'               => 0,
+					'collapsed'         => 'field_6a70c1010005',
+					'button_label'      => esc_attr__( 'Добавить строку', 'endovi' ),
+					'rows_per_page'     => 20,
+					'sub_fields'        => array(
+						array(
+							'key'               => 'field_6a70c1010005',
+							'label'             => esc_attr__( 'Параметр', 'endovi' ),
+							'name'              => 'label',
+							'aria-label'        => '',
+							'type'              => 'text',
+							'instructions'      => '',
+							'required'          => 0,
+							'conditional_logic' => 0,
+							'wrapper'           => array(
+								'width' => '',
+								'class' => '',
+								'id'    => '',
+							),
+							'default_value'     => '',
+							'maxlength'         => '',
+							'allow_in_bindings' => 0,
+							'placeholder'       => '',
+							'prepend'           => '',
+							'append'            => '',
+							'parent_repeater'   => 'field_6a70c1010004',
+						),
+						array(
+							'key'               => 'field_6a70c1010006',
+							'label'             => esc_attr__( 'Значения', 'endovi' ),
+							'name'              => 'values',
+							'aria-label'        => '',
+							'type'              => 'repeater',
+							'instructions'      => '',
+							'required'          => 0,
+							'conditional_logic' => 0,
+							'wrapper'           => array(
+								'width' => '',
+								'class' => '',
+								'id'    => '',
+							),
+							'layout'            => 'table',
+							'pagination'        => 0,
+							'min'               => 0,
+							'max'               => 0,
+							'collapsed'         => '',
+							'button_label'      => esc_attr__( 'Добавить значение', 'endovi' ),
+							'rows_per_page'     => 20,
+							'sub_fields'        => array(
+								array(
+									'key'               => 'field_6a70c1010007',
+									'label'             => esc_attr__( 'Значение', 'endovi' ),
+									'name'              => 'value',
+									'aria-label'        => '',
+									'type'              => 'textarea',
+									'instructions'      => '',
+									'required'          => 0,
+									'conditional_logic' => 0,
+									'wrapper'           => array(
+										'width' => '',
+										'class' => '',
+										'id'    => '',
+									),
+									'default_value'     => '',
+									'maxlength'         => '',
+									'allow_in_bindings' => 0,
+									'rows'              => 2,
+									'placeholder'       => '',
+									'new_lines'         => 'br',
+									'parent_repeater'   => 'field_6a70c1010006',
+								),
+							),
+							'parent_repeater'   => 'field_6a70c1010004',
+						),
+					),
+				),
+			),
+			'location'              => array(
+				array(
+					array(
+						'param'    => 'block',
+						'operator' => '==',
+						'value'    => 'endovi/tech-specifications',
+					),
+				),
+			),
+			'menu_order'            => 0,
+			'position'              => 'normal',
+			'style'                 => 'default',
+			'label_placement'       => 'top',
+			'instruction_placement' => 'label',
+			'hide_on_screen'        => '',
+			'active'                => true,
+			'description'           => '',
+			'show_in_rest'          => 0,
+			'display_title'         => '',
+		)
+	);
+}

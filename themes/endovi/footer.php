@@ -6,7 +6,7 @@
 use function endoviTheme\Helpers\trim_string;
 
 $form_title = trim_string( get_field( 'footer_form_title', 'options' ) );
-$form       = (int) ( get_field( 'footer_form', 'options' ) );
+$form       = (int) get_field( 'footer_form', 'options' );
 $copyright  = trim_string( get_field( 'footer_copyright', 'options' ) );
 $copyright  = $copyright ? do_shortcode( $copyright ) : '';
 $policy     = trim_string( get_field( 'footer_policy', 'options' ) );
@@ -98,6 +98,8 @@ $policy     = trim_string( get_field( 'footer_policy', 'options' ) );
 </div><!-- /.main-wrapper -->
 
 <div class="loader"></div>
+
+<div class="endovi-popup js-popup"></div>
 
 <?php wp_footer(); ?>
 </body>

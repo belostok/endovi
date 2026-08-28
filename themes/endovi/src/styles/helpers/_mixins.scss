@@ -110,6 +110,14 @@
 			font-size: max(10px, #{inEm(10px)});
 		}
 	}
+
+	.text-gray {
+		color: $clr-gray;
+	}
+
+	.text-white {
+		color: $clr-bg;
+	}
 }
 
 @mixin content {

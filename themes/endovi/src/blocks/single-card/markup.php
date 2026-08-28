@@ -41,7 +41,7 @@ if ( ! empty( $block['align'] ) ) {
 	<?php echo $anchor; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 >
 	<div class="endovi-single-card__wrapper endovi-wrapper">
-		<div class="endovi-single-card__item flex">
+		<div class="endovi-single-card__item flex jcspb">
 			<div class="endovi-single-card__column endovi-single-card__column_title flex fdc jcspb">
 				<?php if ( $_title ) : ?>
 					<div class="endovi-single-card__title-container">
