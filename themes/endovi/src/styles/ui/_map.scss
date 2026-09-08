@@ -5,6 +5,10 @@
 	width: 100%;
 	height: inEm(700px);
 
+	@include md-down {
+		height: inEm(500px);
+	}
+
 	iframe {
 		width: 100%;
 		height: 100%;

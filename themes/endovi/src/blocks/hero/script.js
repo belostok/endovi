@@ -15,19 +15,94 @@ document.addEventListener( 'DOMContentLoaded', () => {
 		if ( sliders[ index ] === null ) {
 			const parent = sliderContainer.closest( '.js-hero' );
 			if ( parent ) {
-				const slides        = sliderContainer.querySelectorAll( '.swiper-slide' );
-				const numPagination = parent.querySelector( '.js-pagination-number' );
-				const isAutoplay    = sliderContainer.dataset.autoplay;
-				const delay         = sliderContainer.dataset.delay;
-				const totalSlides   = slides.length;
+				const slides         = sliderContainer.querySelectorAll( '.swiper-slide' );
+				const numPagination  = parent.querySelector( '.js-pagination-number' );
+				const titleContainer = parent.querySelector( '.js-hero-title-container' );
+				const titleEl        = parent.querySelector( '.js-hero-title' );
+				const noteContainer  = parent.querySelector( '.js-hero-note-container' );
+				const noteEl         = parent.querySelector( '.js-hero-note' );
+				const ctaContainer   = parent.querySelector( '.js-hero-cta-container' );
+				const cta            = parent.querySelector( '.js-hero-cta' );
+				const ctaLabel       = cta ? cta.querySelector( 'span' ) : null;
+				const isAutoplay     = sliderContainer.dataset.autoplay;
+				const delay          = sliderContainer.dataset.delay;
+				const totalSlides    = slides.length;
+				const uniqueCount    = Number( sliderContainer.dataset.uniqueCount ) || totalSlides;
 
 				const padNum = ( num ) => String( num ).padStart( 2, '0' );
 
-				const updateNumPagination = ( swiper ) => {
-					if ( ! numPagination ) {
+				const getActiveSlide = ( swiper ) => {
+					if ( ! swiper || ! swiper.slides ) {
 						return null;
 					}
-					numPagination.textContent = `${ padNum( swiper.realIndex + 1 ) }/${ padNum( totalSlides ) }`;
+
+					return swiper.slides[ swiper.activeIndex ] || null;
+				};
+
+				const getSlideIndex = ( swiper ) => {
+					const activeSlide = getActiveSlide( swiper );
+					if ( ! activeSlide ) {
+						return swiper.realIndex || 0;
+					}
+
+					const slideIndex = Number( activeSlide.dataset.slideIndex );
+					if ( Number.isFinite( slideIndex ) && slideIndex >= 0 ) {
+						return slideIndex;
+					}
+
+					return swiper.realIndex || 0;
+				};
+
+				const updateHeroContent = ( swiper ) => {
+					const activeSlide = getActiveSlide( swiper );
+					if ( ! activeSlide ) {
+						return;
+					}
+
+					const titleSource = activeSlide.querySelector( '.js-hero-slide-title' );
+					const title       = titleSource ? titleSource.innerHTML.trim() : '';
+					const note        = activeSlide.dataset.note || '';
+					const ctaText     = activeSlide.dataset.ctaText || '';
+					const ctaLink     = activeSlide.dataset.ctaLink || '';
+					const current     = getSlideIndex( swiper );
+
+					if ( titleEl ) {
+						titleEl.innerHTML = title;
+					}
+					if ( titleContainer ) {
+						titleContainer.hidden = ! title;
+					}
+
+					if ( noteEl ) {
+						noteEl.textContent = note;
+					}
+					if ( noteContainer ) {
+						noteContainer.hidden = ! note;
+					}
+
+					if ( cta && ctaContainer ) {
+						const hasCta        = Boolean( ctaText && ctaLink );
+						ctaContainer.hidden = ! hasCta;
+						cta.setAttribute( 'href', hasCta ? ctaLink : '#' );
+						if ( ctaLabel ) {
+							ctaLabel.textContent = hasCta ? ctaText : '';
+						}
+					}
+
+					if ( numPagination ) {
+						numPagination.textContent = `${ padNum( current + 1 ) }/${ padNum( uniqueCount ) }`;
+					}
+
+					const bullets = parent.querySelectorAll( '.js-pagination .swiper-pagination-bullet' );
+					bullets.forEach( ( bullet, bulletIndex ) => {
+						if ( bulletIndex >= uniqueCount ) {
+							bullet.hidden = true;
+							return;
+						}
+
+						bullet.hidden = false;
+						bullet.classList.toggle( 'swiper-pagination-bullet-active', bulletIndex === current );
+					} );
 				};
 
 				const autoplay   = {
@@ -50,8 +125,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
 						clickable: true
 					},
 					on: {
-						init: updateNumPagination,
-						slideChange: updateNumPagination,
+						init: updateHeroContent,
+						slideChange: updateHeroContent,
 					},
 					breakpoints: {
 						768: {

@@ -8,14 +8,30 @@
 
 .endovi-vertical-cards-image {
 
+	@include md-down {
+		padding-inline: 0;
+	}
+
 	&_scroll {
 		margin-bottom: inEm(120px);
+
+		@include md-down {
+			margin-bottom: 0;
+		}
 
 		.endovi-card-icon {
 			width: inEm(477px);
 
+			@include md-down {
+				width: 100%;
+			}
+
 			&__inner {
 				row-gap: inEm(44px);
+
+				@include md-down {
+					row-gap: inEm(40px);
+				}
 			}
 		}
 	}
@@ -27,6 +43,17 @@
 			min-height: inEm(702px);
 			max-height: none;
 			background: $clr-bg-gray;
+
+			@include md-down {
+				min-height: auto;
+			}
+		}
+
+		&__image-container {
+
+			@include md-down {
+				display: none;
+			}
 		}
 
 		&__items {
@@ -44,6 +71,13 @@
 		padding: inEm(30px);
 		border-radius: inEm(30px);
 		overflow: hidden;
+
+		@include md-down {
+			height: auto;
+			max-height: none;
+			padding: inEm(70px) inEm(15px);
+			border-radius: 0;
+		}
 	}
 
 	&__image-container {
@@ -65,11 +99,55 @@
 		margin: inEm(95px) inEm(-5px) inEm(-5px);
 		height: 100%;
 		align-content: flex-start;
+
+		@include md-down {
+			margin-top: inEm(332px);
+		}
 	}
 
 	&__scroll-image-container {
-		bottom: inEm(12px);
-		right: inEm(22px);
-		left: calc(#{inEm(30px) + inEm(477px) + inEm(40px)});
+
+		@include md-up {
+			bottom: inEm(12px);
+			right: inEm(22px);
+			left: calc(#{inEm(30px) + inEm(477px) + inEm(40px)});
+		}
+
+		@include md-down {
+			position: relative;
+			margin-top: inEm(35px);
+		}
+	}
+
+	&__scroll-image-wrapper {
+
+		@include md-down {
+			width: auto;
+			margin-inline: inEm(-15px);
+			overflow-x: auto;
+		}
+	}
+
+	&__scroll-image-inner {
+
+		@include md-down {
+			width: max-content;
+			margin-inline: inEm(15px);
+		}
+	}
+
+	&__scroll-image {
+
+		@include md-down {
+			height: inEm(228px) !important;
+			width: auto !important;
+		}
+	}
+
+	&__scroll-icon {
+		width: inEm(24px);
+		height: inEm(24px);
+		top: 0;
+		right: 0;
 	}
 }

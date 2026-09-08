@@ -8,15 +8,29 @@
 	text-align: left;
 	height: 100%;
 
+	@include md-down {
+		border-radius: inEm(20px);
+	}
+
 	&__image-outer {
 		height: inEm(260px);
+
+		@include md-down {
+			height: inEm(350px);
+		}
 	}
 
 	&__image-container {
 		width: inEm(180px);
+		max-width: 100%;
 		aspect-ratio: 1/1;
 		border-radius: inEm(20px);
 		overflow: hidden;
+
+		@include md-down {
+			border-radius: inEm(10px);
+			width: inEm(230px);
+		}
 	}
 
 	&__title-container {

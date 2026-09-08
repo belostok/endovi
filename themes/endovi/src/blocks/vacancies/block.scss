@@ -9,9 +9,16 @@
 .endovi-vacancies {
 	margin-bottom: inEm(40px);
 
+	@include md-down {
+		margin-bottom: inEm(70px);
+	}
+
 	&__wrapper {
-		padding-top: inEm(40px);
-		border-top: 1px solid $clr-medium-gray;
+
+		@include md-up {
+			padding-top: inEm(40px);
+			border-top: 1px solid $clr-medium-gray;
+		}
 	}
 
 	&__items {
@@ -19,6 +26,10 @@
 		max-width: 100%;
 		margin-inline: auto;
 		row-gap: inEm(20px);
+
+		@include md-down {
+			width: 100%;
+		}
 	}
 
 	&__item {
@@ -26,5 +37,18 @@
 		border: 1px solid $clr-medium-gray;
 		padding: inEm(40px);
 		row-gap: inEm(20px);
+
+		@include md-down {
+			padding: inEm(30px);
+			border-radius: inEm(10px);
+			row-gap: inEm(10px);
+		}
+
+		&-title {
+
+			@include md-down {
+				font-size: inEm(20px) !important;
+			}
+		}
 	}
 }

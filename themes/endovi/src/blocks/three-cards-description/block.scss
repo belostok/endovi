@@ -9,10 +9,18 @@
 .endovi-three-cards-description {
 	margin-block: inEm(120px);
 
+	@include md-down {
+		margin-block: inEm(70px);
+	}
+
 	&__items {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
 		margin: inEm(-10px);
+
+		@include md-down {
+			margin-block: inEm(-25px);
+		}
 	}
 }

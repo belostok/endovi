@@ -12,13 +12,46 @@ if ( empty( $block['id'] ) ) {
 	return null;
 }
 
-$_title        = trim_string( get_field( 'hero_title' ) );
-$note          = trim_string( get_field( 'hero_note' ) );
-$cta_text      = trim_string( get_field( 'hero_cta_text' ) );
-$cta_link      = trim_string( get_field( 'hero_cta_link' ) );
+$_title        = '';
+$note          = '';
+$cta_text      = '';
+$cta_link      = '';
 $cta_text_more = trim_string( get_field( 'hero_cta_text_more' ) );
 $cta_link_more = trim_string( get_field( 'hero_cta_link_more' ) );
 $slider        = get_array( get_field( 'hero_slider' ) );
+
+$valid_slides = [];
+foreach ( $slider as $slide ) {
+	if ( ! is_array( $slide ) ) {
+		continue;
+	}
+
+	if ( empty( $slide['image'] ) ) {
+		continue;
+	}
+
+	$valid_slides[] = $slide;
+}
+
+$slider              = $valid_slides;
+$min_slider_count    = 9;
+$unique_slider_count = count( $slider );
+
+if ( $unique_slider_count > 0 && $unique_slider_count < $min_slider_count ) {
+	$original_slides = $slider;
+
+	for ( $i = 0; $i < ( $min_slider_count - $unique_slider_count ); $i++ ) {
+		$slider[] = $original_slides[ $i % $unique_slider_count ];
+	}
+}
+
+$first_slide = $slider[0] ?? [];
+if ( is_array( $first_slide ) ) {
+	$_title   = trim_string( $first_slide['title'] ?? '' );
+	$note     = trim_string( $first_slide['note'] ?? '' );
+	$cta_text = trim_string( $first_slide['cta_text'] ?? '' );
+	$cta_link = trim_string( $first_slide['cta_link'] ?? '' );
+}
 
 $anchor = '';
 if ( ! empty( $block['anchor'] ) ) {
@@ -72,48 +105,73 @@ if ( ! empty( $block['align'] ) ) {
 					</svg>
 				</div>
 				<div class="endovi-hero__title-wrapper relative flex fwrap jcspb aife">
-					<?php if ( $_title ) : ?>
-						<div class="endovi-hero__title-container">
-							<h1 class="endovi-hero__title h1">
-								<?php echo wp_kses_post( $_title ); ?>
-							</h1>
-						</div>
-					<?php endif; ?>
-					<?php if ( $note ) : ?>
-						<div class="endovi-hero__description-container">
-							<p class="endovi-hero__description">
-								<?php echo esc_html( $note ); ?>
-							</p>
-						</div>
-					<?php endif; ?>
+					<div class="endovi-hero__title-container js-hero-title-container" <?php echo $_title ? '' : 'hidden'; ?>>
+						<h1 class="endovi-hero__title h1 js-hero-title">
+							<?php echo wp_kses_post( $_title ); ?>
+						</h1>
+					</div>
+					<div class="endovi-hero__description-container js-hero-note-container" <?php echo $note ? '' : 'hidden'; ?>>
+						<p class="endovi-hero__description js-hero-note">
+							<?php echo esc_html( $note ); ?>
+						</p>
+					</div>
 					<div class="endovi-hero__upper-button-container flex fdc aife jcfe">
 						<div class="endovi-hero__pagination-number js-pagination-number"></div>
-						<?php
-						get_template_part(
-							'partials/button',
-							null,
-							array(
-								'text' => $cta_text,
-								'link' => $cta_link,
-							)
-						);
-						?>
+						<div class="js-hero-cta-container" <?php echo ( $cta_text && $cta_link ) ? '' : 'hidden'; ?>>
+							<?php
+							get_template_part(
+								'partials/button',
+								null,
+								array(
+									'text'        => $cta_text,
+									'link'        => $cta_link,
+									'classes'     => 'js-hero-cta',
+									'allow_empty' => true,
+								)
+							);
+							?>
+						</div>
 					</div>
 				</div>
 			</div>
 			<?php if ( ! empty( $slider ) ) : ?>
 				<div class="endovi-hero__slider-container absolute">
-					<div class="endovi-hero__slider js-hero-slider" data-autoplay="1">
+					<div
+						class="endovi-hero__slider js-hero-slider"
+						data-autoplay="1"
+						data-unique-count="<?php echo esc_attr( (string) absint( $unique_slider_count ) ); ?>"
+					>
 						<div class="endovi-hero__slider-wrapper swiper-wrapper">
 							<?php
+							$slide_index = 0;
 							foreach ( $slider as $slide ) :
+								if ( ! is_array( $slide ) ) {
+									continue;
+								}
+
 								$slide_image = (int) ( $slide['image'] ?? 0 );
 
 								if ( ! $slide_image ) {
 									continue;
 								}
+
+								$original_index = ( $unique_slider_count > 0 ) ? ( $slide_index % $unique_slider_count ) : 0;
+								$slide_title    = trim_string( $slide['title'] ?? '' );
+								$slide_note     = trim_string( $slide['note'] ?? '' );
+								$slide_cta_text = trim_string( $slide['cta_text'] ?? '' );
+								$slide_cta_link = trim_string( $slide['cta_link'] ?? '' );
+								++ $slide_index;
 								?>
-								<div class="endovi-hero__slide swiper-slide img-cover">
+								<div
+									class="endovi-hero__slide swiper-slide img-cover"
+									data-slide-index="<?php echo esc_attr( (string) absint( $original_index ) ); ?>"
+									data-note="<?php echo esc_attr( $slide_note ); ?>"
+									data-cta-text="<?php echo esc_attr( $slide_cta_text ); ?>"
+									data-cta-link="<?php echo esc_attr( $slide_cta_link ? esc_url( $slide_cta_link ) : '' ); ?>"
+								>
+									<div class="js-hero-slide-title" hidden>
+										<?php echo wp_kses_post( $slide_title ); ?>
+									</div>
 									<?php endovi_the_image( $slide_image, 'endovi-hero__slide-image' ); ?>
 								</div>
 							<?php endforeach; ?>

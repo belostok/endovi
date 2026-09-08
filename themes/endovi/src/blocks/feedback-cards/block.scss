@@ -7,11 +7,17 @@
 @import './../../styles/base/content-frontend';
 
 .endovi-feedback-cards {
-	margin-bottom: inEm(120px);
+
+	@include md-up {
+		margin-bottom: inEm(120px);
+	}
 
 	&__wrapper {
-		padding-top: inEm(30px);
-		border-top: 1px solid $clr-medium-gray;
+
+		@include md-up {
+			padding-top: inEm(30px);
+			border-top: 1px solid $clr-medium-gray;
+		}
 	}
 
 	&__items {
@@ -31,12 +37,39 @@
 		border-radius: inEm(20px);
 		border: 1px solid $clr-medium-gray;
 
+		@include md-down {
+			border-radius: inEm(10px);
+			padding: inEm(20px);
+		}
+
 		&-feedback-container {
 			margin-bottom: inEm(60px);
+
+			@include md-down {
+				margin-bottom: inEm(40px);
+			}
+		}
+
+		&-feedback {
+
+			@include md-down {
+				font-size: inEm(16px) !important;
+			}
 		}
 
 		&-position-container {
 			margin-top: inEm(20px);
+
+			@include md-down {
+				margin-top: inEm(10px);
+			}
+		}
+
+		&-position {
+
+			@include md-down {
+				font-size: inEm(10px) !important;
+			}
 		}
 	}
 }

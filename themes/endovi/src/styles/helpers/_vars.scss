@@ -25,7 +25,7 @@ $grd-main: linear-gradient(222.48deg, #FF9462 34.48%, #7BABC3 90.71%);
 
 
 // Sizes
-$desktop-width: 1440px; // Which is in design
+$desktop-width: 1920px; // Which is in design
 $mobile-width: 390px; // Which is in design
 $calc-font-size: 16px;
 $base-font-size:  inVw($calc-font-size, $desktop-width);
@@ -40,7 +40,7 @@ $path-static-media-inline: '../../../static_media'; // Path to non-compiling ima
 
 $transition-default: .3s ease;
 
-$base-container-width: inEm(1380px);
+$base-container-width: inEm(1860px);
 $max-container-width: 1920px;
 
 $base-outer-padding-desktop: inEm(30px);

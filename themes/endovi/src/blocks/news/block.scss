@@ -29,7 +29,6 @@
 		}
 
 		@include sm-down {
-			text-align: center;
 			width: 100%;
 		}
 	}
@@ -48,24 +47,15 @@
 
 	&__button-container {
 
-		&_mobile {
-
-			@include sm-up {
-				display: none;
-			}
-		}
-
-		&_desktop {
-
-			@include sm-down {
-				display: none;
-			}
-		}
-
 		@include sm-down {
 			display: flex;
 			justify-content: center;
 			margin-top: inEm(30px);
+
+			.endovi-button {
+				display: flex;
+				width: 100%;
+			}
 		}
 	}
 }

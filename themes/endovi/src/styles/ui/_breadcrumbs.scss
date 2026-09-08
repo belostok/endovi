@@ -15,6 +15,8 @@
 	& > span {
 		display: inline-flex;
 		align-items: center;
+		flex-wrap: wrap;
+		row-gap: inRem(3px);
 
 		& > span {
 			display: inline-flex;
@@ -24,8 +26,8 @@
 
 				&:after {
 					content: '';
-					width: inEm(6px);
-					height: inEm(6px);
+					width: inRem(6px);
+					height: inRem(6px);
 					margin: 0 inRem(10px);
 					background-repeat: no-repeat;
 					background-size: contain;

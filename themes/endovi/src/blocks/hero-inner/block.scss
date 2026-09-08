@@ -36,15 +36,24 @@
 	&__wrapper {
 		position: relative;
 		padding-block: inEm(146px) inEm(39px);
+
+		@include md-down {
+			padding-block: inEm(125px) inEm(70px);
+		}
 	}
 
 	&__image-container {
-		width: 350px;
+		width: inEm(350px);
+		max-width: 100%;
 		aspect-ratio: 1/1;
 		border-radius: inEm(20px);
 		overflow: hidden;
 		background: $clr-bg-gray;
 		margin: inEm(75px) auto inEm(58px);
+
+		@include md-down {
+			margin: inEm(50px) auto inEm(30px);
+		}
 	}
 
 	&__title-container {
@@ -52,6 +61,10 @@
 
 		@include md-up {
 			max-width: inEm(861px);
+		}
+
+		@include md-down {
+			margin-top: inEm(30px);
 		}
 	}
 

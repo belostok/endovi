@@ -13,11 +13,17 @@ if ( empty( $block['id'] ) ) {
 
 $_title           = trim_string( get_field( 'hero_inner_title' ) );
 $_title           = $_title ? $_title : get_the_title();
+$title_size       = (int) get_field( 'hero_inner_title_size' );
 $hide_description = (bool) get_field( 'hero_inner_hide_description' );
 $description      = trim_string( get_field( 'hero_inner_description' ) );
 $description      = $hide_description ? '' : ( $description ? $description : get_the_excerpt() );
 $image            = (int) get_field( 'hero_inner_image' );
 $image            = $image ? $image : get_post_thumbnail_id();
+
+$title_style = '';
+if ( $title_size && wp_is_mobile() ) {
+	$title_style = 'style="font-size: ' . $title_size . 'px;"';
+}
 
 $anchor = '';
 if ( ! empty( $block['anchor'] ) ) {
@@ -59,7 +65,10 @@ if ( ! empty( $block['align'] ) ) {
 				</div>
 			<?php endif; ?>
 			<div class="endovi-hero-inner__title-container">
-				<h1 class="endovi-hero-inner__title h1">
+				<h1
+					class="endovi-hero-inner__title h1"
+					<?php echo $title_style; // phpcs:ignore ?>
+				>
 					<?php echo wp_kses_post( $_title ); ?>
 				</h1>
 			</div>

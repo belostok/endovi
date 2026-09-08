@@ -23,10 +23,23 @@
 		padding-block: inEm(30px);
 		min-height: inEm(700px);
 		row-gap: inEm(40px);
+
+		@include md-down {
+			min-height: auto;
+			padding-block: inEm(70px);
+		}
 	}
 
 	&__title-container {
 		max-width: inEm(970px);
+	}
+
+	&__title {
+
+		@include md-down {
+			font-size: inEm(24px) !important;
+
+		}
 	}
 
 	&__footer {
@@ -40,11 +53,21 @@
 		background: $clr-bg;
 		padding: inEm(54px) inEm(20px) inEm(20px);
 
+		@include md-down {
+			padding: inEm(64px) inEm(30px) inEm(30px);
+			width: 100%;
+		}
+
 		&::before {
 			content: '';
 			@include corner_triangle;
 			top: inEm(20px);
 			left: inEm(20px);
+
+			@include md-down {
+				top: inEm(30px);
+				left: inEm(30px);
+			}
 		}
 	}
 
@@ -53,5 +76,9 @@
 		aspect-ratio: 1/1;
 		border-radius: inEm(20px);
 		overflow: hidden;
+
+		@include md-down {
+			width: 100%;
+		}
 	}
 }

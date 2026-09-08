@@ -2,14 +2,19 @@
 
 use function endoviTheme\Helpers\trim_string;
 
-$text       = trim_string( $args['text'] ?? '' );
-$_link      = trim_string( $args['link'] ?? '' );
-$icon_color = trim_string( $args['icon_color'] ?? '#020033' );
-$is_value   = (bool) ( $args['is_value'] ?? false );
-$classes    = trim_string( $args['classes'] ?? '' );
+$text        = trim_string( $args['text'] ?? '' );
+$_link       = trim_string( $args['link'] ?? '' );
+$icon_color  = trim_string( $args['icon_color'] ?? '#020033' );
+$is_value    = (bool) ( $args['is_value'] ?? false );
+$classes     = trim_string( $args['classes'] ?? '' );
+$allow_empty = (bool) ( $args['allow_empty'] ?? false );
 
-if ( ! $text || ! $_link ) {
+if ( ( ! $text || ! $_link ) && ! $allow_empty ) {
 	return null;
+}
+
+if ( ! $_link ) {
+	$_link = '#';
 }
 
 if ( str_contains( $classes, 'endovi-button_orange' ) ) {

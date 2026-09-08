@@ -6,11 +6,19 @@
 	width: calc(#{inEm(328px)} + #{inEm(10px)});
 	max-width: 100%;
 
+	@include md-down {
+		width: 100%;
+	}
+
 	&__inner {
 		padding: inEm(20px);
 		border-radius: inEm(10px);
 		background: $clr-bg;
 		row-gap: inEm(49px);
+
+		@include md-down {
+			padding: inEm(30px);
+		}
 	}
 
 	&__content {

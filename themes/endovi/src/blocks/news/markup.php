@@ -52,7 +52,7 @@ if ( ! empty( $block['align'] ) ) {
 				</div>
 			<?php endif; ?>
 			<?php if ( $cta_text && $cta_link ) : ?>
-				<div class="endovi-news__button-container endovi-news__button-container_desktop">
+				<div class="endovi-news__button-container endovi-news__button-container_desktop desktop">
 					<?php
 					get_template_part(
 						'partials/button',
@@ -113,7 +113,7 @@ if ( ! empty( $block['align'] ) ) {
 			<?php endforeach; ?>
 		</div>
 		<?php if ( $cta_text && $cta_link ) : ?>
-			<div class="endovi-news__button-container endovi-news__button-container_mobile">
+			<div class="endovi-news__button-container endovi-news__button-container_mobile mobile">
 				<?php
 				get_template_part(
 					'partials/button',

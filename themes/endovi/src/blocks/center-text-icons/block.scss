@@ -14,14 +14,20 @@
 		content: '';
 		position: absolute;
 		top: inEm(100px);
-		inset-inline: 0;
+		inset-inline: -100%;
 		transform: translateX(inEm(10px));
 		margin-inline: auto;
 		width: inEm(885px);
-		height: inEm(1270px);
+		height: auto;
+		aspect-ratio: 885 / 1270;
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-image: url($path-static-media-inline + '/triangle-center-text-icons.svg');
+
+		@include md-down {
+			top: 0;
+			width: inEm(750px);
+		}
 	}
 
 	&__wrapper {
@@ -29,6 +35,19 @@
 		padding-block: inEm(120px) inEm(155px);
 		min-height: inEm(600px);
 		text-align: center;
+
+		@include md-down {
+			padding-block: inEm(70px);
+			min-height: auto;
+			text-align: left;
+		}
+	}
+
+	&__content {
+
+		@include md-down {
+			width: 100%;
+		}
 	}
 
 	&__title-container {
@@ -38,7 +57,8 @@
 
 	&__description-container {
 		margin-top: inEm(20px);
-		max-width: inEm(663px);
+		width: inEm(663px);
+		max-width: 100%;
 	}
 
 	&__icons {

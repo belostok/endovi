@@ -38,6 +38,11 @@ if ( ! empty( $block['align'] ) ) {
 	<?php echo $anchor; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 >
 	<div class="endovi-dealers-description__wrapper endovi-wrapper flex fdc jcfe relative">
+		<?php if ( $image ) : ?>
+			<div class="endovi-dealers-description__image-container img-cover mobile">
+				<?php endovi_the_image( $image, 'endovi-dealers-description__image' ); ?>
+			</div>
+		<?php endif; ?>
 		<?php if ( $_title ) : ?>
 			<div class="endovi-dealers-description__title-container fg1 relative">
 				<h2 class="endovi-dealers-description__title h2 text-white">
@@ -47,7 +52,7 @@ if ( ! empty( $block['align'] ) ) {
 		<?php endif; ?>
 		<div class="endovi-dealers-description__footer flex jcspb aife relative">
 			<?php if ( $image ) : ?>
-				<div class="endovi-dealers-description__image-container img-cover">
+				<div class="endovi-dealers-description__image-container img-cover desktop">
 					<?php endovi_the_image( $image, 'endovi-dealers-description__image' ); ?>
 				</div>
 			<?php endif; ?>

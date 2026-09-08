@@ -11,11 +11,18 @@
 
 	&__wrapper {
 		padding-block: inEm(120px);
+
+		@include md-down {
+			padding-block: inEm(70px);
+		}
 	}
 
 	&__title-container {
-		text-align: center;
 		margin-bottom: inEm(40px);
+
+		@include md-up {
+			text-align: center;
+		}
 	}
 
 	&__items {
@@ -26,6 +33,11 @@
 		flex: 1 1 20%;
 		min-width: 20%;
 		padding: inEm(5px);
+
+		@include md-down {
+			flex: 0 0 100%;
+			min-width: 100%;
+		}
 	}
 
 	&__item {
@@ -37,6 +49,10 @@
 			justify-content: space-between;
 			padding: inEm(20px);
 			min-height: inEm(152px);
+
+			@include md-down {
+				padding: inEm(30px);
+			}
 
 			&::before {
 				content: none;

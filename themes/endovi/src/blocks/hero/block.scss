@@ -72,6 +72,14 @@
 		}
 	}
 
+	[hidden] {
+		display: none;
+	}
+
+	.js-hero-slide-title {
+		display: none;
+	}
+
 	&__pagination-number {
 
 		@include md-down {

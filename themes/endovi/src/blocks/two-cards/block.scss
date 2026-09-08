@@ -11,27 +11,38 @@
 
 	margin-block: inEm(120px);
 
-	@include sm-down {
-		margin-top: inEm(70px);
+	@include md-down {
+		margin-block: inEm(70px);
 	}
 
 	&__header {
 		column-gap: inEm(60px);
+
+		@include md-down {
+			flex-direction: column;
+			row-gap: inEm(20px);
+		}
 	}
 
 	&__description-container {
-		width: 50%;
-		flex-shrink: 0;
+
+		@include md-up {
+			width: 50%;
+			flex-shrink: 0;
+		}
 	}
 
 	&__description {
-		max-width: inRem(585px);
+
+		@include md-up {
+			max-width: inRem(585px);
+		}
 	}
 
 	&__items {
 		margin-top: inEm(40px);
 
-		@include sm-down {
+		@include md-down {
 			flex-direction: column;
 			margin-top: inEm(30px);
 			row-gap: inEm(30px);
@@ -40,7 +51,7 @@
 
 	&__item {
 
-		@include sm-up {
+		@include md-up {
 			min-height: inEm(500px);
 
 			&:first-child {
@@ -62,7 +73,7 @@
 			}
 		}
 
-		@include sm-down {
+		@include md-down {
 			border-bottom: 1px solid $clr-medium-gray;
 			row-gap: inEm(20px);
 			padding-bottom: inEm(30px);
@@ -81,7 +92,7 @@
 				}
 			}
 
-			@include sm-down {
+			@include md-down {
 				grid-template-columns: 1fr;
 				row-gap: inEm(30px);
 
@@ -103,7 +114,7 @@
 
 		&-upper {
 
-			@include sm-up {
+			@include md-up {
 				padding-bottom: inEm(80px);
 			}
 		}
@@ -116,14 +127,27 @@
 			overflow: hidden;
 			align-self: center;
 
-			@include sm-down {
+			@include md-down {
+				order: -1;
+				margin-top: 0;
 				width: 100%;
 				aspect-ratio: 360 / 300;
 			}
 		}
 
+		&-title-container {
+
+			@include md-down {
+				margin-top: inEm(20px);
+			}
+		}
+
 		&-description-container {
 			max-width: inEm(610px);
+
+			@include md-down {
+				max-width: none;
+			}
 		}
 
 		&-description {

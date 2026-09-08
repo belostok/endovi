@@ -46,6 +46,10 @@
 .endovi-equipment {
 	margin-block: inEm(120px);
 
+	@include md-down {
+		margin-block: inEm(70px);
+	}
+
 	&__title-container {
 		margin-bottom: inEm(40px);
 	}
@@ -56,6 +60,13 @@
 		border-top: 1px solid $clr-medium-gray;
 		border-bottom: 1px solid $clr-medium-gray;
 		padding-block: inEm(30px);
+
+		@include md-down {
+			grid-template-columns: 1fr;
+			padding-block: 0;
+			border: none;
+			row-gap: inEm(40px);
+		}
 	}
 
 	&__side {
@@ -64,6 +75,11 @@
 			padding-left: inEm(30px);
 			border-left: 1px solid $clr-medium-gray;
 			row-gap: inEm(40px);
+
+			@include md-down {
+				padding-left: 0;
+				border-left: none;
+			}
 		}
 	}
 
@@ -71,6 +87,10 @@
 		width: inEm(460px);
 		max-width: 100%;
 		aspect-ratio: 1/1;
+
+		@include md-down {
+			width: 100%;
+		}
 	}
 
 	&__list {
@@ -86,7 +106,7 @@
 
 	&__list-item {
 
-		&_has-sub {
+		&_has-sub:not(:last-child) {
 			margin-block: inEm(40px);
 		}
 

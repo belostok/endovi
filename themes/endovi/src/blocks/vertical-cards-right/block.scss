@@ -12,6 +12,12 @@
 	&__wrapper {
 		min-height: inEm(934px);
 		padding-block: inEm(30px) inEm(50px);
+
+		@include md-down {
+			flex-direction: column;
+			min-height: auto;
+			padding-block: inEm(70px);
+		}
 	}
 
 	&__image-container {
@@ -20,12 +26,30 @@
 	}
 
 	&__image {
-		object-position: bottom left !important;
+
+		@include md-up {
+			object-position: bottom left !important;
+		}
+
+		@include md-down {
+			object-fit: cover !important;
+		}
+	}
+
+	&__title-container {
+
+		@include md-down {
+			margin-bottom: inEm(40px);
+		}
 	}
 
 	&__items {
 		row-gap: inEm(10px);
 		width: inEm(505px);
 		max-width: 100%;
+
+		@include md-down {
+			width: 100%;
+		}
 	}
 }

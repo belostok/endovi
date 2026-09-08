@@ -53,11 +53,13 @@ foreach ( $_tabs as $_tab ) {
 	$_tabs_html .= '<div class="endovi-catalog__categories ' . ( $is_type ? 'endovi-catalog__categories_types' : 'endovi-catalog__categories_series' ) . ( 0 === $t ? ' endovi-catalog__categories_active' : '' ) . ' js-catalog-tab" data-tab="' . esc_attr( $t ) . '">';
 
 	foreach ( $categories as $category ) {
-		$is_gradient    = (bool) ( $category['is_gradient'] ?? false );
-		$is_gradient    = $is_gradient && ! $is_type;
-		$category_title = trim_string( $category['title'] ?? '' );
-		$category_image = (int) ( $category['image'] ?? 0 );
-		$items          = get_array( $category['items'] ?? [] );
+		$is_gradient           = (bool) ( $category['is_gradient'] ?? false );
+		$is_gradient           = $is_gradient && ! $is_type;
+		$category_title        = trim_string( $category['title'] ?? '' );
+		$category_image        = (int) ( $category['image'] ?? 0 );
+		$category_image_mobile = (int) ( $category['image_mobile'] ?? 0 );
+		$category_image_mobile = $category_image_mobile ? $category_image_mobile : $category_image;
+		$items                 = get_array( $category['items'] ?? [] );
 
 		if ( empty( $items ) ) {
 			continue;
@@ -68,7 +70,8 @@ foreach ( $_tabs as $_tab ) {
 		<div class="endovi-catalog__category relative<?php echo $is_gradient ? ' endovi-catalog__category_gradient' : ''; ?>">
 			<?php if ( $category_image ) : ?>
 				<div class="endovi-catalog__category-image-container img-contain absolute">
-					<?php endovi_the_image( $category_image, 'endovi-catalog__category-image' ); ?>
+					<?php endovi_the_image( $category_image, 'endovi-catalog__category-image desktop' ); ?>
+					<?php endovi_the_image( $category_image_mobile, 'endovi-catalog__category-image mobile' ); ?>
 				</div>
 			<?php endif; ?>
 

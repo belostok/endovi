@@ -37,6 +37,11 @@ if ( ! empty( $block['align'] ) ) {
 	<?php echo $anchor; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 >
 	<div class="endovi-title-description-image__wrapper endovi-wrapper flex fdc jcspb relative">
+		<?php if ( $image ) : ?>
+			<div class="endovi-title-description-image__image-container img-cover mobile">
+				<?php endovi_the_image( $image, 'endovi-title-description-image__image' ); ?>
+			</div>
+		<?php endif; ?>
 		<?php if ( $_title ) : ?>
 			<div class="endovi-title-description-image__title-container">
 				<h2 class="endovi-title-description-image__title h2">
@@ -53,7 +58,7 @@ if ( ! empty( $block['align'] ) ) {
 				</div>
 			<?php endif; ?>
 			<?php if ( $image ) : ?>
-				<div class="endovi-title-description-image__image-container img-cover">
+				<div class="endovi-title-description-image__image-container img-cover desktop">
 					<?php endovi_the_image( $image, 'endovi-title-description-image__image' ); ?>
 				</div>
 			<?php endif; ?>

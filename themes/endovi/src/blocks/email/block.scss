@@ -12,18 +12,41 @@
 	background: $grd-main;
 	text-align: center;
 
+	@include md-down {
+		margin-top: inEm(70px);
+		text-align: left;
+	}
+
 	&__wrapper {
 		max-width: inEm(800px);
 		min-height: inEm(478px);
 		padding-block: inEm(40px);
 		margin-inline: auto;
+
+		@include md-down {
+			max-width: none;
+			min-height: auto;
+			padding-block: inEm(70px);
+			align-items: flex-start;
+		}
 	}
 
 	&__description-container {
 		margin-top: inEm(20px);
+
+		@include md-down {
+			margin-top: inEm(10px);
+		}
 	}
 
 	&__email-container {
 		margin-top: inEm(40px);
+	}
+
+	&__email {
+
+		@include md-down {
+			font-size: inEm(30px) !important;
+		}
 	}
 }

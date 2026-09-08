@@ -52,6 +52,11 @@ if ( ! empty( $block['align'] ) ) {
 			</div>
 		<?php endif; ?>
 		<div class="endovi-support__side flex fdc relative">
+			<?php if ( $image ) : ?>
+				<div class="endovi-support__image-container img-cover mobile">
+					<?php endovi_the_image( $image, 'endovi-support__image' ); ?>
+				</div>
+			<?php endif; ?>
 			<div class="endovi-support__header fg1 flex fdc">
 				<?php if ( $_title ) : ?>
 					<div class="endovi-support__title-container">
@@ -95,7 +100,7 @@ if ( ! empty( $block['align'] ) ) {
 			</div>
 		</div>
 		<?php if ( $image ) : ?>
-			<div class="endovi-support__side endovi-support__side_image relative">
+			<div class="endovi-support__side endovi-support__side_image relative desktop">
 				<div class="endovi-support__image-container img-cover">
 					<?php endovi_the_image( $image, 'endovi-support__image' ); ?>
 				</div>

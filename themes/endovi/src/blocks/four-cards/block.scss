@@ -9,11 +9,22 @@
 .endovi-four-cards {
 	margin-block: inEm(120px);
 
+	@include md-down {
+		margin-block: 0;
+	}
+
 	&__wrapper {
 		padding: inEm(40px);
 		background: $clr-background-gray;
 		border-radius: inEm(30px);
 		overflow: hidden;
+
+		@include md-down {
+			width: auto;
+			margin-inline: inEm(-15px);
+			border-radius: 0;
+			padding: inEm(70px) inEm(15px);
+		}
 	}
 
 	&__image-container {
@@ -28,14 +39,27 @@
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		gap: inEm(10px);
+
+		@include md-down {
+			grid-template-columns: 1fr;
+		}
 	}
 
 	&__item {
 		padding: inEm(54px) inEm(20px) inEm(20px);
 
+		@include md-down {
+			padding: inEm(64px) inEm(30px) inEm(30px);
+		}
+
 		&::before {
 			top: inEm(20px);
 			left: inEm(20px);
+
+			@include md-down {
+				top: inEm(30px);
+				left: inEm(30px);
+			}
 		}
 	}
 }

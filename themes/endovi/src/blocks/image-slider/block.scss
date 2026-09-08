@@ -11,6 +11,10 @@
 	margin-block: inEm(120px);
 	background: $clr-light-gray;
 
+	@include md-down {
+		margin-block: inEm(70px);
+	}
+
 	&::before {
 		content: '';
 		position: absolute;
@@ -24,6 +28,11 @@
 		width: inEm(1030px);
 		max-width: 100%;
 		margin-inline: auto;
+
+		@include md-down {
+			width: 100%;
+			padding-block: inEm(70px) inEm(128px);
+		}
 	}
 
 	&__slider {
@@ -69,6 +78,10 @@
 		min-height: inEm(137px);
 		padding: inEm(20px);
 		row-gap: inEm(20px);
+
+		@include md-down {
+			width: 100%;
+		}
 	}
 
 	&__counter-current {
@@ -77,6 +90,13 @@
 
 	&__nav {
 		background: $clr-bg;
+
+		@include md-down {
+			top: calc(100% + #{inEm(38px)});
+			inset-inline: 0;
+			margin-inline: auto;
+			margin-block: 0;
+		}
 
 		@include mouseover {
 			opacity: 1;
@@ -91,17 +111,35 @@
 		}
 
 		&_prev {
-			right: calc(100% + #{inEm(10px)});
+
+			@include md-up {
+				right: calc(100% + #{inEm(10px)});
+			}
+
+			@include md-down {
+				transform: translateX(calc(-50% - #{inEm(5px)}));
+			}
 		}
 
 		&_next {
-			left: calc(100% + #{inEm(10px)});
+
+			@include md-up {
+				left: calc(100% + #{inEm(10px)});
+			}
+
+			@include md-down {
+				transform: translateX(calc(50% + #{inEm(5px)}));
+			}
 		}
 	}
 
 	&__pagination {
 		bottom: auto;
 		top: calc(100% + #{inEm(20px)});
+
+		@include md-down {
+			top: calc(100% + #{inEm(10px)});
+		}
 
 		.swiper-pagination-bullet {
 			opacity: 1;

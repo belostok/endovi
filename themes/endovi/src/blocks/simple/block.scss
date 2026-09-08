@@ -21,11 +21,11 @@
 			column-gap: inEm(100px);
 		}
 
-		@include sm-down {
+		@include md-down {
 			flex-direction: column;
 			padding-block: inEm(70px);
 			min-height: auto;
-			row-gap: inEm(30px);
+			row-gap: inEm(40px);
 		}
 
 		&::before {
@@ -39,19 +39,30 @@
 			background-size: contain;
 			background-image: url($path-static-media-inline + '/triangle-single-card.svg');
 
-			@include sm-down {
+			@include md-down {
 				left: inEm(-85px);
 				bottom: inEm(-175px);
 			}
 		}
 	}
 
+	&__right {
+
+		@include md-down {
+			order: -1;
+		}
+	}
+
 	&__title {
 
-		@include sm-down {
+			@include md-down {
 			font-size: inEm(30px);
 			font-weight: 400;
 			text-transform: none;
+
+			br {
+				display: none;
+			}
 		}
 	}
 
@@ -61,7 +72,7 @@
 		border-radius: inEm(20px);
 		overflow: hidden;
 
-		@include sm-down {
+		@include md-down {
 			width: 100%;
 		}
 	}

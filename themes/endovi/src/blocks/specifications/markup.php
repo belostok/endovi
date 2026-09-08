@@ -51,16 +51,18 @@ if ( ! empty( $block['align'] ) ) {
 		<?php endif; ?>
 		<div class="endovi-specifications__wrapper endovi-wrapper relative flex fdc jcspb">
 			<?php if ( ! $description ) : ?>
-				<div class="endovi-specifications__title-container">
-					<?php if ( $_title ) : ?>
-						<h2
-							class="endovi-specifications__title h2"
-							<?php echo $title_color ? 'style="color:' . esc_attr( $title_color ) . '"' : ''; ?>
-						>
-							<?php echo wp_kses_post( $_title ); ?>
-						</h2>
-					<?php endif; ?>
-				</div>
+				<?php if ( $image_center || $_title || ! wp_is_mobile() ) : ?>
+					<div class="endovi-specifications__title-container">
+						<?php if ( $_title ) : ?>
+							<h2
+								class="endovi-specifications__title h2"
+								<?php echo $title_color ? 'style="color:' . esc_attr( $title_color ) . '"' : ''; ?>
+							>
+								<?php echo wp_kses_post( $_title ); ?>
+							</h2>
+						<?php endif; ?>
+					</div>
+				<?php endif; ?>
 				<?php if ( $image_center ) : ?>
 					<div class="endovi-specifications__image-center-container">
 						<?php endovi_the_image( $image_center, 'endovi-specifications__image-center' ); ?>

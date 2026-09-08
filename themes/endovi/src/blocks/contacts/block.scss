@@ -9,15 +9,28 @@
 .endovi-contacts {
 	margin-block: inEm(120px);
 
+	@include md-down {
+		margin-block: inEm(70px) inEm(20px);
+	}
+
 	&_four-items & {
 
 		&__items {
 			grid-template-columns: repeat(4, 1fr);
+
+			@include md-down {
+				grid-template-columns: 1fr;
+			}
 		}
 	}
 
 	&_no-title {
 		margin-top: inEm(60px);
+
+		@include md-down {
+			margin-top: 0;
+			margin-bottom: inEm(70px);
+		}
 	}
 
 	&__title-container {
@@ -30,18 +43,47 @@
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: inEm(60px) inEm(20px);
+
+		@include md-down {
+			grid-template-columns: 1fr;
+			gap: inEm(20px);
+			padding-top: inEm(40px);
+		}
 	}
 
 	&__item {
 
+		&:not(:first-child) {
+
+			@include md-down {
+				border-top: 1px solid $clr-medium-gray;
+				padding-top: inEm(20px);
+			}
+		}
+
 		&-title-container {
 			margin-bottom: inEm(40px);
+
+			@include md-down {
+				margin-bottom: inEm(14px);
+			}
 		}
 
 		&-content {
 
 			& > *:not(:last-child) {
 				margin-bottom: inRem(30px);
+
+				@include md-down {
+					margin-bottom: inRem(10px);
+				}
+			}
+
+			h3 {
+
+				@include md-down {
+					font-size: inEm(20px);
+				}
 			}
 
 			br {

@@ -6,8 +6,18 @@
 	flex: 0 0 33.3333%;
 	padding: inEm(10px);
 
+	@include md-down {
+		max-width: 100%;
+		flex: 0 0 100%;
+		padding-block: inEm(25px);
+	}
+
 	&__inner {
 		row-gap: inEm(30px);
+
+		@include md-down {
+			row-gap: inEm(20px);
+		}
 	}
 
 	&__image-wrapper {
@@ -19,6 +29,10 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+
+		@include md-down {
+			border-radius: inEm(20px);
+		}
 	}
 
 	&__image-container {
@@ -27,10 +41,19 @@
 		aspect-ratio: 1/1;
 		border-radius: inEm(20px);
 		overflow: hidden;
+
+		@include md-down {
+			border-radius: inEm(10px);
+			width: inEm(230px);
+		}
 	}
 
 	&__content {
 		row-gap: inEm(20px);
+
+		@include md-down {
+			row-gap: inEm(10px);
+		}
 
 		ul {
 

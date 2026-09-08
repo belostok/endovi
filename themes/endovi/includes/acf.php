@@ -108,6 +108,7 @@ function wysiwyg_custom_toolbars( $toolbars ) {
 	$toolbars['Heading_Color'] = [
 		'1' => [
 			'formatselect',
+			'wp_adv',
 		],
 		'2' => [
 			'forecolor',
