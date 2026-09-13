@@ -1,0 +1,139 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-hero-news {
+	margin-block: inEm(134px) inEm(40px);
+
+	@include md-down {
+		margin-block: inEm(152px) inEm(20px);
+	}
+
+	&__back-button {
+		top: 0;
+		left: 0;
+		column-gap: inEm(4px);
+
+		@include md-down {
+			top: auto;
+			bottom: calc(100% + #{inEm(20px)});
+		}
+
+		svg {
+			width: inEm(8px);
+			height: inEm(8px);
+			pointer-events: none;
+		}
+
+		span {
+			font-size: inEm(12px);
+			pointer-events: none;
+		}
+	}
+
+	&__inner {
+		max-width: $post-width;
+		margin-inline: auto;
+		row-gap: inEm(40px);
+		padding-bottom: inEm(40px);
+		border-bottom: 1px solid $clr-medium-gray;
+
+		@include md-down {
+			row-gap: inEm(20px);
+			padding-bottom: inEm(20px);
+		}
+	}
+
+	&__image-container {
+		border-radius: inEm(10px);
+		overflow: hidden;
+	}
+
+	&__image {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	&__badge-container {
+		border-radius: inEm(6px);
+		border: 1px solid $clr-medium-gray;
+		background: $clr-bg;
+		padding: inEm(10px);
+		right: inEm(10px);
+		bottom: inEm(10px);
+	}
+
+	&__badge,
+	&__date,
+	&__excerpt {
+
+		@include md-down {
+			font-size: max(12px, #{inEm(12px)}) !important;
+		}
+	}
+
+	&__title-block {
+		row-gap: inEm(20px);
+	}
+
+	&__title {
+
+		@include md-down {
+			font-size: inEm(30px) !important;
+		}
+	}
+
+	&__footer {
+
+		@include md-up {
+			align-items: flex-end;
+			column-gap: inEm(40px);
+		}
+
+		@include md-down {
+			flex-direction: column;
+			row-gap: inEm(10px);
+		}
+	}
+
+	&__date-container {
+		flex-shrink: 0;
+	}
+
+	&__excerpt-container {
+		flex-grow: 1;
+	}
+
+	&__share-container {
+		flex-shrink: 0;
+
+		@include md-up {
+			justify-content: flex-end;
+		}
+
+		@include md-down {
+			margin-top: inEm(10px);
+		}
+	}
+
+	&__share {
+		column-gap: inEm(10px);
+
+		span {
+			font-size: inEm(16px);
+			line-height: 1.2;
+			pointer-events: none;
+		}
+
+		svg {
+			width: inEm(20px);
+			height: inEm(20px);
+			pointer-events: none;
+		}
+	}
+}

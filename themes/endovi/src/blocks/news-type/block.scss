@@ -1,0 +1,34 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-news-type {
+	margin-bottom: inEm(120px);
+
+	@include md-down {
+		margin-bottom: inEm(70px);
+	}
+
+	&__wrapper {
+
+		@include md-up {
+			padding-top: inEm(40px);
+			border-top: 1px solid $clr-medium-gray;
+		}
+	}
+
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: inEm(60px) inEm(20px);
+
+		@include md-down {
+			grid-template-columns: 1fr;
+			row-gap: inEm(40px);
+		}
+	}
+}

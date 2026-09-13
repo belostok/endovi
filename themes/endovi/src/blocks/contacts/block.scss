@@ -107,14 +107,5 @@
 				color: $clr-gray;
 			}
 		}
-
-		&-social-container {
-			gap: inRem(10px);
-		}
-
-		&-social {
-			width: inRem(30px);
-			height: inRem(30px);
-		}
 	}
 }

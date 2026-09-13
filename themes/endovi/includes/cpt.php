@@ -107,6 +107,10 @@ function register_post_types() {
 				'thumbnail',
 				'page-attributes',
 			],
+			'template'              => [
+				[ 'endovi/hero-news' ],
+				[ 'core/group' ],
+			],
 			'menu_icon'             => 'dashicons-star-empty',
 		]
 	);

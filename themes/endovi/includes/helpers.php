@@ -148,3 +148,38 @@ function get_array( $value ) {
 
 	return $value;
 }
+
+/**
+ * Clean a phone number and build a tel: href.
+ *
+ * @param string $phone Raw phone number, e.g. "+1 (555) 123-4567 ext. 8"
+ * @return string Cleaned tel: URI, e.g. "tel:+15551234567"
+ */
+function get_tel_href( string $phone ): string {
+	// Keep leading + if present, strip everything else non-numeric.
+	$has_plus = str_starts_with( trim( $phone ), '+' );
+	$digits   = preg_replace( '/\D+/', '', $phone );
+
+	if ( '' === $digits ) {
+		return '';
+	}
+
+	return 'tel:' . ( $has_plus ? '+' : '' ) . $digits;
+}
+
+/**
+ * Clean an email address and build a mailto: href.
+ *
+ * @param string $email Raw email, e.g. " John.Doe@Example.com "
+ *
+ * @return string Cleaned mailto: URI, or empty string if invalid.
+ */
+function get_mailto_href( string $email ): string {
+	$clean = sanitize_email( trim( $email ) );
+
+	if ( '' === $clean || ! is_email( $clean ) ) {
+		return '';
+	}
+
+	return 'mailto:' . $clean;
+}

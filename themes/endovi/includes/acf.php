@@ -55,6 +55,7 @@ function register_fields() {
 	$items = array(
 		'options',
 		'footer-menu',
+		'media-post',
 	);
 	foreach ( $items as $item ) {
 		include_once sprintf( '%s/acf-fields/%s.php', __DIR__, $item );

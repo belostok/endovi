@@ -1,0 +1,132 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-calling-card {
+	margin-top: inEm(120px);
+	background: linear-gradient(220.26deg, #FF9462 7.03%, #7BABC3 90.68%);
+
+	@include md-down {
+		margin-top: inEm(70px);
+	}
+
+	&__wrapper {
+		padding-block: inEm(146px);
+
+		@include md-down {
+			padding-block: inEm(70px);
+		}
+	}
+
+	&__card {
+		width: inEm(680px);
+		max-width: 100%;
+		border-radius: inEm(20px);
+		padding: inEm(40px);
+		background: $clr-bg;
+
+		@include md-down {
+			width: 100%;
+			padding: inEm(20px);
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background-image: url($path-static-media-inline + '/triangle-calling-card.svg');
+			background-size: contain;
+			background-position-x: right;
+			background-repeat: no-repeat;
+
+			@include md-down {
+				content: none;
+			}
+		}
+	}
+
+	&__header {
+
+		&-left {
+			gap: inEm(20px);
+		}
+	}
+
+	&__image-container {
+		width: inEm(100px);
+		aspect-ratio: 1/1;
+		border-radius: 50%;
+		overflow: hidden;
+	}
+
+	&__name-block {
+		gap: inEm(10px);
+
+		@include md-down {
+			justify-content: center;
+		}
+	}
+
+	&__name {
+
+		@include md-down {
+			font-size: inEm(20px) !important;
+
+			br {
+				display: none;
+			}
+		}
+	}
+
+	&__position {
+
+		@include md-down {
+			font-size: inEm(10px) !important;
+
+			br {
+				display: none;
+			}
+		}
+	}
+
+	&__footer {
+		margin-top: inEm(30px);
+		padding-top: inEm(30px);
+		border-top: 1px solid $clr-medium-gray;
+		gap: inEm(10px);
+
+		@include md-down {
+			margin-top: inEm(20px);
+			padding-top: inEm(20px);
+		}
+
+		&-link {
+
+			@include md-down {
+				font-size: inEm(20px) !important;
+			}
+		}
+	}
+
+	&__social-container {
+
+		.endovi-social {
+
+			@include md-down {
+				gap: inEm(6px);
+			}
+
+			&__item {
+
+				@include md-down {
+					width: inEm(24px);
+					height: inEm(24px);
+				}
+			}
+		}
+	}
+}

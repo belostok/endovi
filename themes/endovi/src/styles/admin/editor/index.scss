@@ -66,6 +66,7 @@ html :where(.wp-block) {
 	}
 
 	&__inner-container {
+		max-width: inRem(680px);
 
 		.wp-block {
 			max-width: none;

@@ -78,21 +78,15 @@ if ( ! empty( $block['align'] ) ) {
 						</div>
 					<?php endif; ?>
 					<?php if ( $is_icons ) : ?>
-						<div class="endovi-contacts__item-social-container flex fwrap">
-							<?php
-							foreach ( $icons as $icon ) :
-								$icon_image = (int) ( $icon['image'] ?? 0 );
-								$icon_link  = trim_string( $icon['link'] ?? '' );
-
-								if ( ! $icon_image || ! $icon_link ) {
-									continue;
-								}
-								?>
-								<a href="<?php echo esc_url( $icon_link ); ?>" class="endovi-contacts__item-social img-contain default-hover">
-									<?php endovi_the_image( $icon_image, 'endovi-contacts__item-social-icon' ); ?>
-								</a>
-							<?php endforeach; ?>
-						</div>
+						<?php
+						get_template_part(
+							'partials/social',
+							null,
+							array(
+								'icons' => $icons,
+							)
+						);
+						?>
 					<?php else : ?>
 						<div class="endovi-contacts__item-content">
 							<?php echo wp_kses_post( $values ); ?>

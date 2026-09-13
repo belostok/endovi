@@ -1,0 +1,113 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-mediacenter {
+	background: linear-gradient(220.26deg, #FF9462 7.03%, #7BABC3 90.68%);
+
+	&__wrapper {
+		padding-block: inEm(175px);
+
+		@include md-down {
+			padding-block: inEm(70px);
+		}
+	}
+
+	&__items {
+		width: 100%;
+		margin: inEm(-10px);
+
+		@include md-down {
+			margin: inEm(-5px);
+		}
+	}
+
+	&__item {
+		flex: 0 0 inEm(400px);
+		max-width: inEm(400px);
+		padding: inEm(10px);
+
+		@include md-down {
+			flex: 0 0 100%;
+			max-width: 100%;
+			padding: inEm(5px);
+		}
+
+		&:nth-child(3n+1) {
+
+			.endovi-mediacenter__item-inner {
+
+				&::before {
+					background-image: url($path-static-media-inline + '/triangle-media-card.svg');
+				}
+			}
+		}
+
+		&:nth-child(3n+2) {
+
+			.endovi-mediacenter__item-inner {
+
+				&::before {
+					background-image: url($path-static-media-inline + '/triangle-media-card-2.svg');
+				}
+			}
+		}
+
+		&:nth-child(3n+3) {
+
+			.endovi-mediacenter__item-inner {
+
+				&::before {
+					background-image: url($path-static-media-inline + '/triangle-media-card-3.svg');
+				}
+			}
+		}
+
+		&-inner {
+			background: $clr-bg;
+			min-height: inEm(250px);
+			overflow: hidden;
+			border-radius: inEm(20px);
+			row-gap: inEm(40px);
+			padding: inEm(30px);
+
+			@include md-down {
+				min-height: inEm(200px);
+			}
+
+			&::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+
+			&::after {
+				content: '';
+				@include corner_triangle;
+				top: inEm(30px);
+				right: inEm(30px);
+			}
+		}
+
+		&-title-container {
+			padding-right: inEm(40px);
+		}
+
+		&-title {
+
+			@include md-down {
+				font-size: inEm(20px) !important;
+			}
+		}
+
+		&-button {
+			width: max-content;
+		}
+	}
+}

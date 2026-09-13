@@ -17,14 +17,7 @@
 	line-height: 1;
 	font-weight: 400;
 
-	//@media (min-width: 2561px) {
-	//	font-size: $calc-font-size;
-	//}
-	//@include lg-up {
-	//	font-size: 13px;
-	//}
-	@media (min-width: $desktop-width) {
-		//font-size: inVw(16px, 1440px);
+	@media (min-width: 1440px) {
 		font-size: $calc-font-size;
 	}
 	@include lg-down {

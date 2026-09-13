@@ -101,7 +101,8 @@ body.admin-bar {
 	@include headings;
 }
 
-.endovi-container {
+.endovi-container,
+.wp-block-group {
 	width: 100%;
 	padding-inline: $base-outer-padding-desktop;
 
@@ -119,3 +120,26 @@ body.admin-bar {
 		padding-inline: 0;
 	}
 }
+
+.wp-block-group {
+	margin-block: inEm(40px) inEm(100px);
+
+	@include lg-down {
+		margin-block: inEm(20px) inEm(70px);
+	}
+
+	&__inner-container {
+		width: 100%;
+		max-width: $post-width;
+		margin-inline: auto;
+
+		@include headings;
+
+		& > p {
+			font-size: inRem(16px);
+			line-height: 1.2;
+			color: $clr-gray;
+		}
+	}
+}
+

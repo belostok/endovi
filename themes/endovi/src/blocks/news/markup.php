@@ -74,42 +74,25 @@ if ( ! empty( $block['align'] ) ) {
 				$post_link    = get_permalink( $item );
 				$post_image   = get_post_thumbnail_id( $item );
 				$post_excerpt = get_the_excerpt( $item );
-				$post_date    = gmdate( 'd .m. Y г.', strtotime( get_the_date( '', $item ) ) );
+				$post_date    = trim_string( get_field( 'news_dates', $item ) );
 
 				if ( ! $post_title || ! $post_link ) {
 					continue;
 				}
 				?>
-				<a href="<?php echo esc_url( $post_link ); ?>" class="endovi-news-card default-hover">
-					<?php if ( $post_image ) : ?>
-						<div class="endovi-news-card__image-container img-cover">
-							<?php endovi_the_image( $post_image, 'endovi-news-card__image' ); ?>
-						</div>
-					<?php endif; ?>
-					<div class="endovi-news-card__text-side flex fdc jcspb">
-						<div class="endovi-news-card__text-upper flex fdc">
-							<div class="endovi-news-card__title-container">
-								<h4 class="endovi-news-card h4">
-									<?php echo esc_html( $post_title ); ?>
-								</h4>
-							</div>
-							<?php if ( $post_excerpt ) : ?>
-								<div class="endovi-news-card__description-container">
-									<p class="endovi-news-card__description">
-										<?php echo esc_html( $post_excerpt ); ?>
-									</p>
-								</div>
-							<?php endif; ?>
-						</div>
-						<?php if ( $post_date ) : ?>
-							<div class="endovi-news-card__date-container">
-								<span class="endovi-news-card__date text-normal">
-									<?php echo esc_html( $post_date ); ?>
-								</span>
-							</div>
-						<?php endif; ?>
-					</div>
-				</a>
+				<?php
+				get_template_part(
+					'partials/media-post',
+					null,
+					array(
+						'title'   => $post_title,
+						'link'    => $post_link,
+						'image'   => $post_image,
+						'excerpt' => $post_excerpt,
+						'date'    => $post_date,
+					)
+				);
+				?>
 			<?php endforeach; ?>
 		</div>
 		<?php if ( $cta_text && $cta_link ) : ?>

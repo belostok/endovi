@@ -1,0 +1,50 @@
+/**
+ * Block styles definition.
+ * Imported to "editor.scss" and "style.scss".
+ */
+
+@import './../../styles/helpers';
+@import './../../styles/base/content-frontend';
+
+.endovi-form-newsletter {
+	position: relative;
+	margin-block: inEm(90px) inEm(100px);
+
+	@include md-down {
+		margin-block: inEm(40px) inEm(70px);
+	}
+
+	&__wrapper {
+		position: relative;
+		border-radius: inEm(20px);
+		overflow: hidden;
+		background: linear-gradient(220.26deg, #FF9462 7.03%, #7BABC3 90.68%);
+		padding: inEm(30px);
+		row-gap: inEm(30px);
+	}
+
+	&__title {
+
+		@include md-down {
+			font-size: inEm(20px) !important;
+		}
+	}
+
+	&__form-container {
+
+		.wpcf7-form-control-wrap {
+
+			&[data-name="terms"] {
+				margin: inRem(14px) 0 0;
+			}
+		}
+
+		.wpcf7-list-item-label {
+			color: $clr-bg;
+
+			@include md-down {
+				font-size: inEm(10px);
+			}
+		}
+	}
+}

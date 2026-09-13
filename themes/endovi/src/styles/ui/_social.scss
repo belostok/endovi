@@ -1,0 +1,11 @@
+@import '../helpers';
+@import '../helpers/helpers-front-only';
+
+.endovi-social {
+	gap: inRem(10px);
+
+	&__item {
+		width: inRem(30px);
+		height: inRem(30px);
+	}
+}

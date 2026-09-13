@@ -4,6 +4,33 @@
 .endovi-form {
 	position: relative;
 
+	&__row {
+		display: flex;
+		gap: inEm(10px);
+
+		@include md-down {
+			flex-direction: column;
+		}
+
+		.wpcf7-form-control-wrap {
+			margin-bottom: 0 !important;
+			flex-grow: 1;
+
+			@include md-down {
+				width: 100%;
+			}
+		}
+
+		[type="submit"] {
+			margin-top: 0 !important;
+			flex-shrink: 0;
+
+			@include md-down {
+				width: 100%;
+			}
+		}
+	}
+
 	.wpcf7-not-valid-tip,
 	.wpcf7-response-output {
 		display: none !important;
@@ -42,6 +69,7 @@
 		}
 
 		&[type="checkbox"] {
+			appearance: none;
 			width: inRem(18px);
 			height: inRem(18px);
 			margin: 0;
@@ -54,6 +82,11 @@
 				background-image: url($path-static-media-inline + '/check.svg');
 				background-size: 80%;
 				background-position: center;
+			}
+
+			&.wpcf7-not-valid,
+			.wpcf7-not-valid & {
+				border-color: $clr-alert;
 			}
 		}
 

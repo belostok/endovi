@@ -11,10 +11,10 @@
 	}
 
 	&__image-container {
-		border-radius: inEm(10px);
+		border-radius: inRem(10px);
 		overflow: hidden;
 		flex-shrink: 0;
-		width: inEm(328px);
+		width: inRem(328px);
 		aspect-ratio: 328 / 300;
 
 		@include md-down {
@@ -26,7 +26,7 @@
 	&__text-side {
 
 		@include md-down {
-			row-gap: inEm(30px);
+			row-gap: inEm(10px);
 		}
 	}
 
@@ -34,8 +34,25 @@
 		row-gap: inEm(10px);
 	}
 
+	&__date-container {
+
+		@include md-down {
+			order: -1;
+		}
+	}
+
 	&__description,
 	&__date {
 		color: $clr-second;
+		line-height: normal;
+	}
+
+	&__badge-container {
+		right: inEm(10px);
+		bottom: inEm(10px);
+		border-radius: inEm(6px);
+		background: $clr-bg;
+		border: 1px solid $clr-medium-gray;
+		padding: inEm(10px);
 	}
 }
