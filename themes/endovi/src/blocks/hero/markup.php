@@ -34,14 +34,20 @@ foreach ( $slider as $slide ) {
 }
 
 $slider              = $valid_slides;
-$min_slider_count    = 9;
 $unique_slider_count = count( $slider );
+// Need enough slides for Swiper loop + slidesPerView:auto + centeredSlides.
+// Always append full unique sets — truncated copies make loop skip the last unique slide.
+$min_slider_count = max( 12, $unique_slider_count * 2 );
 
 if ( $unique_slider_count > 0 && $unique_slider_count < $min_slider_count ) {
 	$original_slides = $slider;
+	$slider_count    = count( $slider );
 
-	for ( $i = 0; $i < ( $min_slider_count - $unique_slider_count ); $i++ ) {
-		$slider[] = $original_slides[ $i % $unique_slider_count ];
+	while ( $slider_count < $min_slider_count ) {
+		foreach ( $original_slides as $original_slide ) {
+			$slider[] = $original_slide;
+		}
+		$slider_count = count( $slider );
 	}
 }
 

@@ -14,15 +14,18 @@ if ( empty( $block['id'] ) || $hide ) {
 	return null;
 }
 
-$_title       = trim_string( get_field( 'models_title' ) );
-$image        = (int) get_field( 'models_image' );
-$image_mobile = (int) get_field( 'models_image_mobile' );
-$image_mobile = $image_mobile ? $image_mobile : $image;
-$items        = get_array( get_field( 'models_items' ) );
+$image = (int) get_field( 'models_image' );
+$items = get_array( get_field( 'models_items' ) );
 
 if ( empty( $items ) || ! $image ) {
 	return null;
 }
+
+$_title       = trim_string( get_field( 'models_title' ) );
+$note         = trim_string( get_field( 'models_note' ) );
+$image_mobile = (int) get_field( 'models_image_mobile' );
+$image_mobile = $image_mobile ? $image_mobile : $image;
+$v2           = (bool) get_field( 'models_v2' );
 
 $anchor = '';
 if ( ! empty( $block['anchor'] ) ) {
@@ -30,6 +33,10 @@ if ( ! empty( $block['anchor'] ) ) {
 }
 
 $class_names = 'endovi-models endovi-container ' . esc_attr( apply_filters( 'endovi_block_class', '' ) );
+
+if ( $v2 ) {
+	$class_names .= ' endovi-models_v2';
+}
 
 if ( ! empty( $block['className'] ) ) {
 	$class_names .= ' ' . $block['className'];
@@ -58,25 +65,36 @@ if ( ! empty( $block['align'] ) ) {
 			<?php endif; ?>
 			<div class="endovi-models__items flex fdc">
 				<?php
+				$i = 0;
 				foreach ( $items as $item ) :
 					$item_link        = trim_string( $item['link'] ?? '' );
 					$item_title       = trim_string( $item['title'] ?? '' );
 					$item_description = trim_string( $item['description'] ?? '' );
 
-					if ( ! $item_title && ! $item_description ) {
+					if ( ! $item_description ) {
 						continue;
 					}
+
+					++ $i;
 					?>
 					<?php if ( $item_link ) : ?>
 					<a href="<?php echo esc_url( $item_link ); ?>" class="endovi-models__item default-hover flex fdc">
 					<?php else : ?>
 					<div class="endovi-models__item flex fdc">
 					<?php endif; ?>
-						<?php if ( $item_title ) : ?>
-							<div class="endovi-models__item-title-container">
-								<h4 class="endovi-models__item-title h4">
-									<?php echo wp_kses_post( $item_title ); ?>
-								</h4>
+						<?php if ( ! $v2 ) : ?>
+							<?php if ( $item_title ) : ?>
+								<div class="endovi-models__item-title-container">
+									<h4 class="endovi-models__item-title h4">
+										<?php echo wp_kses_post( $item_title ); ?>
+									</h4>
+								</div>
+							<?php endif; ?>
+						<?php else : ?>
+							<div class="endovi-models__item-count-container">
+								<p class="endovi-models__item-count text-small">
+									<?php echo esc_html( sprintf( '%02d', $i ) ); ?>
+								</p>
 							</div>
 						<?php endif; ?>
 						<?php if ( $item_description ) : ?>
@@ -89,6 +107,13 @@ if ( ! empty( $block['align'] ) ) {
 					</<?php echo esc_html( $item_link ? 'a' : 'div' ); ?>>
 				<?php endforeach; ?>
 			</div>
+			<?php if ( $note ) : ?>
+				<div class="endovi-models__note-container">
+					<p class="endovi-models__note text-small text-gray">
+						<?php echo wp_kses_post( $note ); ?>
+					</p>
+				</div>
+			<?php endif; ?>
 		</div>
 	</div>
 </section>

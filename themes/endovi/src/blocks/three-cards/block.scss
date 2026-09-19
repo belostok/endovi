@@ -9,6 +9,51 @@
 .endovi-three-cards {
 	background: $grd-main;
 
+	&_max-3 & {
+
+		&__item-outer {
+			flex: 1 1 33.3333%;
+			min-width: 33.3333%;
+
+			@include md-down {
+				flex: 0 0 100%;
+				min-width: 100%;
+			}
+		}
+	}
+
+	&_first-3_second-4 & {
+
+		&__item-outer {
+			@include md-up {
+				&:nth-child(7n + 1),
+				&:nth-child(7n + 2),
+				&:nth-child(7n + 3) {
+					flex: 1 1 33.3333%;
+					min-width: 33.3333%;
+
+					@include md-down {
+						flex: 0 0 100%;
+						min-width: 100%;
+					}
+				}
+
+				&:nth-child(7n + 4),
+				&:nth-child(7n + 5),
+				&:nth-child(7n + 6),
+				&:nth-child(7n) {
+					flex: 1 1 25%;
+					min-width: 25%;
+
+					@include md-down {
+						flex: 0 0 100%;
+						min-width: 100%;
+					}
+				}
+			}
+		}
+	}
+
 	&__wrapper {
 		padding-block: inEm(120px);
 

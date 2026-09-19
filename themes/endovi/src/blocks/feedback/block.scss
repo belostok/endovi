@@ -6,8 +6,14 @@
 @import './../../styles/helpers';
 @import './../../styles/base/content-frontend';
 
+$feedback-text-width: 1440px;
+$feedback-text-height: 253px;
+$feedback-text-height-mobile: 200px;
+$feedback-text-width-mobile: $feedback-text-width * $feedback-text-height-mobile / $feedback-text-height;
+
 .endovi-feedback {
 	position: relative;
+	overflow: hidden;
 	background: $grd-main;
 	margin-top: inEm(204px);
 
@@ -18,24 +24,31 @@
 	&::before {
 		content: '';
 		position: absolute;
-		height: inEm(253px);
+		z-index: 0;
+		width: 100%;
+		height: inEm($feedback-text-height);
 		top: 10%;
 		bottom: 0;
 		margin-block: auto;
-		inset-inline-start: -35%;
-		inset-inline-end: 0;
+		inset-inline: 0;
 		background: url( $path-static-media-inline + '/feedback-text.svg') repeat-x;
-		background-size: auto 100%;
+		background-size: inEm($feedback-text-width) inEm($feedback-text-height);
+		animation: feedback-ticker 40s linear infinite;
+		pointer-events: none;
 
 		@include md-down {
-			height: inEm(200px);
-			top: inEm(200px);
+			height: inEm($feedback-text-height-mobile);
+			top: inEm($feedback-text-height-mobile);
 			bottom: auto;
 			margin-block: auto;
+			background-size: inEm($feedback-text-width-mobile) inEm($feedback-text-height-mobile);
+			animation-name: feedback-ticker-mobile;
 		}
 	}
 
 	&__wrapper {
+		position: relative;
+		z-index: 1;
 		padding-block: inEm(120px) inEm(108px);
 
 		@include md-down {

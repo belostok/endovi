@@ -43,11 +43,18 @@ if ( ! empty( $block['align'] ) ) {
 >
 	<?php if ( $bg_text ) : ?>
 		<div class="endovi-center-card__background-text endovi-background-text">
-			<?php echo esc_html( str_repeat( $bg_text, 20 ) ); ?>
+			<div class="endovi-background-text__track">
+				<span class="endovi-background-text__content">
+					<?php echo esc_html( str_repeat( $bg_text . ' ', 2 ) ); ?>
+				</span>
+				<span class="endovi-background-text__content" aria-hidden="true">
+					<?php echo esc_html( str_repeat( $bg_text . ' ', 2 ) ); ?>
+				</span>
+			</div>
 		</div>
 	<?php endif; ?>
 	<div class="endovi-center-card__wrapper endovi-wrapper">
-		<div class="endovi-center-card__item flex fdc relative">
+		<div class="endovi-center-card__item flex fdc jcspb relative">
 			<div class="endovi-center-card__description-container">
 				<h4 class="endovi-center-card__description h4">
 					<?php echo wp_kses_post( $description ); ?>

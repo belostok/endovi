@@ -9,6 +9,16 @@
 .endovi-vertical-cards-right {
 	background: $clr-background-gray;
 
+	&_no-title & {
+
+		&__title-container {
+
+			@include md-down {
+				margin-bottom: 0;
+			}
+		}
+	}
+
 	&__wrapper {
 		min-height: inEm(934px);
 		padding-block: inEm(30px) inEm(50px);

@@ -46,6 +46,10 @@
 		}
 	}
 
+	&__left {
+		row-gap: inEm(40px);
+	}
+
 	&__right {
 
 		@include md-down {
@@ -75,5 +79,35 @@
 		@include md-down {
 			width: 100%;
 		}
+	}
+
+	&__note-container {
+		background: $clr-bg;
+		border-radius: inEm(10px);
+		padding: inEm(54px) inEm(20px) inEm(20px);
+		width: inEm(636px);
+		max-width: 100%;
+		color: $clr-base;
+
+		&::before {
+			content: '';
+			@include corner_triangle;
+			top: inEm(20px);
+			left: inEm(20px);
+
+			@include md-down {
+				top: inEm(30px);
+				left: inEm(30px);
+			}
+		}
+
+		@include md-down {
+			width: 100%;
+			padding: inEm(64px) inEm(30px) inEm(30px);
+		}
+	}
+
+	&__note {
+		line-height: 1;
 	}
 }

@@ -7,6 +7,10 @@ use endoviTheme\Constants\Constants;
 add_filter( 'Yoast\WP\SEO\should_index_indexables', '__return_true' );
 add_shortcode( 'current-year', __NAMESPACE__ . '\\current_year' );
 add_filter( 'wpseo_breadcrumb_links', __NAMESPACE__ . '\\filter_catalog_breadcrumb_links' );
+add_filter( 'wpseo_robots', __NAMESPACE__ . '\\noindex_external_link_news' );
+add_filter( 'wpseo_exclude_from_sitemap_by_post_ids', __NAMESPACE__ . '\\exclude_external_link_news_from_sitemap' );
+add_filter( 'post_type_link', __NAMESPACE__ . '\\filter_news_external_permalink', 10, 2 );
+add_action( 'template_redirect', __NAMESPACE__ . '\\redirect_news_external_link' );
 add_filter( 'wp_nav_menu_objects', __NAMESPACE__ . '\\footer_menu', 10, 2 );
 add_filter(
 	'get_the_excerpt',
@@ -24,6 +28,144 @@ add_filter(
  */
 function current_year() {
 	return esc_html( wp_date( 'Y' ) );
+}
+
+/**
+ * Get the external link for a news post, if set.
+ *
+ * @param int $post_id Post ID.
+ *
+ * @return string
+ */
+function get_news_external_link( int $post_id ): string {
+	if ( ! function_exists( 'get_field' ) || ! $post_id ) {
+		return '';
+	}
+
+	$external_link = get_field( 'news_external_link', $post_id );
+
+	if ( ! is_string( $external_link ) ) {
+		return '';
+	}
+
+	$external_link = trim( $external_link );
+
+	return '' !== $external_link && false !== filter_var( $external_link, FILTER_VALIDATE_URL )
+		? $external_link
+		: '';
+}
+
+/**
+ * Whether a news post has a non-empty external link field.
+ *
+ * @param int $post_id Post ID.
+ *
+ * @return bool
+ */
+function news_has_external_link( int $post_id ): bool {
+	return '' !== get_news_external_link( $post_id );
+}
+
+/**
+ * Swap news permalinks for the external URL when set.
+ *
+ * @param string   $post_link Default permalink.
+ * @param \WP_Post $post      Post object.
+ *
+ * @return string
+ */
+function filter_news_external_permalink( string $post_link, \WP_Post $post ): string {
+	if ( Constants::PT_SLUG_NEWS !== $post->post_type ) {
+		return $post_link;
+	}
+
+	$external_link = get_news_external_link( (int) $post->ID );
+
+	return $external_link ? $external_link : $post_link;
+}
+
+/**
+ * Redirect direct hits on the WP permalink to the external URL.
+ *
+ * @return void
+ */
+function redirect_news_external_link(): void {
+	if ( ! is_singular( Constants::PT_SLUG_NEWS ) ) {
+		return;
+	}
+
+	$external_link = get_news_external_link( (int) get_queried_object_id() );
+
+	if ( '' === $external_link ) {
+		return;
+	}
+
+	$host = wp_parse_url( $external_link, PHP_URL_HOST );
+
+	if ( $host ) {
+		add_filter(
+			'allowed_redirect_hosts',
+			static function ( array $hosts ) use ( $host ): array {
+				$hosts[] = $host;
+
+				return $hosts;
+			}
+		);
+	}
+
+	wp_safe_redirect( $external_link, 301 );
+	exit;
+}
+
+/**
+ * Force noindex on news posts that only point to an external URL.
+ *
+ * @param string $robots Robots meta content.
+ *
+ * @return string
+ */
+function noindex_external_link_news( string $robots ): string {
+	if ( ! is_singular( Constants::PT_SLUG_NEWS ) ) {
+		return $robots;
+	}
+
+	if ( ! news_has_external_link( (int) get_queried_object_id() ) ) {
+		return $robots;
+	}
+
+	return 'noindex, nofollow';
+}
+
+/**
+ * Exclude external-link news posts from the Yoast sitemap.
+ *
+ * @param int[] $excluded_post_ids Post IDs already excluded.
+ *
+ * @return int[]
+ */
+function exclude_external_link_news_from_sitemap( array $excluded_post_ids ): array {
+	global $wpdb;
+
+	$external_link_ids = $wpdb->get_col(
+		$wpdb->prepare(
+			"SELECT p.ID
+			FROM {$wpdb->posts} p
+			INNER JOIN {$wpdb->postmeta} pm ON pm.post_id = p.ID
+			WHERE p.post_type = %s
+				AND p.post_status = 'publish'
+				AND pm.meta_key = 'news_external_link'
+				AND pm.meta_value <> ''",
+			Constants::PT_SLUG_NEWS
+		)
+	);
+
+	if ( empty( $external_link_ids ) ) {
+		return $excluded_post_ids;
+	}
+
+	$external_link_ids = array_map( 'intval', $external_link_ids );
+
+	return array_values( array_unique( array_merge( $excluded_post_ids, $external_link_ids ) ) );
 }
 
 /**

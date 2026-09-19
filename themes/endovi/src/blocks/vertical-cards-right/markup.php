@@ -34,6 +34,9 @@ if ( ! empty( $block['anchor'] ) ) {
 
 $class_names = 'endovi-vertical-cards-right endovi-container relative ' . esc_attr( apply_filters( 'endovi_block_class', '' ) );
 
+if ( ! $_title ) {
+	$class_names .= ' endovi-vertical-cards-right_no-title';
+}
 if ( ! empty( $block['className'] ) ) {
 	$class_names .= ' ' . $block['className'];
 }
@@ -51,8 +54,8 @@ if ( ! empty( $block['align'] ) ) {
 		<?php endovi_the_image( $image_mobile, 'endovi-vertical-cards-right__image mobile' ); ?>
 	</div>
 	<div class="endovi-vertical-cards-right__wrapper endovi-wrapper relative flex">
-		<?php if ( $_title ) : ?>
-			<div class="endovi-vertical-cards-right__title-container relative fg1">
+		<div class="endovi-vertical-cards-right__title-container relative fg1">
+			<?php if ( $_title ) : ?>
 				<h2
 					class="endovi-vertical-cards-right__title h2 desktop"
 					<?php echo $title_color ? 'style="color:' . esc_attr( $title_color ) . '"' : ''; ?>
@@ -65,8 +68,8 @@ if ( ! empty( $block['align'] ) ) {
 				>
 					<?php echo wp_kses_post( $_title ); ?>
 				</h2>
-			</div>
-		<?php endif; ?>
+			<?php endif; ?>
+		</div>
 		<div class="endovi-vertical-cards-right__items relative flex fdc fwrap">
 			<?php foreach ( $items as $item ) : ?>
 				<?php

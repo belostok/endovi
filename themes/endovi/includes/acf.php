@@ -15,7 +15,7 @@ function start() {
 	// https://www.advancedcustomfields.com/resources/register-fields-via-php/
 	add_action( 'init', $callback( 'register_fields' ) );
 	// Show custom fields in admin area
-	add_filter( 'acf/settings/show_admin', '__return_false' );
+//	add_filter( 'acf/settings/show_admin', '__return_false' );
 
 	// Register custom WYSIWYG toolbars (Mini, List, Heading)
 	add_filter( 'acf/fields/wysiwyg/toolbars', $callback( 'wysiwyg_custom_toolbars' ), 10, 1 );

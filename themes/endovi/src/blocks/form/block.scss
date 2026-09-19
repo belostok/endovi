@@ -68,5 +68,12 @@
 		@include md-down {
 			padding: inEm(20px);
 		}
+
+		[type=submit] {
+
+			@include md-down {
+				width: 100%;
+			}
+		}
 	}
 }

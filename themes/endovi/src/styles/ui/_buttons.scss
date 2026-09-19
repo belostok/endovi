@@ -27,7 +27,13 @@ button {
 	}
 
 	@include mouseover {
-		opacity: .7;
+		background: $clr-base;
+		border-color: $clr-base;
+		color: $clr-bg;
+
+		svg path {
+			fill: $clr-bg;
+		}
 	}
 
 	svg {
@@ -43,18 +49,6 @@ button {
 		background: $clr-action;
 		color: $clr-bg;
 		border-color: $clr-action;
-
-		@include mouseover {
-			background: $clr-bg;
-			color: $clr-base;
-			border-color: $clr-light-gray;
-
-			svg {
-				path {
-					fill: $clr-base;
-				}
-			}
-		}
 	}
 }
 
@@ -73,7 +67,12 @@ button {
 	transition: opacity $transition-default, background $transition-default, border-color $transition-default;
 
 	@include mouseover {
-		opacity: .34;
+		background: $clr-bg;
+		border-color: $clr-bg;
+
+		svg path {
+			fill: $clr-base;
+		}
 	}
 
 	&_fill {
@@ -81,9 +80,8 @@ button {
 		border-color: $clr-bg;
 
 		@include mouseover {
-			opacity: 1;
-			background: transparent;
-			border-color: rgba($clr-base, .34);
+			background: $clr-base;
+			border-color: $clr-base;
 
 			svg {
 
@@ -105,8 +103,8 @@ button {
 		position: relative;
 
 		@include mouseover {
-			opacity: 1;
 			background: $clr-base;
+			border-color: $clr-base;
 
 			svg {
 				path {

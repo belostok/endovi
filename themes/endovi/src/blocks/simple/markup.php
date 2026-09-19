@@ -14,6 +14,7 @@ if ( empty( $block['id'] ) || $hide ) {
 }
 
 $_title = trim_string( get_field( 'simple_title' ) );
+$note   = trim_string( get_field( 'simple_note' ) );
 $image  = (int) get_field( 'simple_image' );
 
 $anchor = '';
@@ -36,12 +37,19 @@ if ( ! empty( $block['align'] ) ) {
 	<?php echo $anchor; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 >
 	<div class="endovi-simple__wrapper endovi-wrapper flex">
-		<div class="endovi-simple__left fg1 relative">
+		<div class="endovi-simple__left fg1 relative flex fdc jcspb">
 			<?php if ( $_title ) : ?>
 				<div class="endovi-simple__title-container">
 					<h2 class="endovi-simple__title h2">
 						<?php echo wp_kses_post( $_title ); ?>
 					</h2>
+				</div>
+			<?php endif; ?>
+			<?php if ( $note ) : ?>
+				<div class="endovi-simple__note-container relative">
+					<p class="endovi-simple__note h4">
+						<?php echo wp_kses_post( $note ); ?>
+					</p>
 				</div>
 			<?php endif; ?>
 		</div>

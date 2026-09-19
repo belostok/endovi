@@ -1,6 +1,8 @@
 <?php
 
-namespace endoviTheme\Blocks\ThreeCards;
+namespace endoviTheme\Blocks\ModelCards;
+
+use endoviTheme\Constants\Constants;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -26,13 +28,13 @@ function register_fields() {
 
 	acf_add_local_field_group(
 		array(
-			'key'                   => 'group_6a6dbaa207125',
-			'title'                 => esc_attr__( 'Блок Три карточки', 'endovi' ),
+			'key'                   => 'group_6aae8e3e30h6t',
+			'title'                 => esc_attr__( 'Блок Карточки моделей', 'endovi' ),
 			'fields'                => array(
 				array(
-					'key'               => 'field_6a6dbaa297058',
+					'key'               => 'field_6aae8e3e24nny',
 					'label'             => esc_attr__( 'Скрыть', 'endovi' ),
-					'name'              => 'three_cards_hide',
+					'name'              => 'model_cards_hide',
 					'aria-label'        => '',
 					'type'              => 'true_false',
 					'instructions'      => '',
@@ -51,9 +53,9 @@ function register_fields() {
 					'ui'                => 1,
 				),
 				array(
-					'key'               => 'field_6a6dbad797059',
+					'key'               => 'field_6aae8e7224n6c',
 					'label'             => esc_attr__( 'Заголовок', 'endovi' ),
-					'name'              => 'three_cards_title',
+					'name'              => 'model_cards_title',
 					'aria-label'        => '',
 					'type'              => 'textarea',
 					'instructions'      => '',
@@ -72,39 +74,9 @@ function register_fields() {
 					'new_lines'         => 'br',
 				),
 				array(
-					'key'               => 'field_6aa526a8b4kj7',
-					'label'             => esc_attr__( 'Тип сетки', 'endovi' ),
-					'name'              => 'three_cards_type',
-					'aria-label'        => '',
-					'type'              => 'select',
-					'instructions'      => '',
-					'required'          => 0,
-					'conditional_logic' => 0,
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'choices'           => array(
-						'default'          => esc_attr__( 'Максимум 5 в линию', 'endovi' ),
-						'max_3'            => esc_attr__( 'Максимум 3 в линию', 'endovi' ),
-						'first_3_second_4' => esc_attr__( 'Первая 3, вторая 4', 'endovi' ),
-					),
-					'default_value'     => 'default',
-					'return_format'     => 'value',
-					'multiple'          => 0,
-					'allow_null'        => 0,
-					'allow_in_bindings' => 0,
-					'ui'                => 1,
-					'ajax'              => 0,
-					'placeholder'       => '',
-					'create_options'    => 0,
-					'save_options'      => 0,
-				),
-				array(
-					'key'               => 'field_6a6dbaf69705a',
+					'key'               => 'field_6aae8ed624nn6',
 					'label'             => esc_attr__( 'Карточки', 'endovi' ),
-					'name'              => 'three_cards_items',
+					'name'              => 'model_cards_items',
 					'aria-label'        => '',
 					'type'              => 'repeater',
 					'instructions'      => '',
@@ -115,7 +87,7 @@ function register_fields() {
 						'class' => '',
 						'id'    => '',
 					),
-					'layout'            => 'table',
+					'layout'            => 'block',
 					'pagination'        => 0,
 					'min'               => 0,
 					'max'               => 0,
@@ -124,8 +96,8 @@ function register_fields() {
 					'rows_per_page'     => 20,
 					'sub_fields'        => array(
 						array(
-							'key'               => 'field_6a6f6b9756nm6',
-							'label'             => esc_attr__( 'Иконка', 'endovi' ),
+							'key'               => 'field_6a67a1e293xc5',
+							'label'             => esc_attr__( 'Изображение', 'endovi' ),
 							'name'              => 'image',
 							'aria-label'        => '',
 							'type'              => 'image',
@@ -133,7 +105,7 @@ function register_fields() {
 							'required'          => 0,
 							'conditional_logic' => 0,
 							'wrapper'           => array(
-								'width' => '10',
+								'width' => '',
 								'class' => '',
 								'id'    => '',
 							),
@@ -148,10 +120,54 @@ function register_fields() {
 							'mime_types'        => '',
 							'allow_in_bindings' => 0,
 							'preview_size'      => 'medium',
-							'parent_repeater'   => 'field_6a6dbaf69705a',
+							'parent_repeater'   => 'field_6aae8ed624nn6',
 						),
 						array(
-							'key'               => 'field_6a6dbb0d9705b',
+							'key'               => 'field_6aae8f0224nm6',
+							'label'             => esc_attr__( 'Заголовок', 'endovi' ),
+							'name'              => 'title',
+							'aria-label'        => '',
+							'type'              => 'textarea',
+							'instructions'      => '',
+							'required'          => 0,
+							'conditional_logic' => 0,
+							'wrapper'           => array(
+								'width' => '',
+								'class' => '',
+								'id'    => '',
+							),
+							'default_value'     => '',
+							'maxlength'         => '',
+							'allow_in_bindings' => 0,
+							'rows'              => 2,
+							'placeholder'       => '',
+							'new_lines'         => 'br',
+							'parent_repeater'   => 'field_6aae8ed624nn6',
+						),
+						array(
+							'key'               => 'field_6aae8f5124nn0',
+							'label'             => esc_attr__( 'Подзаголовок', 'endovi' ),
+							'name'              => 'subtitle',
+							'aria-label'        => '',
+							'type'              => 'textarea',
+							'instructions'      => '',
+							'required'          => 0,
+							'conditional_logic' => 0,
+							'wrapper'           => array(
+								'width' => '',
+								'class' => '',
+								'id'    => '',
+							),
+							'default_value'     => '',
+							'maxlength'         => '',
+							'allow_in_bindings' => 0,
+							'rows'              => 4,
+							'placeholder'       => '',
+							'new_lines'         => 'br',
+							'parent_repeater'   => 'field_6aae8ed624nn6',
+						),
+						array(
+							'key'               => 'field_6aae8f3124nc2',
 							'label'             => esc_attr__( 'Описание', 'endovi' ),
 							'name'              => 'description',
 							'aria-label'        => '',
@@ -167,10 +183,10 @@ function register_fields() {
 							'default_value'     => '',
 							'maxlength'         => '',
 							'allow_in_bindings' => 0,
-							'rows'              => '4',
+							'rows'              => 4,
 							'placeholder'       => '',
 							'new_lines'         => 'br',
-							'parent_repeater'   => 'field_6a6dbaf69705a',
+							'parent_repeater'   => 'field_6aae8ed624nn6',
 						),
 					),
 				),
@@ -180,7 +196,7 @@ function register_fields() {
 					array(
 						'param'    => 'block',
 						'operator' => '==',
-						'value'    => 'endovi/three-cards',
+						'value'    => 'endovi/model-cards',
 					),
 				),
 			),

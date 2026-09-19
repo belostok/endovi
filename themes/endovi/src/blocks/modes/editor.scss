@@ -10,13 +10,9 @@
 html .wp-block-post-content {
 	@import './block';
 
-	.wp-block-endovi-models {
+	.wp-block-endovi-modes {
 
-		.endovi-models {
-
-			&__note {
-				font-size: 10px;
-			}
+		.endovi-modes {
 		}
 	}
 }

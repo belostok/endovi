@@ -7,6 +7,8 @@
 @import './../../styles/base/content-frontend';
 
 .endovi-center-card {
+	position: relative;
+	overflow: hidden;
 	padding-block: inEm(89px);
 	margin-top: inEm(50px);
 
@@ -16,16 +18,34 @@
 	}
 
 	&__background-text {
-
-		@include md-up {
-			transform: translateX(-6.2%);
-		}
+		z-index: 0;
+		width: 100%;
+		left: 0;
+		right: 0;
+		overflow: hidden;
+		transform: none;
+		pointer-events: none;
 
 		@include md-down {
 			inset-block: 0;
 			margin-block: auto;
 			height: max-content;
 		}
+
+		.endovi-background-text__track {
+			display: flex;
+			width: max-content;
+			animation: center-card-bg-ticker 240s linear infinite;
+		}
+
+		.endovi-background-text__content {
+			flex-shrink: 0;
+		}
+	}
+
+	&__wrapper {
+		position: relative;
+		z-index: 1;
 	}
 
 	&__item {

@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
 
 document.addEventListener( 'DOMContentLoaded', () => {
 	const sliderContainers = document.querySelectorAll( '.js-feedback-slider' );
@@ -14,22 +14,26 @@ document.addEventListener( 'DOMContentLoaded', () => {
 		if ( sliders[ index ] === null ) {
 			const parent = sliderContainer.parentNode;
 			if ( parent ) {
-				const slides        = sliderContainer.querySelectorAll( '.swiper-slide' );
-				const isAutoplay    = sliderContainer.dataset.autoplay;
-				const delay         = sliderContainer.dataset.delay;
-				const totalSlides   = slides.length;
+				const slides      = sliderContainer.querySelectorAll( '.swiper-slide' );
+				const isAutoplay  = sliderContainer.dataset.autoplay;
+				const delay       = sliderContainer.dataset.delay;
+				const totalSlides = slides.length;
 
 				const autoplay   = {
 					delay: delay || 8000,
 					disableOnInteraction: true
 				};
 				sliders[ index ] = new Swiper( ( sliderContainer ), {
-					modules: [ Autoplay, Navigation, Pagination ],
+					modules: [ Autoplay, EffectFade, Navigation, Pagination ],
 					slidesPerView: 1,
 					spaceBetween: 20,
 					autoHeight: true,
 					loop: totalSlides > minLength,
 					autoplay: isAutoplay && totalSlides > minLength ? autoplay : false,
+					effect: 'fade',
+					fadeEffect: {
+						crossFade: true
+					},
 					navigation: {
 						prevEl: parent.querySelector( '.js-nav-prev' ),
 						nextEl: parent.querySelector( '.js-nav-next' ),

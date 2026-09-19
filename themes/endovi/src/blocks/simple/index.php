@@ -97,6 +97,27 @@ function register_fields() {
 					'allow_in_bindings' => 0,
 					'preview_size'      => 'medium',
 				),
+				array(
+					'key'               => 'field_69ce710dfcxg5',
+					'label'             => esc_attr__( 'Заметка', 'endovi' ),
+					'name'              => 'simple_note',
+					'aria-label'        => '',
+					'type'              => 'textarea',
+					'instructions'      => '',
+					'required'          => 0,
+					'conditional_logic' => 0,
+					'wrapper'           => array(
+						'width' => '',
+						'class' => '',
+						'id'    => '',
+					),
+					'default_value'     => '',
+					'maxlength'         => '',
+					'allow_in_bindings' => 0,
+					'rows'              => 4,
+					'placeholder'       => '',
+					'new_lines'         => 'br',
+				),
 			),
 			'location'              => array(
 				array(

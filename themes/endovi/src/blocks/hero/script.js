@@ -40,17 +40,21 @@ document.addEventListener( 'DOMContentLoaded', () => {
 				};
 
 				const getSlideIndex = ( swiper ) => {
+					if ( uniqueCount > 0 && Number.isFinite( swiper.realIndex ) ) {
+						return ( ( swiper.realIndex % uniqueCount ) + uniqueCount ) % uniqueCount;
+					}
+
 					const activeSlide = getActiveSlide( swiper );
 					if ( ! activeSlide ) {
-						return swiper.realIndex || 0;
+						return 0;
 					}
 
 					const slideIndex = Number( activeSlide.dataset.slideIndex );
 					if ( Number.isFinite( slideIndex ) && slideIndex >= 0 ) {
-						return slideIndex;
+						return slideIndex % uniqueCount;
 					}
 
-					return swiper.realIndex || 0;
+					return 0;
 				};
 
 				const updateHeroContent = ( swiper ) => {
@@ -114,6 +118,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 					slidesPerView: 'auto',
 					centeredSlides: true,
 					loop: totalSlides > minLength,
+					loopAdditionalSlides: uniqueCount,
 					autoplay: isAutoplay && totalSlides > minLength ? autoplay : false,
 					navigation: {
 						prevEl: parent.querySelector( '.js-nav-prev' ),
@@ -122,11 +127,19 @@ document.addEventListener( 'DOMContentLoaded', () => {
 					pagination: {
 						el: parent.querySelector( '.js-pagination' ),
 						type: 'bullets',
-						clickable: true
+						clickable: true,
+						renderBullet: ( bulletIndex, className ) => {
+							if ( bulletIndex >= uniqueCount ) {
+								return '';
+							}
+
+							return `<span class="${ className }"></span>`;
+						},
 					},
 					on: {
 						init: updateHeroContent,
 						slideChange: updateHeroContent,
+						realIndexChange: updateHeroContent,
 					},
 					breakpoints: {
 						768: {

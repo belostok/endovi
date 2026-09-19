@@ -14,12 +14,14 @@ if ( empty( $block['id'] ) || $hide ) {
 	return null;
 }
 
-$_title = trim_string( get_field( 'three_cards_title' ) );
-$items  = get_array( get_field( 'three_cards_items' ) );
+$items = get_array( get_field( 'three_cards_items' ) );
 
 if ( empty( $items ) ) {
 	return null;
 }
+
+$_title    = trim_string( get_field( 'three_cards_title' ) );
+$grid_type = get_field( 'three_cards_type' );
 
 $anchor = '';
 if ( ! empty( $block['anchor'] ) ) {
@@ -27,6 +29,12 @@ if ( ! empty( $block['anchor'] ) ) {
 }
 
 $class_names = 'endovi-three-cards endovi-container ' . esc_attr( apply_filters( 'endovi_block_class', '' ) );
+
+if ( $grid_type === 'max_3' ) {
+	$class_names .= ' endovi-three-cards_max-3';
+} elseif ( $grid_type === 'first_3_second_4' ) {
+	$class_names .= ' endovi-three-cards_first-3_second-4';
+}
 
 if ( ! empty( $block['className'] ) ) {
 	$class_names .= ' ' . $block['className'];

@@ -9,6 +9,24 @@ if ( function_exists( 'acf_add_local_field_group' ) ) {
 			'title'                 => esc_attr__( 'Статья', 'endovi' ),
 			'fields'                => array(
 				array(
+					'key'               => 'field_6aa41daff3nh5',
+					'label'             => esc_attr__( 'Внешняя ссылка', 'endovi' ),
+					'name'              => 'news_external_link',
+					'aria-label'        => '',
+					'type'              => 'url',
+					'instructions'      => esc_attr__( 'Заменяет ссылку поста', 'endovi' ),
+					'required'          => 0,
+					'conditional_logic' => 0,
+					'wrapper'           => array(
+						'width' => '',
+						'class' => '',
+						'id'    => '',
+					),
+					'default_value'     => '',
+					'allow_in_bindings' => 0,
+					'placeholder'       => '',
+				),
+				array(
 					'key'               => 'field_6aa3d72bbcdcc',
 					'label'             => esc_attr__( 'Даты', 'endovi' ),
 					'name'              => 'news_dates',

@@ -32,19 +32,20 @@
 	}
 
 	&__upper {
-		gap: inEm(40px);
+		gap: inEm(30px);
 
 		@include md-down {
 			flex-wrap: wrap;
+			gap: inEm(40px);
 		}
 	}
 
 	&__menu {
-		gap: inEm(39px);
+		gap: inEm(20px);
 
 		@include md-down {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+			flex-direction: column;
+			gap: inEm(40px);
 
 			&-container {
 				width: 100%;
@@ -52,6 +53,16 @@
 		}
 
 		& > li {
+
+			&:first-child {
+
+				ul.sub-menu {
+
+					@include md-up {
+						max-width: inEm(322px);
+					}
+				}
+			}
 
 			& > a {
 				font-size: inEm(20px);
@@ -115,6 +126,28 @@
 			padding: inEm(20px);
 			margin-inline: auto;
 			row-gap: inEm(30px);
+		}
+	}
+
+	&__form-title {
+		font-size: inEm(30px);
+		line-height: 1;
+		font-weight: 400;
+
+		@include md-down {
+			font-size: inEm(24px);
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+	}
+
+	&__form {
+
+		[type=submit] {
+
+			@include md-down {
+				width: 100%;
+			}
 		}
 	}
 

@@ -1,7 +1,30 @@
 @import '../helpers';
 
+$feedback-text-width: 1440px;
+$feedback-text-height: 253px;
+$feedback-text-height-mobile: 200px;
+$feedback-text-width-mobile: $feedback-text-width * $feedback-text-height-mobile / $feedback-text-height;
+
 @keyframes animate-fade-in {
 	to {
 		opacity: 1;
+	}
+}
+
+@keyframes center-card-bg-ticker {
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+@keyframes feedback-ticker {
+	to {
+		background-position-x: inEm(-$feedback-text-width);
+	}
+}
+
+@keyframes feedback-ticker-mobile {
+	to {
+		background-position-x: inEm(-$feedback-text-width-mobile);
 	}
 }

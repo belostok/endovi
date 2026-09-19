@@ -117,7 +117,7 @@
 			display: flex;
 			background: $clr-light-gray;
 			padding: inRem(20px);
-			border-radius: inRem(20px);
+			border-radius: inRem(10px);
 			row-gap: inRem(49px);
 
 			@include md-up {
