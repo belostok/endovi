@@ -97,6 +97,7 @@
 
 			@include md-down {
 				padding: inEm(30px);
+				row-gap: inEm(15px);
 			}
 
 			&::before {

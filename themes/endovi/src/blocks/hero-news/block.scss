@@ -110,11 +110,8 @@
 	}
 
 	&__share-container {
+		position: relative;
 		flex-shrink: 0;
-
-		@include md-up {
-			justify-content: flex-end;
-		}
 
 		@include md-down {
 			margin-top: inEm(10px);
@@ -133,7 +130,31 @@
 		svg {
 			width: inEm(20px);
 			height: inEm(20px);
+			flex-shrink: 0;
 			pointer-events: none;
+		}
+	}
+
+	&__share-alert {
+		position: absolute;
+		top: calc(100% + #{inEm(6px)});
+		left: 0;
+		padding: inEm(8px) inEm(10px);
+		border-radius: inEm(6px);
+		background: $clr-bg;
+		border: 1px solid $clr-medium-gray;
+		color: $clr-alert;
+		font-size: inEm(12px);
+		line-height: 1.2;
+		white-space: nowrap;
+		pointer-events: none;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity $transition-default, visibility $transition-default;
+
+		&_visible {
+			opacity: 1;
+			visibility: visible;
 		}
 	}
 }
