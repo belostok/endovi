@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json.schemastore.org/block.json",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"name": "endovi/two-cards",
 	"title": "Две карточки",
 	"description": "Блок Две карточки",
@@ -14,8 +14,9 @@
 		"block"
 	],
 	"acf": {
-		"mode": "auto",
-		"renderTemplate": "markup.php"
+		"blockVersion": 3,
+		"renderTemplate": "markup.php",
+		"hideFieldsInSidebar": true
 	},
 	"supports": {
 		"align": [
@@ -29,4 +30,4 @@
 	"script": "file:script.js",
 	"style": "file:style-index.css",
 	"viewScript": "file:front.js"
-}
+}

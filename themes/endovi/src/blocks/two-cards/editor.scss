@@ -9,7 +9,7 @@
 @import '../../styles/helpers/mixins';
 @import '../../styles/ui/buttons';
 
-html .wp-block-post-content {
+.editor-styles-wrapper {
 	@import './block';
 
 	.wp-block-endovi-two-cards {

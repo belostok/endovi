@@ -24,6 +24,9 @@ function start() {
 	// Load our admin css and js
 	add_action( 'admin_enqueue_scripts', $callback( 'admin_enqueue_scripts' ) );
 
+	// Editor canvas iframe (WP 6.4+) loads this, not admin_enqueue_scripts.
+	add_action( 'enqueue_block_assets', $callback( 'enqueue_editor_canvas_styles' ) );
+
 	// Remove jquery migrate
 	add_action( 'wp_default_scripts', $callback( 'wp_default_scripts' ) );
 }
@@ -117,6 +120,24 @@ function enqueue_scripts() {
 }
 
 /**
+ * Editor canvas styles. Also pulled into the editor iframe.
+ *
+ * @return void
+ */
+function enqueue_editor_canvas_styles() {
+	if ( ! is_admin() ) {
+		return;
+	}
+
+	wp_enqueue_style(
+		'endovi-admin-styles',
+		ENDOVI_TEMPLATE_URL . 'build/admin.css',
+		[],
+		get_version()
+	);
+}
+
+/**
  * Admin enqueue scripts.
  *
  * @return void
@@ -124,12 +145,7 @@ function enqueue_scripts() {
 function admin_enqueue_scripts() {
 	$ver = get_version();
 
-	wp_enqueue_style(
-		'endovi-admin-styles',
-		ENDOVI_TEMPLATE_URL . 'build/admin.css',
-		[],
-		$ver
-	);
+	enqueue_editor_canvas_styles();
 
 	wp_enqueue_script(
 		'endovi-admin-scripts',

@@ -2,8 +2,10 @@
 @import './confirm-tooltip';
 @import './controls';
 
-// Styles for content inside the editor area
-:where(.block-editor-writing-flow) {
+// Styles for content inside the editor area.
+// The canvas iframe body is `.editor-styles-wrapper`.
+// `.block-editor-writing-flow` only exists when the canvas is not iframed.
+:where(.block-editor-writing-flow, .editor-styles-wrapper) {
 	@import './../../base/reset';
 	@import './../../base/fonts';
 
@@ -22,7 +24,8 @@
 	}
 }
 
-.block-editor-writing-flow {
+.block-editor-writing-flow,
+.editor-styles-wrapper {
 	html & {
 		@include website_style_guide();
 	}
@@ -52,6 +55,18 @@ html :where(.wp-block) {
 	}
 
 	@include headings;
+}
+
+.editor-styles-wrapper .acf-block-preview,
+.editor-styles-wrapper .acf-block-body {
+	a,
+	a *,
+	button,
+	button *,
+	.endovi-button,
+	.endovi-nav {
+		pointer-events: none !important;
+	}
 }
 
 .wp-block-group {

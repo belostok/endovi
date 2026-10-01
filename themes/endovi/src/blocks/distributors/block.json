@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json.schemastore.org/block.json",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"name": "endovi/distributors",
 	"title": "Дистрибьюторы",
 	"description": "Блок Дистрибьюторы",
@@ -13,8 +13,9 @@
 		"block"
 	],
 	"acf": {
-		"mode": "auto",
-		"renderTemplate": "markup.php"
+		"blockVersion": 3,
+		"renderTemplate": "markup.php",
+		"hideFieldsInSidebar": true
 	},
 	"supports": {
 		"align": [
@@ -28,4 +29,4 @@
 	"script": "file:script.js",
 	"style": "file:style-index.css",
 	"viewScript": "file:front.js"
-}
+}
