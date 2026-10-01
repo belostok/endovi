@@ -33,11 +33,11 @@
 	&__wrapper {
 		min-height: inEm(800px);
 		padding-block: inEm(40px) inEm(30px);
+		row-gap: inEm(40px);
 
 		@include md-down {
 			min-height: auto;
 			padding-block: inEm(70px);
-			row-gap: inEm(40px);
 		}
 	}
 

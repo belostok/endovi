@@ -48,6 +48,21 @@
 
 	&__image-container {
 		inset: 0;
+		border: 0;
+		padding: 0;
+		background: none;
+		color: inherit;
+		font: inherit;
+		cursor: zoom-in;
+
+		&:focus-visible {
+			outline: 2px solid $clr-action;
+			outline-offset: -4px;
+		}
+	}
+
+	&__slide_video &__image-container {
+		cursor: pointer;
 	}
 
 	&__play-button {
@@ -78,6 +93,7 @@
 		min-height: inEm(137px);
 		padding: inEm(20px);
 		row-gap: inEm(20px);
+		cursor: default;
 
 		@include md-down {
 			width: 100%;
@@ -148,6 +164,300 @@
 
 		.swiper-pagination-bullet-active {
 			background: $clr-action;
+		}
+	}
+}
+
+.endovi-image-slider__viewer {
+	position: fixed;
+	inset: 0;
+	z-index: 100000;
+	background: $clr-base;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	user-select: none;
+	transition: opacity $transition-default, visibility $transition-default;
+
+	&.is-open {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+	}
+
+	&_single &-nav {
+		display: none;
+	}
+
+	&_video &-controls {
+		display: flex;
+	}
+
+	&_video &-stage {
+		bottom: inRem(96px);
+	}
+
+	&-stage {
+		position: absolute;
+		inset: inRem(64px) inRem(20px) inRem(24px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&-frame {
+		width: fit-content;
+		height: fit-content;
+		max-width: 100%;
+		max-height: 100%;
+		overflow: hidden;
+		cursor: zoom-in;
+		line-height: 0;
+	}
+
+	&-image {
+		display: block;
+		width: auto;
+		height: auto;
+		max-width: calc(100vw - #{inRem(40px)});
+		max-height: calc(100vh - #{inRem(88px)});
+		object-fit: contain;
+		transform: translate(0, 0) scale(1);
+		transform-origin: center center;
+		transition: transform 0.25s ease;
+		pointer-events: none;
+
+		&.is-moving {
+			transition: none;
+		}
+	}
+
+	&-video {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		cursor: pointer;
+		background: transparent;
+	}
+
+	&-close {
+		position: absolute;
+		z-index: 4;
+		top: inRem(16px);
+		right: inRem(16px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: inRem(40px);
+		height: inRem(40px);
+		padding: 0;
+		border: 0;
+		border-radius: 50%;
+		background: $clr-bg;
+		color: $clr-base;
+		transition: background $transition-default, color $transition-default;
+
+		svg {
+			display: block;
+			width: inRem(14px);
+			height: inRem(14px);
+			pointer-events: none;
+		}
+
+		@include mouseover {
+			background: $clr-action;
+			color: $clr-bg;
+		}
+
+		&:focus-visible {
+			outline: 2px solid $clr-action;
+			outline-offset: 2px;
+		}
+	}
+
+	&-nav {
+		z-index: 4;
+
+		// .endovi-nav centers on the full viewer. The media sits in the stage,
+		// which is inset farther at the bottom when the video controls are shown.
+		&.endovi-nav {
+			inset-block: auto;
+			top: calc(#{inRem(64px)} + (100% - #{inRem(64px)} - #{inRem(24px)}) / 2);
+			margin-block: 0;
+			transform: translateY(-50%);
+		}
+
+		&_prev {
+			left: inRem(16px);
+			right: auto;
+		}
+
+		&_next {
+			right: inRem(16px);
+			left: auto;
+		}
+
+		&:focus-visible {
+			outline: 2px solid $clr-action;
+			outline-offset: 2px;
+		}
+	}
+
+	&_video &-nav.endovi-nav {
+		top: calc(#{inRem(64px)} + (100% - #{inRem(64px)} - #{inRem(96px)}) / 2);
+	}
+
+	&-controls {
+		position: absolute;
+		z-index: 4;
+		left: 50%;
+		bottom: inRem(20px);
+		display: none;
+		align-items: center;
+		column-gap: inRem(12px);
+		width: min(#{inRem(640px)}, calc(100% - #{inRem(32px)}));
+		padding: inRem(10px) inRem(14px);
+		border-radius: inRem(12px);
+		background: $clr-bg;
+		transform: translateX(-50%);
+	}
+
+	&-toggle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		width: inRem(36px);
+		height: inRem(36px);
+		padding: 0;
+		border: 0;
+		border-radius: 50%;
+		background: $clr-light-gray;
+
+		svg {
+			display: block;
+			width: inRem(12px);
+			height: inRem(14px);
+			pointer-events: none;
+		}
+
+		.is-pause {
+			display: none;
+		}
+
+		&.is-playing {
+			.is-play {
+				display: none;
+			}
+
+			.is-pause {
+				display: block;
+			}
+		}
+
+		@include mouseover {
+			background: $clr-bg;
+		}
+
+		&:focus-visible {
+			outline: 2px solid $clr-action;
+			outline-offset: 2px;
+		}
+	}
+
+	&-range {
+		flex: 1 1 auto;
+		width: 100%;
+		height: inRem(4px);
+		margin: 0;
+		border: 0;
+		border-radius: inRem(4px);
+		background: linear-gradient(to right, $clr-action var(--value, 0%), $clr-medium-gray var(--value, 0%));
+		appearance: none;
+		cursor: pointer;
+
+		&::-webkit-slider-runnable-track {
+			height: inRem(4px);
+			background: transparent;
+		}
+
+		&::-webkit-slider-thumb {
+			appearance: none;
+			width: inRem(14px);
+			height: inRem(14px);
+			margin-top: inRem(-5px);
+			border: 0;
+			border-radius: 50%;
+			background: $clr-action;
+		}
+
+		&::-moz-range-track {
+			height: inRem(4px);
+			border: 0;
+			background: transparent;
+		}
+
+		&::-moz-range-thumb {
+			width: inRem(14px);
+			height: inRem(14px);
+			border: 0;
+			border-radius: 50%;
+			background: $clr-action;
+		}
+
+		&:focus-visible {
+			outline: 2px solid $clr-action;
+			outline-offset: 4px;
+		}
+	}
+
+	&-time {
+		flex-shrink: 0;
+		min-width: inRem(88px);
+		font-size: inRem(14px);
+		line-height: 1.2;
+		color: $clr-gray;
+		font-variant-numeric: tabular-nums;
+		text-align: right;
+	}
+
+	@include md-down {
+		&-stage {
+			inset: inRem(56px) inRem(12px) inRem(16px);
+		}
+
+		&_video &-stage {
+			bottom: inRem(88px);
+		}
+
+		&-image {
+			max-width: calc(100vw - #{inRem(24px)});
+			max-height: calc(100vh - #{inRem(72px)});
+		}
+
+		&-nav.endovi-nav {
+			top: calc(#{inRem(56px)} + (100% - #{inRem(56px)} - #{inRem(16px)}) / 2);
+		}
+
+		&_video &-nav.endovi-nav {
+			top: calc(#{inRem(56px)} + (100% - #{inRem(56px)} - #{inRem(88px)}) / 2);
+		}
+
+		&-nav_prev {
+			left: inRem(8px);
+		}
+
+		&-nav_next {
+			right: inRem(8px);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+
+		.endovi-image-slider__viewer-image {
+			transition: none;
 		}
 	}
 }

@@ -45,6 +45,13 @@ if ( ! empty( $block['align'] ) ) {
 <section
 	class="<?php echo esc_attr( $class_names ); ?>"
 	<?php echo $anchor; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+	data-label-viewer="<?php esc_attr_e( 'Fullscreen media', 'endovi' ); ?>"
+	data-label-close="<?php esc_attr_e( 'Close', 'endovi' ); ?>"
+	data-label-prev="<?php esc_attr_e( 'Previous slide', 'endovi' ); ?>"
+	data-label-next="<?php esc_attr_e( 'Next slide', 'endovi' ); ?>"
+	data-label-play="<?php esc_attr_e( 'Play', 'endovi' ); ?>"
+	data-label-pause="<?php esc_attr_e( 'Pause', 'endovi' ); ?>"
+	data-label-seek="<?php esc_attr_e( 'Video position', 'endovi' ); ?>"
 >
 	<div class="endovi-image-slider__wrapper relative">
 		<div class="endovi-image-slider__slider-container relative">
@@ -60,7 +67,7 @@ if ( ! empty( $block['align'] ) ) {
 						}
 						$description = trim_string( $item['description'] ?? '' );
 						?>
-						<div class="endovi-image-slider__slide swiper-slide">
+						<div class="endovi-image-slider__slide swiper-slide<?php echo $video ? ' endovi-image-slider__slide_video' : ''; ?>">
 							<div class="endovi-image-slider__slide-inner relative flex aife">
 								<?php
 								if ( $video ) :
@@ -81,7 +88,12 @@ if ( ! empty( $block['align'] ) ) {
 										</svg>
 									</button>
 								<?php else : ?>
-									<div class="endovi-image-slider__image-container absolute img-cover">
+									<div
+										class="endovi-image-slider__image-container absolute img-cover"
+										role="button"
+										tabindex="0"
+										aria-label="<?php esc_attr_e( 'Open image', 'endovi' ); ?>"
+									>
 										<?php endovi_the_image( $image, 'endovi-image-slider__image' ); ?>
 									</div>
 								<?php endif; ?>
