@@ -159,8 +159,22 @@
 		}
 	}
 
+	&__policy-container {
+		column-gap: inEm(91px);
+
+		@include md-down {
+			flex-direction: column;
+			row-gap: inEm(4px);
+			margin-top: inEm(4px);
+		}
+	}
+
 	&__copyright,
 	&__policy {
-		color: $clr-second;
+		color: $clr-gray;
+
+		@include md-up {
+			font-size: max(12px, #{inRem(12px)});
+		}
 	}
 }

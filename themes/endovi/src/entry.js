@@ -5,10 +5,12 @@ import animation from './scripts/front/animation';
 import menu from './scripts/front/menu';
 import popup from './scripts/front/popup';
 import cf7 from './scripts/front/cf7';
+import cookie from './scripts/front/cookie';
 
 documentReady( () => {
 	animation();
 
+	cookie();
 	menu();
 	popup();
 	cf7();

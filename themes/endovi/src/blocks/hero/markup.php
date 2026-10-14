@@ -194,8 +194,18 @@ if ( ! empty( $block['align'] ) ) {
 			<?php endif; ?>
 		</div>
 		<div class="endovi-hero__lower endovi-container relative">
+			<?php
+			$hero_bg_text = 'о компании ENDOVI ';
+			?>
 			<div class="endovi-hero__background-text endovi-background-text">
-				о компании ENDOVI о компании ENDOVI о компании ENDOVI о компании ENDOVI о компании ENDOVI
+				<div class="endovi-background-text__track">
+					<span class="endovi-background-text__content">
+						<?php echo esc_html( str_repeat( $hero_bg_text, 2 ) ); ?>
+					</span>
+					<span class="endovi-background-text__content" aria-hidden="true">
+						<?php echo esc_html( str_repeat( $hero_bg_text, 2 ) ); ?>
+					</span>
+				</div>
 			</div>
 			<div class="endovi-hero__lower-wrapper endovi-wrapper relative">
 				<div class="endovi-hero__lower-button-container flex jcc">

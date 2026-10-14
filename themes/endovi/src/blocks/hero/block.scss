@@ -88,8 +88,11 @@
 	}
 
 	&__lower {
+		overflow: hidden;
 
 		&-wrapper {
+			position: relative;
+			z-index: 1;
 			min-height: inEm(568px);
 			padding-top: inEm(304px);
 
@@ -101,11 +104,23 @@
 	}
 
 	&__background-text {
+		z-index: 0;
+		width: 100%;
+		left: 0;
+		right: 0;
 		bottom: inRem(76px);
-		transform: translateX(-1.3%);
+		overflow: hidden;
+		transform: none;
+		pointer-events: none;
 
-		@include md-down {
-			transform: translateX(-2.2%);
+		.endovi-background-text__track {
+			display: flex;
+			width: max-content;
+			animation: center-card-bg-ticker 240s linear infinite;
+		}
+
+		.endovi-background-text__content {
+			flex-shrink: 0;
 		}
 	}
 

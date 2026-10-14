@@ -111,6 +111,15 @@
 
 	.wpcf7-list-item-label {
 		font-size: max(12px, #{inRem(12px)});
-		color: $clr-second;
+		color: $clr-gray;
+
+		a {
+			text-decoration: underline;
+			transition: opacity $transition-default;
+
+			@include mouseover {
+				opacity: .7;
+			}
+		}
 	}
 }

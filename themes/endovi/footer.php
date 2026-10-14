@@ -5,11 +5,14 @@
 
 use function endoviTheme\Helpers\trim_string;
 
-$form_title = trim_string( get_field( 'footer_form_title', 'options' ) );
-$form       = (int) get_field( 'footer_form', 'options' );
-$copyright  = trim_string( get_field( 'footer_copyright', 'options' ) );
-$copyright  = $copyright ? do_shortcode( $copyright ) : '';
-$policy     = trim_string( get_field( 'footer_policy', 'options' ) );
+$form_title  = trim_string( get_field( 'footer_form_title', 'options' ) );
+$form        = (int) get_field( 'footer_form', 'options' );
+$copyright   = trim_string( get_field( 'footer_copyright', 'options' ) );
+$copyright   = $copyright ? do_shortcode( $copyright ) : '';
+$privacy     = trim_string( get_field( 'footer_privacy', 'options' ) );
+$policy      = trim_string( get_field( 'footer_policy', 'options' ) );
+$cookie      = trim_string( $_COOKIE['endovi_cookie'] ?? '' );
+$cookie_text = trim_string( get_field( 'cookie_text', 'options' ) );
 ?>
 
 </main><!-- /.main -->
@@ -53,11 +56,18 @@ $policy     = trim_string( get_field( 'footer_policy', 'options' ) );
 							</span>
 						</div>
 					<?php endif; ?>
-					<?php if ( $policy ) : ?>
-						<div class="endovi-footer__policy-container">
-							<a href="<?php echo esc_url( $policy ); ?>" class="endovi-footer__policy text-normal default-hover">
-								<?php echo esc_html__( 'Политика конфиденциальности', 'endovi' ); ?>
-							</a>
+					<?php if ( $privacy || $policy ) : ?>
+						<div class="endovi-footer__policy-container flex">
+							<?php if ( $privacy ) : ?>
+								<a href="<?php echo esc_url( $privacy ); ?>" class="endovi-footer__policy text-normal default-hover">
+									<?php echo esc_html__( 'Согласие на обработку персональных данных', 'endovi' ); ?>
+								</a>
+							<?php endif; ?>
+							<?php if ( $policy ) : ?>
+								<a href="<?php echo esc_url( $policy ); ?>" class="endovi-footer__policy text-normal default-hover">
+									<?php echo esc_html__( 'Политика конфиденциальности', 'endovi' ); ?>
+								</a>
+							<?php endif; ?>
 						</div>
 					<?php endif; ?>
 				</div>
@@ -93,6 +103,22 @@ $policy     = trim_string( get_field( 'footer_policy', 'options' ) );
 <div class="loader"></div>
 
 <div class="endovi-popup js-popup"></div>
+
+<?php
+if ( ! $cookie && $cookie_text ) :
+	endovi_inline_style( 'cookie' );
+	?>
+	<div class="endovi-cookie relative js-cookie">
+		<button type="button" class="endovi-cookie__close absolute img-contain js-cookie-close">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M6.4 19L5 17.6L10.6 12L5 6.4L6.4 5L12 10.6L17.6 5L19 6.4L13.4 12L19 17.6L17.6 19L12 13.4L6.4 19Z" fill="#020033"/>
+			</svg>
+		</button>
+		<div class="endovi-cookie__text">
+			<?php echo wp_kses_post( $cookie_text ); ?>
+		</div>
+	</div>
+<?php endif; ?>
 
 <?php wp_footer(); ?>
 </body>

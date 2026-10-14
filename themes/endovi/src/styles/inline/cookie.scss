@@ -1,0 +1,45 @@
+@import '../helpers';
+@import '../helpers/helpers-front-only';
+
+.endovi-cookie {
+	position: fixed;
+	z-index: 9;
+	left: inEm(20px);
+	bottom: inEm(20px);
+	width: inEm(406px);
+	padding: inEm(20px);
+	border-radius: inEm(20px);
+	background: $clr-bg;
+	box-shadow: 0 inEm(4px) inEm(20px) 0 rgba($clr-black, .1);
+
+	@include xs-down {
+		width: auto;
+		left: inEm(10px);
+		right: inEm(10px);
+		bottom: inEm(10px);
+	}
+
+	&__close {
+		width: inEm(24px);
+		height: inEm(24px);
+		top: inEm(10px);
+		right: inEm(10px);
+
+		svg {
+			pointer-events: none;
+		}
+	}
+
+	&__text {
+		line-height: 1.2;
+
+		a {
+			text-decoration: underline;
+			transition: opacity $transition-default;
+
+			@include mouseover {
+				opacity: .7;
+			}
+		}
+	}
+}
